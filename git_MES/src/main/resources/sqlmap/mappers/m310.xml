@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="m310">
+	<typeAlias  alias="M310VO" type="gom.vo.M310VO"/>
+	
+	<resultMap id="sale_M" class="M310VO">
+		<result property="sale_CD" column="sale_CD" columnIndex="1"/>
+		<result property="clie_CD" column="clie_CD" columnIndex="2"/>
+		<result property="manager_NM" column="manager_NM" columnIndex="3"/>
+		<result property="manager_phone_NO" column="manager_phone_NO" columnIndex="4"/>
+		<result property="supply_price" column="supply_price" columnIndex="5"/>
+		<result property="tax_price" column="tax_price" columnIndex="6"/>
+		<result property="total_price" column="total_price" columnIndex="7"/>
+		<result property="sale_DT" column="sale_DT" columnIndex="8"/>
+		<result property="vehi_CD" column="vehi_CD" columnIndex="9"/>
+		<result property="complete_FL" column="complete_FL" columnIndex="10"/>
+	</resultMap>
+	
+	<resultMap id="sale_D" class="M310VO">
+		<result property="clie_CD" column="clie_CD" columnIndex="1"/>
+		<result property="sale_CD" column="sale_CD" columnIndex="2"/>
+		<result property="item_CD" column="item_CD" columnIndex="3"/>
+		<result property="quantity" column="quantity" columnIndex="4"/>
+		<result property="sale_price" column="sale_price" columnIndex="5"/>
+		<result property="inventory_unit_C" column="inventory_unit_C" columnIndex="6"/>
+		<result property="supply_price" column="supply_price" columnIndex="7"/>
+		<result property="tax_price" column="tax_price" columnIndex="8"/>
+		<result property="total_price" column="total_price" columnIndex="9"/>
+		<result property="standard" column="standard" columnIndex="10"/>
+		<result property="item_group_C" column="item_group_C" columnIndex="11"/>
+	</resultMap>
+	
+	<resultMap id="M3101020_1_View" class="M310VO">
+		<result property="disp_CD" column="disp_CD" columnIndex="1"/>
+		<result property="vehi_CD" column="vehi_CD" columnIndex="2"/>
+		<result property="vehi_DT" column="vehi_DT" columnIndex="3"/>
+		<result property="set_item_FL" column="set_item_FL" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="M3101020_2_View" class="M310VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="sale_CD" column="sale_CD" columnIndex="2"/>
+		<result property="clie_CD" column="clie_CD" columnIndex="3"/>
+		<result property="quantity" column="quantity" columnIndex="4"/>
+		<result property="inventory_unit_C" column="inventory_unit_C" columnIndex="5"/>
+		<result property="Level" column="Level" columnIndex="6"/>
+	</resultMap>
+	
+	<resultMap id="M3101020_3_View" class="M310VO">
+		<result property="inve_CD" column="inve_CD" columnIndex="1"/>
+		<result property="item_CD" column="item_CD" columnIndex="2"/>
+		<result property="move_DT" column="move_DT" columnIndex="3"/>
+		<result property="quantity" column="quantity" columnIndex="4"/>
+		<result property="use_quantity" column="use_quantity" columnIndex="5"/>
+		<result property="Level" column="Level" columnIndex="6"/>
+	</resultMap>
+	
+	<resultMap id="M3101030_1_View" class="M310VO">
+		<result property="disp_CD" column="disp_CD" columnIndex="1"/>
+		<result property="vehi_CD" column="vehi_CD" columnIndex="2"/>
+		<result property="vehi_DT" column="vehi_DT" columnIndex="3"/>
+		<result property="complete_FL" column="complete_FL" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="M3101030_2_View" class="M310VO">
+		<result property="sale_CD" column="sale_CD" columnIndex="1"/>
+		<result property="clie_CD" column="clie_CD" columnIndex="2"/>
+		<result property="manager_NM" column="manager_NM" columnIndex="3"/>
+		<result property="manager_phone_NO" column="manager_phone_NO" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="M3101030_3_View" class="M310VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="inventory_unit_C" column="inventory_unit_C" columnIndex="2"/>
+		<result property="quantity" column="quantity" columnIndex="3"/>
+	</resultMap>
+	
+	<resultMap id="sale_I" class="M310VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="item_NM" column="item_NM" columnIndex="2"/>
+	</resultMap>
+	
+	<!-- M3101010_1_View -->
+	<select id="M310DAO.M3101010_1_View" resultMap="sale_M">
+		<![CDATA[
+			SELECT
+				A.sale_CD,
+				A.clie_CD,
+				B.manager_NM,
+				B.manager_phone_NO,
+				IFNULL((SELECT SUM(IF(D.tax_FL=0,C.total_price,C.total_price*0.9)) FROM Details_sales_TB C
+				LEFT JOIN Master_item_TB D	ON C.item_CD = D.item_CD WHERE C.sale_CD = A.sale_CD AND A.comp_CD = C.comp_CD),0) supply_price,
+				IFNULL((SELECT SUM(IF(D.tax_FL=0,0,C.total_price*0.1)) FROM Details_sales_TB C
+				LEFT JOIN Master_item_TB D	ON C.item_CD = D.item_CD WHERE C.sale_CD = A.sale_CD AND A.comp_CD = C.comp_CD),0) tax_price,
+				IFNULL((SELECT SUM(C.total_price) FROM Details_sales_TB C
+				LEFT JOIN Master_item_TB D	ON C.item_CD = D.item_CD WHERE C.sale_CD = A.sale_CD AND A.comp_CD = C.comp_CD),0) total_price,			
+				A.sale_DT,
+				A.vehi_CD,
+				A.complete_FL
+			FROM Master_sales_TB A
+			LEFT JOIN Master_client_TB B
+			ON A.clie_CD = B.clie_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1 
+				AND A.comp_CD = #comp_CD# 
+				AND A.sale_DT BETWEEN #start_date# AND #end_date#
+			ORDER BY A.sale_DT DESC
+		]]>
+	</select>
+
+	<!-- M3101010_1_Insert   -->
+	<insert id="M310DAO.M3101010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_sales_TB(
+					comp_CD,
+					sale_CD,
+					clie_CD,
+					sale_DT,
+					vehi_CD,
+					complete_FL
+				) VALUE (
+					#comp_CD#,
+					#sale_CD#,
+					#clie_CD#,
+					#sale_DT#,
+					#vehi_CD#,
+					#complete_FL#
+				) ON DUPLICATE KEY UPDATE 
+					clie_CD = #clie_CD#,
+					vehi_CD = #vehi_CD#,
+					complete_FL = #complete_FL#
+		]]>
+	</insert>
+	
+	<!-- M3101010_1_Delete   -->
+	<delete id="M310DAO.M3101010_1_Delete" >
+		<![CDATA[
+			DELETE FROM Master_sales_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND sale_CD = #sale_CD#
+		]]>
+	</delete>
+
+	<!-- M3101010_2_View -->
+	<select id="M310DAO.M3101010_2_View" resultMap="sale_D">
+		<![CDATA[
+			SELECT 
+				A.clie_CD,
+				A.sale_CD,
+				B.item_CD,
+				B.quantity,
+				B.sale_price,
+				C.inventory_unit_C,
+				IF(C.tax_FL=0,B.sale_price*B.quantity,B.sale_price*B.quantity*0.9) supply_price,
+				IF(C.tax_FL=0,0,B.sale_price*B.quantity*0.1) tax_price,
+				B.total_price,
+				C.standard,
+				C.item_group_C
+			FROM
+				Master_sales_TB A
+			LEFT JOIN Details_sales_TB B
+			ON A.comp_CD = B.comp_CD AND A.sale_CD = B.sale_CD
+			LEFT JOIN Master_item_TB C
+			ON B.comp_CD = C.comp_CD AND B.item_CD = C.item_CD
+			WHERE 1=1
+				AND B.item_CD IS NOT NULL 
+				AND A.comp_CD = #comp_CD#
+				AND B.sale_CD = #sale_CD#
+		]]>
+	</select>
+
+	<!-- M3101010_2_Insert   -->
+	<insert id="M310DAO.M3101010_2_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Details_sales_TB(
+					comp_CD,
+					sale_CD,
+					item_CD,
+					sale_price,
+					quantity,
+					total_price
+				) VALUE (
+					#comp_CD#,
+					#sale_CD#,
+					#item_CD#,
+					#sale_price#,
+					#quantity#,
+					#total_price#
+				) ON DUPLICATE KEY UPDATE 
+					item_CD = #item_CD#,
+					quantity = #quantity#,
+					sale_price = #sale_price#,
+					total_price = #total_price#
+		]]>
+	</insert>
+	
+		<!-- M3101010_2_Insert2 -->
+	<update id="M310DAO.M3101010_2_Insert2">
+		<![CDATA[
+			CALL make_vehicle_FC(#comp_CD#)
+		]]>
+	</update>
+	
+	<!-- M3101010_2_Delete   -->
+	<delete id="M310DAO.M3101010_2_Delete" >
+		<![CDATA[
+			DELETE FROM Details_sales_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND sale_CD = #sale_CD#
+				AND item_CD = #item_CD#
+		]]>
+	</delete>
+
+	<!-- M3101020_1_View -->
+	<select id="M310DAO.M3101020_1_View" resultMap="M3101020_1_View">
+		<![CDATA[
+			SELECT 
+				disp_CD,
+				vehi_CD,
+				vehi_DT,
+				set_item_FL 
+			FROM Data_vehicle_TB
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND set_item_FL LIKE #set_item_FL#
+		]]>
+	</select>
+	
+	<!-- M3101020_2_View -->
+	<select id="M310DAO.M3101020_2_View" resultMap="M3101020_2_View">
+		<![CDATA[
+			SELECT 
+				D.*
+			FROM
+				(SELECT
+					B.item_CD,
+					B.sale_CD,
+					A.clie_CD,
+					B.quantity,
+					C.inventory_unit_C,
+					1 Level
+				FROM Master_sales_TB A
+				LEFT JOIN Details_sales_TB B
+				ON A.comp_CD = B.comp_CD AND A.sale_CD = B.sale_CD
+				LEFT JOIN Master_item_TB C
+				ON A.comp_CD = C.comp_CD AND B.item_CD = C.item_CD
+				WHERE A.comp_CD = #comp_CD# AND A.vehi_CD = #vehi_CD# AND A.sale_DT = #vehi_DT#
+				UNION ALL
+				SELECT 
+					B.item_CD,
+					'' sale_CD,
+					'' clie_CD,
+					SUM(B.quantity) quantity,
+					C.inventory_unit_C,
+					0 Level
+				FROM Master_sales_TB A
+				LEFT JOIN Details_sales_TB B
+				ON A.comp_CD = B.comp_CD AND A.sale_CD = B.sale_CD
+				LEFT JOIN Master_item_TB C
+				ON A.comp_CD = C.comp_CD AND B.item_CD = C.item_CD
+				WHERE A.comp_CD = #comp_CD# AND A.vehi_CD = #vehi_CD# AND A.sale_DT = #vehi_DT#
+				GROUP BY B.item_CD) D
+			ORDER BY D.item_CD , D.Level
+		]]>
+	</select>
+	
+	<!-- M3101020_3_View -->
+	<select id="M310DAO.M3101020_3_View" resultMap="M3101020_3_View">
+		<![CDATA[
+			SELECT E.*
+			FROM
+			(SELECT
+				'' inve_CD,
+				A.item_CD,
+				'' move_DT,
+				0 quantity,
+				0 use_quantity,
+				0 Level
+			FROM
+				Master_item_TB A
+			WHERE A.comp_CD = #comp_CD# AND A.del_FL = 0 AND A.use_sale = 1 
+			UNION ALL
+			SELECT 
+				A.inve_CD,
+				A.item_CD,
+				B.move_DT,
+				A.quantity,
+				IF((SELECT C.set_item_FL FROM Data_vehicle_TB C WHERE C.comp_CD = A.comp_CD AND C.disp_CD = #disp_CD#) = 0 , 0 ,
+					IFNULL((SELECT sum(D.out_quantity) FROM Details_inventory_TB D WHERE D.comp_CD = A.comp_CD AND D.inve_CD = A.inve_CD AND D.befor_CD = #disp_CD# GROUP BY inve_CD),0)) use_quantity,
+				1 Level
+			FROM Master_inventory_TB A
+			LEFT JOIN Details_inventory_TB B
+			ON A.inve_CD = B.inve_CD AND A.comp_CD = B.comp_CD
+			LEFT JOIN Master_item_TB F 
+			ON A.comp_CD = F.comp_CD AND A.item_CD = F.item_CD
+			WHERE A.comp_CD = #comp_CD# AND F.use_sale = 1
+			GROUP BY inve_CD) E
+			ORDER BY E.item_CD , E.LEVEL , E.move_DT
+		]]>
+	</select>
+	
+	<!-- M3101020_3_Insert -->
+	<update id="M310DAO.M3101020_3_Insert">
+		<![CDATA[
+			CALL set_vehicle_FC(#comp_CD#,#disp_CD#,#inve_CD#,#use_quantity#)
+		]]>
+	</update>
+	
+	
+	<!-- M3101030_1_View -->
+	<select id="M310DAO.M3101030_1_View" resultMap="M3101030_1_View">
+		<![CDATA[
+			SELECT 
+				disp_CD,
+				vehi_CD,
+				vehi_DT,
+				complete_FL 
+			FROM Data_vehicle_TB
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND complete_FL LIKE #complete_FL#
+		]]>
+	</select>
+	
+	<!-- M3101020_2_View -->
+	<select id="M310DAO.M3101030_2_View" resultMap="M3101030_2_View">
+		<![CDATA[
+			SELECT 
+				A.sale_CD,
+				A.clie_CD,
+				C.manager_NM,
+				C.manager_phone_NO
+			FROM Master_sales_TB A
+			LEFT JOIN Details_vehicle_TB B
+			ON B.comp_CD = A.comp_CD AND B.vehi_CD = A.vehi_CD AND B.clie_CD = A.clie_CD
+			LEFT JOIN Master_client_TB C
+			ON C.comp_CD = A.comp_CD AND C.clie_CD = A.clie_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.sale_DT = #vehi_DT#
+				AND A.vehi_CD = #vehi_CD#
+			ORDER BY B.race_seq
+		]]>
+	</select>
+	
+	<!-- M3101030_3_View -->
+	<select id="M310DAO.M3101030_3_View" resultMap="M3101030_3_View">
+		<![CDATA[
+			SELECT 
+				A.item_CD,
+				B.inventory_unit_C,
+				A.quantity
+			FROM Details_sales_TB A
+			LEFT JOIN Master_item_TB B
+			ON A.comp_CD = B.comp_CD AND A.item_CD = B.item_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.sale_CD = #sale_CD#
+		]]>
+	</select>
+	
+	<!-- M3101030_1_Insert -->
+	<update id="M310DAO.M3101030_1_Insert">
+		<![CDATA[
+			CALL complete_vehicle_FC(#comp_CD#,#vehi_CD#,#vehi_DT#)
+		]]>
+	</update>
+	
+	<!-- 거래처명 콤보박스 데이터로 가져오기 -->
+	<select id="M310DAO.get_item_CD_ComBo" resultMap="sale_I">
+		<![CDATA[
+			SELECT 
+				A.item_CD,
+				B.item_NM
+			FROM
+				Details_client_TB A
+			LEFT JOIN Master_item_TB B
+			ON A.item_CD = B.item_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1
+				AND B.use_sale = 1
+				AND A.comp_CD = #comp_CD#
+				AND A.clie_CD = #clie_CD#
+				AND B.del_FL = 0
+		]]>
+	</select>
+</sqlMap>

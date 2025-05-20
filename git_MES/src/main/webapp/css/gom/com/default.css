@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/*-------------------------------------*/
+/*나눔고딕 폰트를 기본으로 사용합니다.*/
+@font-face {
+/* 	font-family: "NanumGothic"; */
+/* 	src: url("../font/NanumGothic.eot"); IE9 Compat Modes */
+/* 	src: url("../font/NanumGothic.eot?#iefix") format("embedded-opentype"), IE6-IE8 */
+/* 	url("../font/NanumGothic.woff") format("woff"), Modern Browsers */
+/* 	url("../font/NanumGothic.ttf") format("truetype"), Safari, Android, iOS */
+/* 	url("../font/NanumGothic.svg#svgMothnnaFont") format("svg"); Legacy iOS */
+/* 	font-weight: normal; */
+/* 	font-style: normal; */
+}
+html {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	border: 0px;
+	overflow: visible;
+}
+body {
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	margin: 0px;
+	color: #535353;/*기본 폰트 컬러*/
+/* 	font-family: '나눔고딕', NanumGothic, '돋움', Dotum, AppleGothic, sans-serif !important; */
+	font-family: '나눔고딕', '맑은고딕', '돋움', Dotum, AppleGothic, sans-serif !important;
+	/*내 컴퓨터에 나눔고딕 폰트가 깔려있으면 나눔고딕으로 보이지만, 내 컴퓨터에 없으면 돋음체로 보입니다. */
+}
+a {
+	background-color: transparent;
+	text-decoration: none;
+}
+a:active, a:hover {
+	outline: 0;
+}
+p {
+	margin: 0 0 5px;
+}
+ul, ol {
+	margin-top: 0;
+	margin-bottom: 0px;
+}
+ul ul, ol ul, ul ol, ol ol {
+	margin-bottom: 0;
+}
+img {
+	vertical-align: middle;
+}
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 0;
+	border-top: 1px solid #eee;
+}
+dd, dl, dt, fieldset, legend, ol {
+	margin: 0;
+	padding: 0
+}
+textarea {
+	overflow: auto
+}
+embed, object {
+	vertical-align: bottom
+}
+address, em {
+	font-style: normal
+}
+legend {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0
+}
+.show {
+	display: block !important;
+}
+.hidden {
+	display: none !important;
+}
+.invisible {
+	visibility: hidden;
+}
+/*오른쪽 정렬*/
+.pull-right {
+	float: right !important;
+}
+/*왼쪽 정렬*/
+.pull-left {
+	float: left !important;
+}
+/*float 정렬 사용 후 (사용 안 하시면 정렬 무너져요.)*/
+.clear {
+	clear: both;
+}
+/*h-font size*/
+h1, .h1 {
+	font-size: 36px;
+}
+h2, .h2 {
+	font-size: 30px;
+}
+h3, .h3 {
+	font-size: 24px;
+}
+h4, .h4 {
+	font-size: 18px;
+}
+h5, .h5 {
+	font-size: 14px;
+}
+h6, .h6 {
+	font-size: 12px;
+}
+small, .small {
+	font-size: 75%;
+	font-weight: normal;
+	line-height: 1;
+	color: #777;
+}
+/*-------------------------------------*/
+/*img*/
+.img-responsive {
+	max-width: 100%;
+	height: auto;
+}/*height size까지 auto 리사이징 적용*/
+img {
+	max-width: 100% !important;
+}
+img {
+	vertical-align: middle;
+}
+img {
+	page-break-inside: avoid;
+}
+img {
+	border: 0;
+}

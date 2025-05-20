@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <style>
+    	html {background-color:#f9f9f9 !important;}
+    	.img-p:before {      /* create a full-height inline block pseudo-element */
+		    content: ' ';
+		    display: inline-block;
+		    vertical-align: middle; /* vertical alignment of the inline element */
+		    height: 100%;
+		}
+		.img-c {
+		    padding-top:60px;
+		    text-align:center;
+		}
+		.img-l {width:90%}
+		.img-r {width:90%}
+		.mt-adp {padding-top:65px;}
+		.left-sec {width:70%; float:left;}
+		.right-sec {width:30%; float:left;}
+		
+		@media all and (max-width:480px) {
+			.img-l {display:none;}
+			.mt-adp {padding-top:30px;} 
+		}
+		@media all and (max-width:720px) {			
+			.img-c {padding-top:0;}
+			.mt-adp {padding-top:20px;}
+			.img-r {margin-top:30px; width:75%;}
+		}
+    </style>
+    
+    <link rel="stylesheet" href="../../../../assets/animate.css/animate.min.css"	type="text/css" />
+	<link rel="stylesheet" href="../../../../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+	<link rel="stylesheet" href="../../../../assets/material-design-icons/material-design-icons.css"	type="text/css" />
+	<link rel="stylesheet" href="../../../../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="../../../../assets/styles/app.css" type="text/css" />
+	<link rel="stylesheet" href="../../../../assets/styles/IBWeb.css" type="text/css" />
+	<link rel="stylesheet" href="../../../../assets/styles/font.css" type="text/css" />
+        
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css'>    
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js' integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=' crossorigin='anonymous'></script>
+    <script src='http://www.ibsheet.com/libs/pagination/jquery.twbsPagination.min.js'></script>
+    <script src='https://code.jquery.com/ui/1.12.0/jquery-ui.js'></script>
+    
+    <script src="../../../../libs/jquery/tether/dist/js/tether.min.js"></script>
+	<script src="../../../../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+    
+</head>
+<body style="background-color:#f9f9f9">
+
+	<div class="row-col img-p mt-adp">		
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="col-md-8 col-sm-12 col-xs-12 img-c text-center img-c"><img class="img-l" src="../../../images/ibc_4.png" /></div>
+			<div class="col-md-4 col-sm-12 col-xs-12"><img class="img-r" src="../../../images/ibc_1.png" /></div>
+		</div>		
+	</div>
+
+</body>
+</html>

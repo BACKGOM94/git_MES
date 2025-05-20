@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>IBTab7</title>
+
+    <script type="text/javascript" src="/ibleaders.js"></script>
+    <script type="text/javascript" src="ibmditab.js"></script>
+    <script type="text/javascript" src="ibmditabinfo.js"></script>
+    <!--<script type="text/javascript" src="ibmditabscroll.js"></script>-->
+	
+    <script type="text/javascript">
+
+
+		function PageLoad()
+        {
+            myIBTab1.Init(2, true, true,"png",false,"");
+
+            myIBTab1.SetTabTitleAlign("center");
+            myIBTab1.SetSelectFontColor('#0000FF');
+            myIBTab1.InsertItem("개인 인사 정보","a.html");
+            myIBTab1.InsertItem("사업장별 지출내역","b.html");
+            myIBTab1.InsertItem("근태 신청 정보","c.html");
+        }
+
+
+
+    </script>
+</head>
+
+<body onload='PageLoad()'; style=" width: 200px;  height :300px;">
+<table id='aaa'  cellspacing="1" cellpadding="0" border='0' style=" width: 200px;  height :300px;">
+
+    <tr>
+        <td colspan="2" align='center' >
+            <script type="text/javascript">
+                createIBMDITab("myIBTab1", "1050px", "500px","Main2");
+            </script>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

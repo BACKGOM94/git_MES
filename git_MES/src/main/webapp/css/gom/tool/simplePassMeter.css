@@ -1,0 +1,39 @@
+
+ul, li, ol{list-style:none;}
+.simplePassMeter {
+  border: 1px solid #aaa;
+  background-color: #f3f3f3;
+  font-size: 12px;
+  padding: 9px 10px 0px 10px;
+  margin: 0;
+  width: 325px;
+}
+.meterFail .simplePassMeter{color: #e30026;}
+.meterGood .simplePassMeter{color:#009100;}
+
+.meterFail { border: 1px solid #B7223B; background-color: #f9d2c8;padding-bottom:13px!important;inset:166px auto auto 262px!important;box-shadow:2px 2px 8px rgb(0 0 0 / 40%); }
+.meterWarn { border: 1px solid #fd6; background-color: #feb;padding-bottom:13px!important;inset:166px auto auto 262px!important;box-shadow:2px 2px 8px rgb(0 0 0 / 40%); }
+.meterGood { border: 1px solid #009100; background-color: #dfd;padding-bottom:13px!important;inset:166px auto auto 262px!important;box-shadow:2px 2px 8px rgb(0 0 0 / 40%); }
+.meterExcel { border: 1px solid #aad; background-color: #ddf;padding-bottom:13px!important;inset:166px auto auto 262px!important;box-shadow:2px 2px 8px rgb(0 0 0 / 40%); }
+
+.simplePassMeterBar { background-color: #ddd; }
+.meterFail .simplePassMeterProgress  { background-color: #e30026; }
+.meterWarn .simplePassMeterProgress  { background-color: #fd6; }
+.meterGood .simplePassMeterProgress  { background-color: #009100; }
+.meterExcel .simplePassMeterProgress { background-color: #88f; }
+
+.simplePassMeter p { margin: 0; }
+.simplePassMeterIcon { height: 16px; width: 16px; float: left; display:none; }
+.meterFail .simplePassMeterIcon,
+.meterWarn .simplePassMeterIcon,
+.meterGood .simplePassMeterIcon,
+.meterExcel .simplePassMeterIcon {
+  background-image: url('simplePassMeterSprite.png');
+  background-repeat: no-repeat;
+}
+.meterExcel .simplePassMeterIcon { background-position: 0 0; } 
+.meterFail .simplePassMeterIcon { background-position: 0 -17px; } 
+.meterGood .simplePassMeterIcon { background-position: 0 -34px; } 
+.meterWarn .simplePassMeterIcon { background-position: 0 -51px; } 
+
+/* .simplePassMeterText { margin-left: 2px; } */

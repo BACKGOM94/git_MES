@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Doc version="1.0" pagecount="1"                  docname="" fontRevision="1" serviceid="48B5F134F77599425FC9AA878FCF78" enableNoPage="true" isconverthtml="false">
+<DocProperty width="595" height="842" dwidth="595.0" dheight="842.0" margintop="29" marginbottom="28" marginleft="29" marginright="28" pagesize="A4" orientation="Portrait" language="Korean" />
+<Fontobj id="0_0" name="맑은 고딕" style="1" size="12" />
+<Fontobj id="1_0" name="맑은 고딕" style="1" size="11" />
+<Lineobj id="0_0" type="0" thickness="1" colorid="0_0" />
+<Lineobj id="1_0" type="-1" thickness="1" colorid="0_0" />
+<Colorobj id="0_0" color="000000" />
+<Colorobj id="1_0" color="ffffff" />
+<Borderobj id="0_0" top="0_0" bottom="0_0" left="0_0" right="0_0" diagonaldown="1_0" diagonalup="1_0" />
+<Page pagenum="1" masterflag="0" mastertitle="" width="595" height="842" iwidth="538" iheight="785" x="29" y="29" pagesize="A4" orientation="Portrait">
+<Fontid>0_0</Fontid>
+<Fontid>1_0</Fontid>
+<Lineid>0_0</Lineid>
+<Lineid>1_0</Lineid>
+<Colorid>0_0</Colorid>
+<Colorid>1_0</Colorid>
+<Borderid>0_0</Borderid>
+<Item classname="UbiTextItem" id="CELL20" x="0" y="20" width="82" height="33" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >발신</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL21" x="82" y="20" width="456" height="33" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >재돈텍스타일</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL22" x="0" y="53" width="82" height="34" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >수신</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL23" x="82" y="53" width="456" height="34" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >제이피  2024-07-01  ~  2024-09-04  거래명세서</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL24" x="0" y="96" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >구분</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL25" x="40" y="96" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >날짜</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL26" x="115" y="96" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >아이템</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL27" x="170" y="96" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >출고처</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL28" x="239" y="96" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >COLOR</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL29" x="309" y="96" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >수량(L</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL30" x="351" y="96" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >단가(LBS</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL31" x="403" y="96" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >금액</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL33" x="459" y="96" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >스타일 NO</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="123" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >1</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="123" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >2024-07-02</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="123" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >유니버스</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="123" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >혜성</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="123" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >CREAM</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="123" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >6</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="123" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >3000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="123" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >18000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="123" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="150" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >2</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="150" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >2024-07-16</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="150" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >유니버스</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="150" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >은혜</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="150" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >IVORY</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="150" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >2</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="150" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >3000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="150" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >6000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="150" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="177" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >3</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="177" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >2024-07-16</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="177" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >유니버스</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="177" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >은혜</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="177" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >M/S.GREY</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="177" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >2</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="177" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >3000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="177" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >6000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="177" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="204" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >4</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="204" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >2024-07-16</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="204" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >유니버스</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="204" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >은혜</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="204" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >BLACK</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="204" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >2</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="204" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >3000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="204" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >6000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="204" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="231" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >5</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="231" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >2024-07-16</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="231" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >유니버스</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="231" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >은혜</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="231" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >SKY</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="231" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >2</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="231" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >3000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="231" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >6000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="231" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="258" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >6</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="258" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="258" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="258" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="258" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="258" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="258" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="258" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="258" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="285" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >7</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="285" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="285" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="285" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="285" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="285" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="285" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="285" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="285" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="312" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >8</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="312" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="312" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="312" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="312" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="312" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="312" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="312" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="312" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="339" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >9</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="339" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="339" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="339" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="339" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="339" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="339" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="339" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="339" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="366" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >10</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="366" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="366" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="366" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="366" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="366" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="366" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="366" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="366" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="393" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >11</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="393" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="393" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="393" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="393" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="393" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="393" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="393" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="393" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="420" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >12</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="420" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="420" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="420" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="420" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="420" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="420" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="420" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="420" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="447" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >13</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="447" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="447" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="447" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="447" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="447" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="447" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="447" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="447" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="474" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >14</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="474" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="474" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="474" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="474" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="474" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="474" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="474" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="474" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="501" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >15</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="501" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="501" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="501" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="501" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="501" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="501" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="501" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="501" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="528" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >16</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="528" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="528" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="528" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="528" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="528" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="528" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="528" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="528" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="555" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >17</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="555" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="555" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="555" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="555" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="555" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="555" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="555" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="555" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="582" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >18</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="582" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="582" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="582" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="582" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="582" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="582" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="582" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="582" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="609" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >19</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="609" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="609" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="609" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="609" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="609" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="609" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="609" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="609" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="636" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >20</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="636" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="636" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="636" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="636" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="636" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="636" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="636" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="636" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="663" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >21</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="663" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="663" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="663" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="663" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="663" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="663" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="663" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="663" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL34" x="0" y="690" width="40" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >22</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL35" x="40" y="690" width="75" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL36" x="115" y="690" width="55" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL37" x="170" y="690" width="69" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL38" x="239" y="690" width="70" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL39" x="309" y="690" width="42" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL40" x="351" y="690" width="52" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL41" x="403" y="690" width="56" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL43" x="459" y="690" width="79" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="1_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" ></Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL56" x="179" y="717" width="83" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >42000</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL62" x="0" y="717" width="179" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >공 급 가 액</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL70" x="262" y="717" width="179" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >계(VAT 포함)</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL71" x="441" y="717" width="97" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" valuetype="Number" >46200</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL76" x="0" y="744" width="262" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" halign="1" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >계 좌 번 호</Text>
+</Item>
+<Item classname="UbiTextItem" id="CELL77" x="262" y="744" width="276" height="27" compid="COMP16" forecolorid="0_0" backcolorid="1_0" >
+<Text fontid="0_0" border="0_0" marginleft="1" marginright="1" margintop="1" marginbottom="1" >00 은행 : 계좌번호</Text>
+</Item>
+</Page>
+<DocInfo startindex="1" pagecount="1" docname="" />
+</Doc>

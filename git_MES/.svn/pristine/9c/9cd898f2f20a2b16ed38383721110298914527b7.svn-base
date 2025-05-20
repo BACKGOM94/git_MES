@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <style>
+            iframe {
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        </style>
+    <!-- jQuery -->
+    <script src="../../../../libs/jquery/jquery/dist/jquery.js"></script>
+
+        <script type="text/javascript" src="../sheet/ibsheet.js"></script>
+        <script type="text/javascript" src="../sheet/ibsheetinfo.js"></script>
+
+        <script type="text/javascript">
+            var childrenSize = 600;
+            $(document).ready(function(){
+//                //시트 초기화
+//                var initData = {};
+////                initData.Cfg = {SearchMode:smLazyLoad,Page:30};
+//                initData.HeaderMode = {Sort:0,ColMove:1,ColResize:1,HeaderCheck:0};
+//                initData.Cols = [
+//                    {Header:"발령일",Type:"Text",Align:"Center",Width:140},
+//                    {Header:"발령유형",Type:"Text",Align:"Center",Width:140},
+//                    {Header:"발령사유",Type:"Text",Align:"Center",Width:140},
+//                    {Header:"소속",Type:"Text",Align:"Center",Width:140},
+//                    {Header:"직무",Type:"Text",Align:"Center",Width:140}
+//                ];
+//                IBS_InitSheet(orderSheet,initData);
+
+
+
+            });
+
+
+        </script>
+    </head>
+
+<body   style="overflow:hidden">
+<div class="page_title">
+    <span class="title"><b>기본 기능</b></span>
+</div>
+
+
+<div class="main_content">
+
+
+
+    <div id="tab0" class="templateTab">
+        <table class="tb01">
+            <colgroup>
+                <col style="width:30%;"></col>
+                <col style="width:12%;"></col>
+                <col style="width:23%;"></col>
+                <col style="width:12%;"></col>
+                <col style="width:23%;"></col>
+            </colgroup>
+            <tr>
+                <td class="bg02_c" rowspan="6">
+                    <img id="EMP_IMG" src="./images/sawon.jpg" >
+                    <br><br>
+                    <img src="./images/file_up.gif"  style="cursor:hand;"  onclick="file_upload();">
+                </td>
+                <td class="bg01_r">사번</td>
+                <td class="bg02_l">0010000</td>
+                <td class="bg01_r" >성명</td>
+                <td class="bg02_l">홍길동</td>
+            </tr>
+            <tr>
+                <td class="bg01_r">소속</td>
+                <td class="bg02_l">개발팀</td>
+                <td class="bg01_r">고용상태</td>
+                <td class="bg02_l">재직</td>
+            </tr>
+            <tr>
+                <td class="bg01_r">직책</td>
+                <td class="bg02_l">과장</td>
+                <td class="bg01_r">직무</td>
+                <td class="bg02_l">유지보수팀장</td>
+            </tr>
+            <tr>
+                <td class="bg01_r">입사일</td>
+                <td class="bg02_l">2099-01-01</td>
+                <td class="bg01_r">퇴직일</td>
+                <td class="bg02_l"></td>
+            </tr>
+
+            <tr>
+                <td class="bg01_r">입사구분</td>
+                <td class="bg02_l">NULL</td>
+                <td class="bg01_r">휴대전화</td>
+                <td class="bg02_l">010-6272-9510</td>
+            </tr>
+            <tr>
+                <td class="bg01_r">주소</td>
+                <td colspan="3" class="bg02_l" id="EMP_ADDRESS">부산시 금정구 두실로45번길 53, 2층(구서동)</td>
+            </tr>
+        </table>
+    </div>
+    <div id="tab1" class="templateTab">
+        <table class="tb01">
+            <colgroup>
+                <col style="width:20%;"></col>
+                <col style="width:30%;"></col>
+                <col style="width:20%;"></col>
+                <col style="width:30%;"></col>
+            </colgroup>
+            <tr>
+                <td class="bg01_r">한자</td>
+                <td class="bg02_l">
+                    洪吉童
+                </td>
+                <td class="bg01_r">영문</td>
+                <td class="bg02_l">
+                    Gil-dong Hong
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">혈액형</td>
+                <td class="bg02_l">
+                    Rh+ A
+                </td>
+                <td class="bg01_r">결혼기념일</td>
+                <td class="bg02_l">
+                    2099-01-01
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">생년월일</td>
+                <td class="bg02_l">
+                    2099-01-01
+                </td>
+                <td class="bg01_r">사내전화</td>
+                <td class="bg02_l">
+                    010-6272-9510
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">본적</td>
+                <td class="bg02_l" colspan="3">
+                    부산시 금정구 구서동
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="tab2" class="templateTab">
+        <script>
+            createIBSheet("orderSheet","700px","200px");
+        </script>
+    </div>
+    <div id="tab3" class="templateTab">
+        <table cellpadding="0" cellspacing="1" border="0" width="95%" class="tb01">
+            <colgroup>
+                <col style="width:20%;"></col>
+                <col style="width:30%;"></col>
+                <col style="width:20%;"></col>
+                <col style="width:30%;"></col>
+            </colgroup>
+            <tr>
+                <td class="bg01_r">
+                    병역
+                </td>
+                <td class="bg02_l">
+                    만기제대
+                </td>
+                <td class="bg01_r">
+                    역종
+                </td>
+                <td class="bg02_l">
+                    기타
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">
+                    군별
+                </td>
+                <td class="bg02_l">
+                    육군
+                </td>
+                <td class="bg01_r">
+                    병과
+                </td>
+                <td class="bg02_l">
+                    통신
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">
+                    계급
+                </td>
+                <td class="bg02_l">
+                    병장
+                </td>
+                <td class="bg01_r">
+                    군번
+                </td>
+                <td class="bg02_l">
+                    00-12345678
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">
+                    입대일
+                </td>
+                <td class="bg02_l">
+                    2099-01-01
+                </td>
+                <td class="bg01_r">
+                    전역일
+                </td>
+                <td class="bg02_l">
+                    2099-01-01
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">
+                    미필사유
+                </td>
+                <td class="bg02_l" colspan="3">
+                    <textarea style="width:510px;height:50px;border:1px solid #999999"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--main contents-->
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <style></style>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css'>
+    <script src='http://ibsheet.com/ibleaders.js'></script>
+    <script src='http://ibsheet.com/demo/js/lib/sheet/ibsheetinfo.js'></script>
+    <script src='http://ibsheet.com/demo/js/lib/sheet/ibsheet.js'></script>
+    <script src='http://ibsheet.com/demo/js/lib/sheet/ibsheet-global.js'></script>
+    <script src='https://code.jquery.com/jquery-3.1.0.min.js' integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=' crossorigin='anonymous'></script>
+    <script src='http://ibsheet.com/libs/pagination/jquery.twbsPagination.min.js'></script>
+    <script src='https://code.jquery.com/ui/1.12.0/jquery-ui.js'></script>
+
+    <script type="text/javascript">
+        function loadPage() {
+            var ib = {
+                initialize: function () {
+                    var initData = {
+                        "Cfg": {
+                            "AutoFitColWidth": "search|resize|init|colhidden|rowtransaction",
+                            "MergeSheet": msFixedMerge + msHeaderOnly
+                        },
+                        "HeaderMode": {},
+                        "Cols": [
+                            //첫번째 단위데이터행(DataRow)
+                            [
+                                {Header: "No", Type: "Seq", SaveName: "Seq", Align: "Center", Width: 50, MinWidth: 50},
+                                {
+                                    Header: "사진",
+                                    Type: "Image",
+                                    SaveName: "sImg",
+                                    Align: "Center",
+                                    Width: 52,
+                                    ImgWidth: 50,
+                                    ImgHeight: 66,
+                                    RowSpan: 3,
+                                    DefaultValue: 0
+                                },
+                                {Header: "이름", Type: "Text", SaveName: "sName", Edit: 1, Width: 100, Align: "Center"},
+                                {
+                                    Header: "성별",
+                                    Type: "Combo",
+                                    SaveName: "sGender",
+                                    Edit: 1,
+                                    Width: 80,
+                                    Align: "Center",
+                                    ComboText: "MALE|FEMALE",
+                                    ComboCode: "1|2"
+                                },
+                                {
+                                    Header: "부서",
+                                    Type: "Text",
+                                    SaveName: "sDept",
+                                    Edit: 1,
+                                    Width: 60,
+                                    Align: "Left",
+                                    ColSpan: 2,
+                                    Ellipsis: 1
+                                },
+                                {Header: "부서", Width: 100},
+                                {
+                                    Header: "직급",
+                                    Type: "Combo",
+                                    SaveName: "sPosition",
+                                    Edit: 1,
+                                    Width: 100,
+                                    Align: "Center",
+                                    ComboText: "Clerk|Assist Manager|Manager|General Manager|Director",
+                                    ComboCode: "1|2|3|4|5"
+                                }
+
+                            ],
+
+                            //두번째 단위데이터행(DataRow)
+                            [
+                                {Header: "상태", Type: "Status", SaveName: "sStatus", Align: "Center"},
+                                {Header: "사진"},
+                                {Header: "전화번호", Type: "Text", SaveName: "sPhone", Align: "Center"},
+                                {
+                                    Header: "학력",
+                                    Type: "Combo",
+                                    SaveName: "sEdu",
+                                    Align: "Center",
+                                    ComboText: " |Bachelor|M.S|Ph.D|etc",
+                                    ComboCode: "1|2|3|4|5"
+                                },
+                                {Header: "경력", Type: "Int", SaveName: "sCarrier", Align: "Right"},
+                                {Header: "입사일", Type: "Date", SaveName: "sEnterDate", Align: "Center"},
+                                {Header: "퇴사일", Type: "Date", SaveName: "sRetireDate", Align: "Center"}
+
+                            ],
+
+                            //세번째 단위데이터행(DataRow)
+                            [
+                                {Header: "삭제", Type: "DelCheck", SaveName: "Del", Align: "Center"},
+                                {Header: "사진"},
+                                {
+                                    Header: "주소",
+                                    Type: "Text",
+                                    SaveName: "sAddress",
+                                    Align: "Left",
+                                    Ellipsis: 1,
+                                    ColSpan: 4
+                                },
+                                {Header: "주소"},
+                                {Header: "주소"},
+                                {Header: "주소"},
+                                {Header: "우편번호", Type: "Text", SaveName: "sZip", Align: "Center"}
+
+                            ]
+                        ]
+                    };
+                    var container = $("#ib-container")[0];
+                    createIBSheet2(container, "mySheet", "100%", "284px");
+
+                    IBS_InitSheet(mySheet, initData);
+
+                    this.doAction();
+                },
+                data: {
+                    "Data": [{
+                        "SA_ACCOUNTNUM": "ES6398635672889092314999",
+                        "sName": "Barclay Mcclain",
+                        "sZip": "9986",
+                        "sGender": "1",
+                        "sCarrier": "20",
+                        "sEnterDate": "19771126",
+                        "sEdu": "4",
+                        "sEmail": "In.ornare.sagittis@sapien.co.uk",
+                        "sBonus": "2775",
+                        "sRetireDate": "20070302",
+                        "sPhone": "072-777-7897",
+                        "sMarried": "Single",
+                        "sSalalry": "197649",
+                        "sAddress": "861-736 Feugiat. St.,Bergeggi,Liguria",
+                        "sPosition": "1",
+                        "sDept": "Accounting",
+                        "sCountry": "Slovakia",
+                        "sImg": "http://ibsheet.com/demo/images/11/s1.jpg",
+                        "sCompany": "Quam Pellentesque Habitant Associates"
+                    }, {
+                        "SA_ACCOUNTNUM": "IT355PJUNI61104889043024822",
+                        "sName": "Derek Lawrence",
+                        "sZip": "17247",
+                        "sGender": "2",
+                        "sCarrier": "16",
+                        "sEnterDate": "20040106",
+                        "sEdu": "3",
+                        "sEmail": "quam.quis.diam@justonec.ca",
+                        "sBonus": "5368",
+                        "sRetireDate": "20000509",
+                        "sPhone": "084-959-6604",
+                        "sMarried": "Divorced",
+                        "sSalalry": "58048",
+                        "sAddress": "Ap #293-1954 Ut Rd.,Atlanta,GA",
+                        "sPosition": "5",
+                        "sDept": "Asset Management",
+                        "sCountry": "Saint Barthelemy",
+                        "sImg": "http://ibsheet.com/demo/images/11/s2.jpg",
+                        "sCompany": "Risus Foundation"
+                    }, {
+                        "SA_ACCOUNTNUM": "BG35ARGE03100288066879",
+                        "sName": "Michael Bennett",
+                        "sZip": "51631",
+                        "sGender": "1",
+                        "sCarrier": "9",
+                        "sEnterDate": "20140802",
+                        "sEdu": "2",
+                        "sEmail": "id@massalobortisultrices.com",
+                        "sBonus": "8138",
+                        "sRetireDate": "20090427",
+                        "sPhone": "053-375-0120",
+                        "sMarried": "Married",
+                        "sSalalry": "168141",
+                        "sAddress": "P.O. Box 388, 7011 Pellentesque, Road,Concepcion,SJ",
+                        "sPosition": "2",
+                        "sDept": "Research and Development",
+                        "sCountry": "Viet Nam",
+                        "sImg": "http://ibsheet.com/demo/images/11/s3.jpg",
+                        "sCompany": "Leo Morbi Neque Consulting"
+                    }, {
+                        "SA_ACCOUNTNUM": "KW2962513186741698950611540547",
+                        "sName": "Fulton Howell",
+                        "sZip": "M7R 7T2",
+                        "sGender": "1",
+                        "sCarrier": "4",
+                        "sEnterDate": "19961109",
+                        "sEdu": "2",
+                        "sEmail": "non@Integerid.com",
+                        "sBonus": "9916",
+                        "sRetireDate": "20070914",
+                        "sPhone": "077-491-4220",
+                        "sMarried": "Divorced",
+                        "sSalalry": "141932",
+                        "sAddress": "P.O. Box 872, 7999 Eros. Rd.,Township of Minden Hills,Ontario",
+                        "sPosition": "4",
+                        "sDept": "Quality Assurance",
+                        "sCountry": "Thailand",
+                        "sImg": "http://ibsheet.com/demo/images/11/s4.jpg",
+                        "sCompany": "Lorem LLP"
+                    }, {
+                        "SA_ACCOUNTNUM": "FR6960841920106682864092356",
+                        "sName": "Russell Moran",
+                        "sZip": "56698-544",
+                        "sGender": "2",
+                        "sCarrier": "13",
+                        "sEnterDate": "20070223",
+                        "sEdu": "4",
+                        "sEmail": "libero@ipsumprimisin.ca",
+                        "sBonus": "4873",
+                        "sRetireDate": "19990312",
+                        "sPhone": "082-685-2977",
+                        "sMarried": "single",
+                        "sSalalry": "112545",
+                        "sAddress": "9998 Non, Street,Castello,CV",
+                        "sPosition": "3",
+                        "sDept": "Quality Assurance",
+                        "sCountry": "Luxembourg",
+                        "sImg": "http://ibsheet.com/demo/images/11/s5.jpg",
+                        "sCompany": "Viverra Maecenas PC"
+                    }, {
+                        "SA_ACCOUNTNUM": "HU31617600097974933055616534",
+                        "sName": "Kasimir Compton",
+                        "sZip": "E09 4VN",
+                        "sGender": "2",
+                        "sCarrier": "16",
+                        "sEnterDate": "19830114",
+                        "sEdu": "4",
+                        "sEmail": "et.malesuada@imperdietullamcorperDuis.net",
+                        "sBonus": "7229",
+                        "sRetireDate": "20121205",
+                        "sPhone": "087-503-7744",
+                        "sMarried": "Married",
+                        "sSalalry": "69821",
+                        "sAddress": "8704 Habitant Street,Marbella,Andalucia",
+                        "sPosition": "1",
+                        "sDept": "Public Relations",
+                        "sCountry": "Sweden",
+                        "sImg": "http://ibsheet.com/demo/images/11/s6.jpg",
+                        "sCompany": "Dictum LLP"
+                    }, {
+                        "SA_ACCOUNTNUM": "BE77889330604627",
+                        "sName": "Lucius Mckenzie",
+                        "sZip": "81147-890",
+                        "sGender": "1",
+                        "sCarrier": "13",
+                        "sEnterDate": "19840107",
+                        "sEdu": "5",
+                        "sEmail": "senectus@utquamvel.ca",
+                        "sBonus": "6233",
+                        "sRetireDate": "20100619",
+                        "sPhone": "043-910-0778",
+                        "sMarried": "Married",
+                        "sSalalry": "97647",
+                        "sAddress": "534-5804 Fusce Rd.,Avila,Castilla y Leon",
+                        "sPosition": "2",
+                        "sDept": "Quality Assurance",
+                        "sCountry": "Sudan",
+                        "sImg": "http://ibsheet.com/demo/images/11/s7.jpg",
+                        "sCompany": "Et Malesuada Fames Ltd"
+                    }, {
+                        "SA_ACCOUNTNUM": "DE89266710038102354445",
+                        "sName": "Trevor Peterson",
+                        "sZip": "70411",
+                        "sGender": "1",
+                        "sCarrier": "16",
+                        "sEnterDate": "19841029",
+                        "sEdu": "3",
+                        "sEmail": "tellus.non.magna@ut.ca",
+                        "sBonus": "5336",
+                        "sRetireDate": "19970405",
+                        "sPhone": "038-597-1848",
+                        "sMarried": "single",
+                        "sSalalry": "180578",
+                        "sAddress": "P.O. Box 362, 2726 Diam. Rd.,Lavoir,Luik",
+                        "sPosition": "3",
+                        "sDept": "Customer Relations",
+                        "sCountry": "Saudi Arabia",
+                        "sImg": "http://ibsheet.com/demo/images/11/s8.jpg",
+                        "sCompany": "Ut Sem Inc."
+                    }, {
+                        "SA_ACCOUNTNUM": "MT40LTFB22479869082538802034555",
+                        "sName": "Basil Valenzuela",
+                        "sZip": "0221FK",
+                        "sGender": "2",
+                        "sCarrier": "20",
+                        "sEnterDate": "19871106",
+                        "sEdu": "3",
+                        "sEmail": "nec.malesuada@Aliquam.ca",
+                        "sBonus": "6376",
+                        "sRetireDate": "20121208",
+                        "sPhone": "060-064-1603",
+                        "sMarried": "Married",
+                        "sSalalry": "54412",
+                        "sAddress": "382-3312 A, Rd.,Biloxi,MS",
+                        "sPosition": "4",
+                        "sDept": "Research and Development",
+                        "sCountry": "Kazakhstan",
+                        "sImg": "http://ibsheet.com/demo/images/11/s9.jpg",
+                        "sCompany": "Proin Industries"
+                    }, {
+                        "SA_ACCOUNTNUM": "GI86UZRW054632210752559",
+                        "sName": "John Peterson",
+                        "sZip": "70702",
+                        "sGender": "1",
+                        "sCarrier": "17",
+                        "sEnterDate": "20071202",
+                        "sEdu": "4",
+                        "sEmail": "tincidunt.pede.ac@adipiscingelit.ca",
+                        "sBonus": "7922",
+                        "sRetireDate": "20090722",
+                        "sPhone": "075-745-1484",
+                        "sMarried": "Married",
+                        "sSalalry": "86639",
+                        "sAddress": "P.O. Box 307, 8532 Mauris. Av.,Bowden,AB",
+                        "sPosition": "4",
+                        "sDept": "Tech Support",
+                        "sCountry": "Cayman Islands",
+                        "sImg": "http://ibsheet.com/demo/images/11/s10.jpg",
+                        "sCompany": "Erat Volutpat Nulla Institute"
+                    }, {
+                        "SA_ACCOUNTNUM": "PK8714418917582525769557",
+                        "sName": "Isaac Sellers",
+                        "sZip": "64292",
+                        "sGender": "2",
+                        "sCarrier": "21",
+                        "sEnterDate": "19740606",
+                        "sEdu": "1",
+                        "sEmail": "porta.elit.a@at.org",
+                        "sBonus": "7024",
+                        "sRetireDate": "20080408",
+                        "sPhone": "017-936-0091",
+                        "sMarried": "single",
+                        "sSalalry": "93321",
+                        "sAddress": "P.O. Box 182, 8242 Pretium St.,Saint-Die-des-Vosges,Lorraine",
+                        "sPosition": "3",
+                        "sDept": "Payroll",
+                        "sCountry": "Bulgaria",
+                        "sImg": "http://ibsheet.com/demo/images/11/s11.jpg",
+                        "sCompany": "Pellentesque Eget Associates"
+                    }, {
+                        "SA_ACCOUNTNUM": "IE90SXFZ95941246427701",
+                        "sName": "Burton Mcguire",
+                        "sZip": "02533",
+                        "sGender": "1",
+                        "sCarrier": "3",
+                        "sEnterDate": "19820908",
+                        "sEdu": "1",
+                        "sEmail": "Aenean.eget@montes.net",
+                        "sBonus": "3400",
+                        "sRetireDate": "20000911",
+                        "sPhone": "073-164-9228",
+                        "sMarried": "Divorced",
+                        "sSalalry": "90067",
+                        "sAddress": "6736 Libero Rd.,Aulnay-sous-Bois,IL",
+                        "sPosition": "2",
+                        "sDept": "Payroll",
+                        "sCountry": "Mayotte",
+                        "sImg": "http://ibsheet.com/demo/images/11/s12.jpg",
+                        "sCompany": "Vivamus Rhoncus Institute"
+                    }, {
+                        "SA_ACCOUNTNUM": "MU4486590700978159084231526729",
+                        "sName": "Timothy Mckenzie",
+                        "sZip": "9280",
+                        "sGender": "2",
+                        "sCarrier": "16",
+                        "sEnterDate": "19950627",
+                        "sEdu": "2",
+                        "sEmail": "rutrum.lorem.ac@Cumsociisnatoque.com",
+                        "sBonus": "9781",
+                        "sRetireDate": "20041221",
+                        "sPhone": "094-210-5828",
+                        "sMarried": "Single",
+                        "sSalalry": "130116",
+                        "sAddress": "Ap #594-535 Praesent Road,Cork,M",
+                        "sPosition": "2",
+                        "sDept": "Accounting",
+                        "sCountry": "Korea, North",
+                        "sImg": "http://ibsheet.com/demo/images/11/s13.jpg",
+                        "sCompany": "Amet Ante Vivamus LLP"
+                    }, {
+                        "SA_ACCOUNTNUM": "FI8465755599524736",
+                        "sName": "Brendan Conrad",
+                        "sZip": "4797",
+                        "sGender": "2",
+                        "sCarrier": "6",
+                        "sEnterDate": "20020220",
+                        "sEdu": "3",
+                        "sEmail": "amet@Aeneangravidanunc.com",
+                        "sBonus": "2808",
+                        "sRetireDate": "20150216",
+                        "sPhone": "003-409-0242",
+                        "sMarried": "Married",
+                        "sSalalry": "199110",
+                        "sAddress": "7291 Convallis, Ave,Vienna,Wie",
+                        "sPosition": "1",
+                        "sDept": "Sales and Marketing",
+                        "sCountry": "Morocco",
+                        "sImg": "http://ibsheet.com/demo/images/11/s14.jpg",
+                        "sCompany": "Vel Vulputate Eu Inc."
+                    }, {
+                        "SA_ACCOUNTNUM": "NO5635859513872",
+                        "sName": "Ali Chan",
+                        "sZip": "6315",
+                        "sGender": "1",
+                        "sCarrier": "24",
+                        "sEnterDate": "19970315",
+                        "sEdu": "4",
+                        "sEmail": "Proin@Donecconsectetuermauris.com",
+                        "sBonus": "6108",
+                        "sRetireDate": "19990108",
+                        "sPhone": "046-951-1669",
+                        "sMarried": "Married",
+                        "sSalalry": "76600",
+                        "sAddress": "7292 Adipiscing Ave,Tamworth,NSW",
+                        "sPosition": "2",
+                        "sDept": "Quality Assurance",
+                        "sCountry": "Guinea",
+                        "sImg": "http://ibsheet.com/demo/images/11/s15.jpg",
+                        "sCompany": "Ac Associates"
+                    }, {
+                        "SA_ACCOUNTNUM": "HU50603119732351330721983067",
+                        "sName": "Reuben Mcintosh",
+                        "sZip": "9986",
+                        "sGender": "2",
+                        "sCarrier": "8",
+                        "sEnterDate": "20051012",
+                        "sEdu": "5",
+                        "sEmail": "penatibus.et@elitpede.com",
+                        "sBonus": "4697",
+                        "sRetireDate": "19970209",
+                        "sPhone": "004-526-7110",
+                        "sMarried": "Divorced",
+                        "sSalalry": "140506",
+                        "sAddress": "1979 In Av.,Quesada,Alajuela",
+                        "sPosition": "2",
+                        "sDept": "Research and Development",
+                        "sCountry": "Denmark",
+                        "sImg": "http://ibsheet.com/demo/images/11/s16.jpg",
+                        "sCompany": "Sed Corp."
+                    }, {
+                        "SA_ACCOUNTNUM": "BG63UZIF37836265763095",
+                        "sName": "Elliott Cantrell",
+                        "sZip": "23780",
+                        "sGender": "1",
+                        "sCarrier": "2",
+                        "sEnterDate": "20010801",
+                        "sEdu": "1",
+                        "sEmail": "lorem.Donec.elementum@Donecdignissimmagna.edu",
+                        "sBonus": "4731",
+                        "sRetireDate": "20130914",
+                        "sPhone": "089-937-2725",
+                        "sMarried": "Single",
+                        "sSalalry": "123358",
+                        "sAddress": "5500 Velit. Street,Nicoya,Guanacaste",
+                        "sPosition": "4",
+                        "sDept": "Sales and Marketing",
+                        "sCountry": "Equatorial Guinea",
+                        "sImg": "http://ibsheet.com/demo/images/11/s17.jpg",
+                        "sCompany": "Tincidunt Consulting"
+                    }, {
+                        "SA_ACCOUNTNUM": "FR0510478192431388693316240",
+                        "sName": "Upton Alford",
+                        "sZip": "00044",
+                        "sGender": "2",
+                        "sCarrier": "1",
+                        "sEnterDate": "19990505",
+                        "sEdu": "5",
+                        "sEmail": "neque.non@vellectus.co.uk",
+                        "sBonus": "3199",
+                        "sRetireDate": "20040225",
+                        "sPhone": "071-825-3927",
+                        "sMarried": "single",
+                        "sSalalry": "131977",
+                        "sAddress": "P.O. Box 252, 5984 Volutpat. Av.,Istanbul,Istanbul",
+                        "sPosition": "2",
+                        "sDept": "Sales and Marketing",
+                        "sCountry": "Mauritius",
+                        "sImg": "http://ibsheet.com/demo/images/11/s18.jpg",
+                        "sCompany": "Lorem Ac Inc."
+                    }, {
+                        "SA_ACCOUNTNUM": "HR3386182984866996866",
+                        "sName": "Kibo Fulton",
+                        "sZip": "10107",
+                        "sGender": "1",
+                        "sCarrier": "23",
+                        "sEnterDate": "20110426",
+                        "sEdu": "3",
+                        "sEmail": "neque.Morbi@Nullamscelerisqueneque.org",
+                        "sBonus": "1303",
+                        "sRetireDate": "19980514",
+                        "sPhone": "001-710-4118",
+                        "sMarried": "Divorced",
+                        "sSalalry": "191925",
+                        "sAddress": "Ap #535-9252 Vel St.,Frauenkirchen,Burgenland",
+                        "sPosition": "4",
+                        "sDept": "Media Relations",
+                        "sCountry": "Djibouti",
+                        "sImg": "http://ibsheet.com/demo/images/11/s19.jpg",
+                        "sCompany": "Nunc LLC"
+                    }, {
+                        "SA_ACCOUNTNUM": "EE027704126254768981",
+                        "sName": "Arden Clarke",
+                        "sZip": "16637",
+                        "sGender": "1",
+                        "sCarrier": "7",
+                        "sEnterDate": "19861027",
+                        "sEdu": "1",
+                        "sEmail": "Nam@arcuMorbisit.org",
+                        "sBonus": "5861",
+                        "sRetireDate": "20030724",
+                        "sPhone": "082-501-6265",
+                        "sMarried": "Married",
+                        "sSalalry": "117472",
+                        "sAddress": "P.O. Box 320, 2643 Proin St.,Bismil,Diy",
+                        "sPosition": "5",
+                        "sDept": "Customer Service",
+                        "sCountry": "Norfolk Island",
+                        "sImg": "http://ibsheet.com/demo/images/11/s20.jpg",
+                        "sCompany": "Nunc LLP"
+                    }]
+                },
+                doAction: function () {
+                    mySheet.SetSelectionMode(0);
+                    mySheet.LoadSearchData(this.data, {
+                        Sync: 1
+                    });
+                }
+            };
+            ib.initialize();
+        }
+    </script>
+</head>
+<body onload ="loadPage()" style="padding:10px; width:100%; height: 400px;">
+<div style="padding-rigth:10px; height: 20px ;text-align :right"> 인사정보 > 인사정보 기본</div>
+
+<nav class="navbar navbar-default" style="margin-top: 10px">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                개인 인사정보
+            </a>
+        </div>
+    </div>
+</nav>
+<div id='ib-container'></div>
+
+</body>
+</html>

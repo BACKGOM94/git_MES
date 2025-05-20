@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="m210">
+	<typeAlias  alias="M210VO" type="gom.vo.M210VO"/>
+	
+	<resultMap id="M2101010_1_Sheet" class="M210VO">
+		<result property="manu_CD" column="manu_CD" columnIndex="1"/>
+		<result property="manu_DT" column="manu_DT" columnIndex="2"/>
+		<result property="complete_FL" column="complete_FL" columnIndex="3"/>
+	</resultMap>
+	
+	<resultMap id="M2101010_2_Sheet" class="M210VO">
+		<result property="manu_CD" column="manu_CD" columnIndex="1"/>
+		<result property="item_CD" column="item_CD" columnIndex="2"/>
+		<result property="quantity" column="quantity" columnIndex="3"/>
+		<result property="complete_FL" column="complete_FL" columnIndex="4"/>
+		<result property="inventory_unit_C" column="inventory_unit_C" columnIndex="5"/>
+	</resultMap>
+	
+	<resultMap id="M2101010_3_Sheet" class="M210VO">
+		<result property="work_CD" column="work_CD" columnIndex="1"/>
+		<result property="work_SQ" column="work_SQ" columnIndex="2"/>
+		<result property="complete_FL" column="complete_FL" columnIndex="3"/>
+	</resultMap>
+	
+	<resultMap id="M2101020_3_Sheet" class="M210VO">
+		<result property="inve_CD" column="inve_CD" columnIndex="1"/>
+		<result property="item_CD" column="item_CD" columnIndex="2"/>
+		<result property="move_DT" column="move_DT" columnIndex="3"/>
+		<result property="quantity" column="quantity" columnIndex="4"/>
+		<result property="use_quantity" column="use_quantity" columnIndex="5"/>
+		<result property="Level" column="Level" columnIndex="6"/>
+	</resultMap>
+	
+	<resultMap id="M2101030_1_Sheet" class="M210VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="work_CD" column="work_CD" columnIndex="2"/>
+		<result property="manu_CD" column="manu_CD" columnIndex="3"/>
+		<result property="proc_CD" column="proc_CD" columnIndex="4"/>
+		<result property="quantity" column="quantity" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="get_item_CD_ComBo" class="M210VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="item_NM" column="item_NM" columnIndex="2"/>
+	</resultMap>
+	
+	<resultMap id="make_BOM_Data" class="M210VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="real_need_count" column="real_need_count" columnIndex="2"/>
+	</resultMap>
+	
+	<resultMap id="make_BOM_Data2" class="M210VO">
+		<result property="item_sub_CD" column="item_sub_CD" columnIndex="1"/>
+		<result property="real_need_count" column="real_need_count" columnIndex="2"/>
+		<result property="down_YN" column="down_YN" columnIndex="3"/>
+	</resultMap>
+	
+	<!-- M2101010_1_View -->
+	<select id="M210DAO.M2101010_1_View" resultMap="M2101010_1_Sheet">
+		<![CDATA[
+			SELECT 
+				C.*
+			FROM 		
+				(SELECT
+					A.manu_CD,
+					A.manu_DT,
+					(SELECT IF(COUNT(B.complete_FL) = 0 , 0 , IF(sum(B.complete_FL) = COUNT(B.complete_FL) , 1 , 0))
+					FROM Details_manufacture_TB B
+					WHERE 1=1
+					AND B.manu_CD = A.manu_CD
+					AND B.comp_CD = A.comp_CD) complete_FL
+				FROM Master_manufacture_TB A
+				WHERE 1=1
+					AND A.comp_CD = #comp_CD#
+					AND A.manu_DT BETWEEN #start_date# AND #end_date#) C
+			WHERE C.complete_FL LIKE #complete_FL#
+		]]>
+	</select>
+	
+	<!-- M2101010_1_Insert   -->
+	<insert id="M210DAO.M2101010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_manufacture_TB(
+					comp_CD,
+					manu_CD,
+					manu_DT
+				) VALUE (
+					#comp_CD#,
+					#manu_CD#,
+					#manu_DT#
+				)
+		]]>
+	</insert>
+	
+	<!-- M2101010_1_Delete   -->
+	<delete id="M210DAO.M2101010_1_Delete" >
+		<![CDATA[
+			DELETE FROM Master_manufacture_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND manu_CD = #manu_CD#
+		]]>
+	</delete>
+	
+	<!-- M2101010_2_View -->
+	<select id="M210DAO.M2101010_2_View" resultMap="M2101010_2_Sheet">
+		<![CDATA[
+			SELECT 
+				A.manu_CD,
+				A.item_CD,
+				A.quantity,
+				A.complete_FL,
+				B.inventory_unit_C
+			FROM
+				Details_manufacture_TB A
+			LEFT JOIN Master_item_TB B
+			ON A.item_CD = B.item_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.manu_CD = #manu_CD#
+		]]>
+	</select>
+	
+	<!-- M2101010_2_Insert   -->
+	<insert id="M210DAO.M2101010_2_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Details_manufacture_TB(
+					comp_CD,
+					manu_CD,
+					item_CD,
+					quantity,
+					complete_FL
+				) VALUE (
+					#comp_CD#,
+					#manu_CD#,
+					#item_CD#,
+					#quantity#,
+					0
+				) ON DUPLICATE KEY UPDATE 
+					item_CD = #item_CD#,
+					quantity = #quantity#
+		]]>
+	</insert>
+
+	<!-- M2101010_3_View -->
+	<select id="M210DAO.M2101010_3_View" resultMap="M2101010_3_Sheet">
+		<![CDATA[
+			SELECT 
+				A.work_CD,
+				A.work_SQ,
+				IF ((SELECT COUNT(D.work_SQ) FROM Details_performance_TB D WHERE D.comp_CD = A.comp_CD AND D.complete_FL = 1 AND D.work_SQ = A.work_SQ AND D.perf_CD =
+				(SELECT C.perf_CD FROM Master_performance_TB C WHERE C.comp_CD = A.comp_CD AND C.manu_CD = #manu_CD# AND C.item_CD = #item_CD#)) > 0 , 1 , 0) complete_FL
+			FROM Details_process_TB A WHERE A.comp_CD = #comp_CD# AND A.proc_CD = (SELECT B.proc_CD FROM Master_item_TB B WHERE B.comp_CD = #comp_CD# AND B.item_CD = #item_CD#);
+	]]>
+	</select>
+	
+	<!-- M2101010_2_Delete   -->
+	<delete id="M210DAO.M2101010_2_Delete" >
+		<![CDATA[
+			DELETE FROM Details_manufacture_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND manu_CD = #manu_CD#
+				AND item_CD = #item_CD#
+		]]>
+	</delete>
+
+	<!-- get_item_CD_ComBo -->
+	<select id="M210DAO.get_item_CD_ComBo" resultMap="get_item_CD_ComBo">
+		<![CDATA[
+			SELECT
+				item_CD,
+				item_NM
+			FROM
+				Master_item_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND use_production = 1
+		]]>
+	</select>
+	
+	<!-- M2101020_1_View -->
+	<select id="M210DAO.M2101020_1_View" resultMap="M2101010_1_Sheet">
+		<![CDATA[
+			SELECT 
+				C.*
+			FROM 		
+				(SELECT
+					A.manu_CD,
+					A.manu_DT,
+					IF((SELECT COUNT(B.inve_CD) FROM Details_inventory_TB B WHERE B.befor_CD = A.manu_CD) = 0 , 0 , 1) complete_FL
+				FROM Master_manufacture_TB A
+				WHERE 1=1
+					AND A.comp_CD = #comp_CD#
+					AND A.manu_DT BETWEEN #start_date# AND #end_date#) C
+			WHERE C.complete_FL LIKE #complete_FL#
+		]]>
+	</select>
+	
+	<!-- M2101020_2_View -->
+	<select id="M210DAO.M2101020_2_View" resultMap="M2101010_2_Sheet">
+		<![CDATA[
+			SELECT 
+				A.manu_CD,
+				A.item_CD,
+				A.quantity,
+				A.complete_FL,
+				B.inventory_unit_C
+			FROM
+				Details_manufacture_TB A
+			LEFT JOIN Master_item_TB B
+			ON A.item_CD = B.item_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.manu_CD = #manu_CD#
+		]]>
+	</select>
+	
+	<!-- M2101020_3_View -->
+	<select id="M210DAO.M2101020_3_View" resultMap="M2101020_3_Sheet">
+		<![CDATA[
+			SELECT E.*
+			FROM
+			(SELECT
+				'' inve_CD,
+				A.item_CD,
+				'' move_DT,
+				0 quantity,
+				0 use_quantity,
+				0 Level
+			FROM
+				Master_item_TB A
+			WHERE A.comp_CD = #comp_CD# AND A.del_FL = 0
+			UNION ALL
+			SELECT 
+				A.inve_CD,
+				A.item_CD,
+				B.move_DT,
+				A.quantity,
+				IF((SELECT COUNT(C.befor_CD) FROM Details_inventory_TB C WHERE C.comp_CD = A.comp_CD AND C.inve_CD = A.inve_CD AND befor_CD = #manu_CD#) = 0 , 0 ,
+					(SELECT sum(D.out_quantity) FROM Details_inventory_TB D WHERE D.comp_CD = A.comp_CD AND D.inve_CD = A.inve_CD GROUP BY inve_CD)) use_quantity,
+				1 Level
+			FROM Master_inventory_TB A
+			LEFT JOIN Details_inventory_TB B
+			ON A.inve_CD = B.inve_CD AND A.comp_CD = B.comp_CD
+			WHERE A.comp_CD = #comp_CD#
+			GROUP BY inve_CD) E
+			ORDER BY E.item_CD , E.LEVEL , E.move_DT
+		]]>
+	</select>
+	
+	<!-- M2101020_2_Insert -->
+	<update id="M210DAO.M2101020_2_Insert">
+		<![CDATA[
+			CALL next_manu_FC(#comp_CD#,#manu_CD#,#item_CD#)
+		]]>
+	</update>
+		
+	<!-- M2101020_3_Insert -->
+	<update id="M210DAO.M2101020_3_Insert">
+		<![CDATA[
+			CALL item_input_FC(#comp_CD#,#inve_CD#,#manu_CD#,#use_quantity#)
+		]]>
+	</update>
+	
+		
+	<!-- make_BOM_Data -->
+	<select id="M210DAO.make_BOM_Data" resultMap="make_BOM_Data">
+		<![CDATA[
+			CALL View_input_FC(#comp_CD#,#item_CD#, #quantity#)
+		]]>
+	</select>
+	
+	<!-- make_BOM_Data -->
+	<select id="M210DAO.make_BOM_Data2" resultMap="make_BOM_Data2">
+		<![CDATA[
+			SELECT 
+				A.item_sub_CD,
+				A.real_need_count,
+				(SELECT COUNT(B.item_CD) FROM Master_bom_TB B WHERE B.item_CD = A.item_sub_CD) down_YN
+			FROM Master_bom_TB A
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.item_CD = #item_CD#
+		]]>
+	</select>
+	
+	<!-- M2101030_1_View -->
+	<select id="M210DAO.M2101030_1_View" resultMap="M2101030_1_Sheet">
+		<![CDATA[
+			SELECT 
+				B.item_CD,
+				D.work_CD,
+				B.manu_CD,
+				C.proc_CD,
+				A.quantity
+			FROM Details_performance_TB A
+			LEFT JOIN Master_performance_TB B
+			ON A.comp_CD = B.comp_CD AND A.perf_CD = B.perf_CD
+			LEFT JOIN Master_item_TB C
+			ON A.comp_CD = C.comp_CD AND C.item_CD = B.item_CD
+			LEFT JOIN Details_process_TB D
+			ON D.comp_CD = A.comp_CD AND D.proc_CD = C.proc_CD AND D.work_SQ = A.work_SQ
+			WHERE 1=1 
+				AND A.complete_FL = 0
+				AND A.comp_CD = #comp_CD#
+				AND D.work_CD = #work_CD#
+		]]>
+	</select>
+	
+	<!-- M2101030_1_Insert -->
+	<update id="M210DAO.M2101030_1_Insert">
+		<![CDATA[
+			CALL next_manu_FC(#comp_CD#,#manu_CD#,#item_CD#)
+		]]>
+	</update>
+		
+</sqlMap>

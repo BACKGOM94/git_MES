@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="m970">
+	<typeAlias  alias="M970VO" type="gom.vo.M970VO"/>
+
+	<resultMap id="M9701010_1_View" class="M970VO">
+		<result property="data_CD_97" column="data_CD_97" columnIndex="1"/>
+		<result property="regist_DT" column="regist_DT" columnIndex="2"/>
+		<result property="division" column="division" columnIndex="3"/>
+		<result property="item_CD_97" column="item_CD_97" columnIndex="4"/>
+		<result property="lot_CD_97" column="lot_CD_97" columnIndex="5"/>
+		<result property="color_CD_97" column="color_CD_97" columnIndex="6"/>
+		<result property="count_97" column="count_97" columnIndex="7"/>
+		<result property="enter_clie_CD_97" column="enter_clie_CD_97" columnIndex="8"/>
+		<result property="exit_clie_CD_97" column="exit_clie_CD_97" columnIndex="9"/>
+		<result property="in_quantity" column="in_quantity" columnIndex="10"/>
+		<result property="out_quantity" column="out_quantity" columnIndex="11"/>
+		<result property="memo" column="memo" columnIndex="12"/>
+		<result property="inventory" column="inventory" columnIndex="13"/>
+		<result property="real_order" column="real_order" columnIndex="14"/>
+		<result property="supply_clie_CD_97" column="supply_clie_CD_97" columnIndex="15"/>
+	</resultMap>
+	
+	<resultMap id="M9701020_1_View" class="M970VO">
+		<result property="exit_CD_97" column="exit_CD_97" columnIndex="1"/>
+		<result property="regist_DT" column="regist_DT" columnIndex="2"/>
+		<result property="enter_clie_CD_97" column="enter_clie_CD_97" columnIndex="3"/>
+		<result property="exit_clie_CD_97" column="exit_clie_CD_97" columnIndex="4"/>
+		<result property="supply_clie_CD_97" column="supply_clie_CD_97" columnIndex="5"/>
+		<result property="total_price" column="total_price" columnIndex="6"/>
+		<result property="box_CT" column="box_CT" columnIndex="6"/>
+		<result property="order_NO" column="order_NO" columnIndex="7"/>
+	</resultMap>
+	
+	<resultMap id="M9701020_2_View" class="M970VO">
+		<result property="data_CD_97" column="data_CD_97" columnIndex="1"/>
+		<result property="exit_CD_97" column="exit_CD_97" columnIndex="2"/>
+		<result property="lot_CD_97" column="lot_CD_97" columnIndex="3"/>
+		<result property="count_97" column="count_97" columnIndex="4"/>
+		<result property="item_CD_97" column="item_CD_97" columnIndex="5"/>
+		<result property="color_CD_97" column="color_CD_97" columnIndex="6"/>
+		<result property="price" column="price" columnIndex="7"/>
+		<result property="out_quantity" column="out_quantity" columnIndex="8"/>
+		<result property="total_price" column="total_price" columnIndex="9"/>
+		<result property="memo" column="memo" columnIndex="10"/>
+	</resultMap>
+	
+	<resultMap id="M9701030_1_View" class="M970VO">
+		<result property="supply_clie_CD_97" column="supply_clie_CD_97" columnIndex="1"/>
+		<result property="total_price" column="total_price" columnIndex="2"/>
+	</resultMap>
+	
+	<resultMap id="M9701030_2_View" class="M970VO">
+		<result property="exit_CD_97" column="exit_CD_97" columnIndex="1"/>
+		<result property="data_CD_97" column="data_CD_97" columnIndex="2"/>
+		<result property="regist_DT" column="regist_DT" columnIndex="3"/>
+		<result property="item_CD_97" column="item_CD_97" columnIndex="4"/>
+		<result property="exit_clie_CD_97" column="exit_clie_CD_97" columnIndex="5"/>
+		<result property="color_CD_97" column="color_CD_97" columnIndex="6"/>
+		<result property="out_quantity" column="out_quantity" columnIndex="7"/>
+		<result property="price" column="price" columnIndex="8"/>
+		<result property="total_price" column="total_price" columnIndex="9"/>
+		<result property="style_NO" column="style_NO" columnIndex="10"/>
+		<result property="order_NO" column="order_NO" columnIndex="11"/>
+	</resultMap>
+	
+	<resultMap id="M9701060_1_View" class="M970VO">
+		<result property="client_CD_97" column="client_CD_97" columnIndex="1"/>
+		<result property="b1_in" column="b1_in" columnIndex="2"/>
+		<result property="b1_out" column="b1_out" columnIndex="3"/>
+		<result property="b1_re" column="b1_re" columnIndex="4"/>
+		<result property="b2_in" column="b2_in" columnIndex="5"/>
+		<result property="b2_out" column="b2_out" columnIndex="6"/>
+		<result property="b2_re" column="b2_re" columnIndex="7"/>
+		<result property="b3_in" column="b3_in" columnIndex="8"/>
+		<result property="b3_out" column="b3_out" columnIndex="9"/>
+		<result property="b3_re" column="b3_re" columnIndex="10"/>
+		<result property="b4_in" column="b4_in" columnIndex="11"/>
+		<result property="b4_out" column="b4_out" columnIndex="12"/>
+		<result property="b4_re" column="b4_re" columnIndex="13"/>
+		<result property="b5_in" column="b5_in" columnIndex="14"/>
+		<result property="b5_out" column="b5_out" columnIndex="15"/>
+		<result property="b5_re" column="b5_re" columnIndex="16"/>
+		<result property="b6_in" column="b6_in" columnIndex="17"/>
+		<result property="b6_out" column="b6_out" columnIndex="18"/>
+		<result property="b6_re" column="b6_re" columnIndex="19"/>
+		<result property="b7_in" column="b7_in" columnIndex="20"/>
+		<result property="b7_out" column="b7_out" columnIndex="21"/>
+		<result property="b7_re" column="b7_re" columnIndex="22"/>
+		<result property="b8_in" column="b8_in" columnIndex="23"/>
+		<result property="b8_out" column="b8_out" columnIndex="24"/>
+		<result property="b8_re" column="b8_re" columnIndex="25"/>
+		<result property="b9_in" column="b9_in" columnIndex="26"/>
+		<result property="b9_out" column="b9_out" columnIndex="27"/>
+		<result property="b9_re" column="b9_re" columnIndex="28"/>
+		<result property="b10_in" column="b10_in" columnIndex="29"/>
+		<result property="b10_out" column="b10_out" columnIndex="30"/>
+		<result property="b10_re" column="b10_re" columnIndex="31"/>
+		<result property="b11_in" column="b11_in" columnIndex="32"/>
+		<result property="b11_out" column="b11_out" columnIndex="33"/>
+		<result property="b11_re" column="b11_re" columnIndex="34"/>
+		<result property="b12_in" column="b12_in" columnIndex="35"/>
+		<result property="b12_out" column="b12_out" columnIndex="36"/>
+		<result property="b12_re" column="b12_re" columnIndex="37"/>
+		<result property="to_in" column="to_in" columnIndex="38"/>
+		<result property="to_out" column="to_out" columnIndex="39"/>
+		<result property="to_re" column="to_re" columnIndex="40"/>
+	</resultMap>
+
+	<resultMap id="M9701070_1_View" class="M970VO">
+		<result property="client_CD_97" column="client_CD_97" columnIndex="1"/>
+		<result property="b_1_in" column="b_1_in" columnIndex="2"/>
+		<result property="b_1_out" column="b_1_out" columnIndex="3"/>
+		<result property="b_1_re" column="b_1_re" columnIndex="4"/>
+		<result property="b_2_in" column="b_2_in" columnIndex="5"/>
+		<result property="b_2_out" column="b_2_out" columnIndex="6"/>
+		<result property="b_2_re" column="b_2_re" columnIndex="7"/>
+		<result property="b_3_in" column="b_3_in" columnIndex="8"/>
+		<result property="b_3_out" column="b_3_out" columnIndex="9"/>
+		<result property="b_3_re" column="b_3_re" columnIndex="10"/>
+		<result property="b_4_in" column="b_4_in" columnIndex="11"/>
+		<result property="b_4_out" column="b_4_out" columnIndex="12"/>
+		<result property="b_4_re" column="b_4_re" columnIndex="13"/>
+		<result property="to_in" column="to_in" columnIndex="14"/>
+		<result property="to_out" column="to_out" columnIndex="15"/>
+		<result property="to_re" column="to_re" columnIndex="16"/>
+	</resultMap>
+	
+	<resultMap id="M9701080_1_View" class="M970VO">
+		<result property="lot_CD_97" column="lot_CD_97" columnIndex="1"/>
+		<result property="color_CD_97" column="color_CD_97" columnIndex="2"/>
+		<result property="yesterday_inventory" column="yesterday_inventory" columnIndex="3"/>
+		<result property="in_quantity" column="in_quantity" columnIndex="4"/>
+		<result property="out_quantity" column="out_quantity" columnIndex="5"/>
+		<result property="re_quantity" column="re_quantity" columnIndex="6"/>
+		<result property="inventory" column="inventory" columnIndex="7"/>
+	</resultMap>
+	
+	<resultMap id="M9701090_1_View" class="M970VO">
+		<result property="color_CD_97" column="color_CD_97" columnIndex="1"/>
+		<result property="yesterday_inventory" column="yesterday_inventory" columnIndex="2"/>
+		<result property="in_quantity" column="in_quantity" columnIndex="3"/>
+		<result property="out_quantity" column="out_quantity" columnIndex="4"/>
+		<result property="re_quantity" column="re_quantity" columnIndex="5"/>
+		<result property="inventory" column="inventory" columnIndex="6"/>
+	</resultMap>
+		
+	<resultMap id="M9709010_1_View" class="M970VO">
+		<result property="lot_CD_97" column="lot_CD_97" columnIndex="1"/>
+		<result property="lot_NM_97" column="lot_NM_97" columnIndex="2"/>
+		<result property="color_CD_97" column="color_CD_97" columnIndex="3"/>
+		<result property="item_CD_97" column="item_CD_97" columnIndex="4"/>
+		<result property="count_97" column="count_97" columnIndex="4"/>
+		<result property="memo" column="memo" columnIndex="6"/>
+	</resultMap>
+	
+	<resultMap id="M9709020_1_View" class="M970VO">
+		<result property="client_CD_97" column="client_CD_97" columnIndex="1"/>
+		<result property="client_NM_97" column="client_NM_97" columnIndex="2"/>
+		<result property="contact_97" column="contact_97" columnIndex="3"/>
+		<result property="phone_NO_97" column="phone_NO_97" columnIndex="4"/>
+		<result property="address" column="address" columnIndex="5"/>
+		<result property="account_NO" column="account_NO" columnIndex="6"/>
+		<result property="enter_FL_97" column="enter_FL_97" columnIndex="7"/>
+		<result property="exit_FL_97" column="exit_FL_97" columnIndex="8"/>
+		<result property="supply_FL_97" column="supply_FL_97" columnIndex="9"/>
+		<result property="memo" column="memo" columnIndex="10"/>
+		<result property="real_order" column="real_order" columnIndex="11"/>
+	</resultMap>
+	
+	<resultMap id="M9709020_2_View" class="M970VO">
+		<result property="client_CD_97" column="client_CD_97" columnIndex="1"/>
+		<result property="item_CD_97" column="item_CD_97" columnIndex="2"/>
+		<result property="price" column="price" columnIndex="3"/>
+	</resultMap>
+	
+	<resultMap id="M9709030_1_View" class="M970VO">
+		<result property="item_CD_97" column="item_CD_97" columnIndex="1"/>
+		<result property="item_NM_97" column="item_NM_97" columnIndex="2"/>
+		<result property="price" column="price" columnIndex="3"/>
+	</resultMap>
+	
+	<resultMap id="M9709040_1_View" class="M970VO">
+		<result property="color_CD_97" column="color_CD_97" columnIndex="1"/>
+		<result property="color_NM_97" column="color_NM_97" columnIndex="2"/>
+	</resultMap>
+	
+	<resultMap id="Lot_Change" class="M970VO">
+		<result property="color_CD_97" column="color_CD_97" columnIndex="1"/>
+		<result property="item_CD_97" column="item_CD_97" columnIndex="2"/>
+		<result property="count_97" column="count_97" columnIndex="3"/>
+		<result property="price" column="price" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="inven_Check" class="M970VO">
+		<result property="lot_CD_97" column="lot_CD_97" columnIndex="1"/>
+		<result property="item_CD_97" column="item_CD_97" columnIndex="2"/>
+		<result property="color_CD_97" column="color_CD_97" columnIndex="3"/>
+		<result property="inventory" column="inventory" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="inven_Check2" class="M970VO">
+		<result property="color_CD_97" column="color_CD_97" columnIndex="1"/>
+		<result property="inventory" column="inventory" columnIndex="2"/>
+	</resultMap>
+
+	<resultMap id="inven_Check3" class="M970VO">
+		<result property="color_CD_97" column="color_CD_97" columnIndex="1"/>
+		<result property="out_quantity" column="out_quantity" columnIndex="2"/>
+	</resultMap>
+
+	<!-- M9701010_1_View -->
+	<select id="M970DAO.M9701010_1_View" resultMap="M9701010_1_View">
+		<![CDATA[
+			SELECT
+				A.data_CD_97,
+				A.regist_DT,
+				A.division,
+				B.item_CD_97,
+				A.lot_CD_97,
+				B.color_CD_97,
+				A.count_97,
+				A.enter_clie_CD_97,
+				A.exit_clie_CD_97,
+				A.in_quantity,
+				A.out_quantity,
+				A.memo,
+				IFNULL(A.inventory,0) inventory,
+				A.real_order,
+				A.supply_clie_CD_97
+			FROM 97_Data_basic_TB A
+			LEFT JOIN 97_Master_lot_TB B
+			ON A.comp_CD = B.comp_CD AND A.lot_CD_97 = B.lot_CD_97
+			LEFT JOIN 97_Master_client_TB C
+			ON A.comp_CD = C.comp_CD AND A.enter_clie_CD_97 = C.client_CD_97
+			LEFT JOIN 97_Master_client_TB D
+			ON A.comp_CD = D.comp_CD AND A.exit_clie_CD_97 = D.client_CD_97
+			LEFT JOIN 97_Details_exit_TB E
+			ON A.comp_CD = E.comp_CD AND A.data_CD_97 = E.data_CD_97
+			LEFT JOIN 97_Master_exit_TB F
+			ON E.comp_CD = F.comp_CD AND E.exit_CD_97 = F.exit_CD_97
+			LEFT JOIN 97_Master_client_TB G
+			ON A.comp_CD = G.comp_CD AND A.supply_clie_CD_97 = G.client_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.regist_DT BETWEEN #start_date# AND #end_date#
+				AND A.division LIKE #division#
+				AND B.color_CD_97 LIKE #color_CD_97#
+				AND B.item_CD_97 LIKE #item_CD_97#
+				AND B.lot_NM_97 REGEXP (#lot_NM_97#)
+				AND C.client_NM_97 REGEXP (#enter_clie_NM_97#)
+				AND D.client_NM_97 REGEXP (#exit_clie_NM_97#)
+				AND (G.client_NM_97 REGEXP (#supply_clie_NM_97#) OR IF(#supply_clie_NM_97#= '' , G.client_NM_97 IS NULL, ''))
+	
+		]]>
+	</select>
+	
+	<!-- M9701010_1_Insert   -->
+	<insert id="M970DAO.M9701010_1_Insert" >
+		<![CDATA[
+			CALL 97_basic_data_insert(
+				#sStatus#,
+				#comp_CD#,
+				#data_CD_97#,
+				#regist_DT#,
+				#division#,
+				#lot_CD_97#,
+				#count_97#,
+				#enter_clie_CD_97#,
+				#exit_clie_CD_97#,				
+				#in_quantity#,
+				#out_quantity#,
+				#memo#,
+				#real_order#,
+				#supply_clie_CD_97#)
+		]]>
+	</insert>
+	
+	<!-- M9701010_1_Delete   -->
+	<delete id="M970DAO.M9701010_1_Delete" >
+		<![CDATA[
+			CALL 97_basic_data_delete(#comp_CD#,#data_CD_97#)
+		]]>
+	</delete>
+	
+	<!-- M9701020_1_View -->
+	<select id="M970DAO.M9701020_1_View" resultMap="M9701020_1_View">
+		<![CDATA[
+			SELECT 
+				A.exit_CD_97,
+				A.regist_DT,
+				A.enter_clie_CD_97,
+				A.exit_clie_CD_97,
+				A.supply_clie_CD_97,
+				(SELECT 
+					SUM(B.price * C.out_quantity)
+				FROM 97_Details_exit_TB B
+				LEFT JOIN 97_Data_basic_TB C
+				ON B.comp_CD = C.comp_CD AND B.data_CD_97 = C.data_CD_97
+				WHERE 1=1 
+					AND B.comp_CD = A.comp_CD
+					AND B.exit_CD_97 = A.exit_CD_97) total_price,
+				A.box_CT,
+				A.order_NO
+			FROM 97_Master_exit_TB A
+			LEFT JOIN 97_Master_client_TB E
+			ON A.comp_CD = E.comp_CD AND A.enter_clie_CD_97 = E.client_CD_97
+			LEFT JOIN 97_Master_client_TB D
+			ON A.comp_CD = D.comp_CD AND A.exit_clie_CD_97 = D.client_CD_97
+			LEFT JOIN 97_Master_client_TB F
+			ON A.comp_CD = F.comp_CD AND A.supply_clie_CD_97 = F.client_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.regist_DT BETWEEN #start_date# AND #end_date#
+				AND E.client_NM_97 REGEXP (#enter_clie_NM_97#)
+				AND D.client_NM_97 REGEXP (#exit_clie_NM_97#)
+				AND F.client_NM_97 REGEXP (#supply_clie_NM_97#)
+			ORDER BY A.exit_CD_97 DESC
+		]]>
+	</select>
+	
+	<!-- M9701020_1_Insert   -->
+	<update id="M970DAO.M9701020_1_Insert" >
+		<![CDATA[
+			CALL 97_M9701020_update(#comp_CD#,#exit_CD_97#,#box_CT#,#order_NO#,#supply_clie_CD_97#)
+		]]>
+	</update>
+	
+	<!-- M9701020_2_View -->
+	<select id="M970DAO.M9701020_2_View" resultMap="M9701020_2_View">
+		<![CDATA[
+			SELECT 
+				A.data_CD_97,
+				A.exit_CD_97,
+				B.lot_CD_97,
+				B.count_97,
+				C.item_CD_97,
+				C.color_CD_97,
+				A.price,
+				B.out_quantity,
+				(A.price * B.out_quantity) total_price,
+				A.memo
+			FROM 97_Details_exit_TB A
+			LEFT JOIN 97_Data_basic_TB B
+			ON A.comp_CD = B.comp_CD AND A.data_CD_97 = B.data_CD_97
+			LEFT JOIN 97_Master_lot_TB C
+			ON B.comp_CD = C.comp_CD AND B.lot_CD_97 = C.lot_CD_97
+			WHERE 1=1 
+				AND A.comp_CD = #comp_CD#
+				AND A.exit_CD_97 = #exit_CD_97#
+		]]>
+	</select>
+	
+	<!-- M9701020_2_Insert   -->
+	<update id="M970DAO.M9701020_2_Insert" >
+		<![CDATA[
+			UPDATE 97_Details_exit_TB SET price = #price#, memo = #memo#
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND data_CD_97 = #data_CD_97#
+		]]>
+	</update>
+	
+	<!-- M9701021_1_Insert   -->
+	<insert id="M970DAO.M9701021_1_Insert" >
+		<![CDATA[
+			CALL 97_Exit_insert_Data(
+				#comp_CD#,
+				#exit_CD_97#,
+				#lot_CD_97#,
+				#count_97#,
+				#item_CD_97#,
+				#color_CD_97#,
+				#price#,
+				#out_quantity#,
+				#total_price#,
+				#memo#,
+				#enter_clie_CD_97#,
+				#exit_clie_CD_97#,
+				#supply_clie_CD_97#,
+				#regist_DT#,
+				#box_CT#
+				)
+		]]>
+	</insert>
+	
+		<!-- M9701030_1_View -->
+	<select id="M970DAO.M9701030_1_View" resultMap="M9701030_1_View">
+		<![CDATA[
+			SELECT 
+				A.supply_clie_CD_97,
+				SUM(C.out_quantity * B.price) total_price
+			FROM 97_Master_exit_TB A 
+			LEFT JOIN 97_Details_exit_TB B
+			ON A.comp_CD = B.comp_CD AND A.exit_CD_97 = B.exit_CD_97
+			LEFT JOIN 97_Data_basic_TB C
+			ON B.comp_CD = C.comp_CD AND B.data_CD_97 = C.data_CD_97
+			LEFT JOIN 97_Master_client_TB D
+			ON A.comp_CD = D.comp_CD AND A.supply_clie_CD_97 = D.client_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND C.regist_DT BETWEEN #start_date1# AND #end_date1#
+				AND D.client_NM_97 REGEXP (#supply_clie_NM_971#)
+			GROUP BY A.supply_clie_CD_97
+		]]>
+	</select>
+	
+	<!-- M9701030_2_View -->
+	<select id="M970DAO.M9701030_2_View" resultMap="M9701030_2_View">
+		<![CDATA[
+			SELECT 
+				A.exit_CD_97,
+				B.data_CD_97,
+				C.regist_DT,
+				D.item_CD_97,
+				C.exit_clie_CD_97,
+				D.color_CD_97,
+				C.out_quantity,
+				B.price,
+				C.out_quantity * B.price total_price,
+				B.memo style_NO,
+				A.order_NO
+			FROM 97_Master_exit_TB A 
+			LEFT JOIN 97_Details_exit_TB B
+			ON A.comp_CD = B.comp_CD AND A.exit_CD_97 = B.exit_CD_97
+			LEFT JOIN 97_Data_basic_TB C
+			ON B.comp_CD = C.comp_CD AND B.data_CD_97 = C.data_CD_97
+			LEFT JOIN 97_Master_lot_TB D
+			ON C.comp_CD = D.comp_CD AND C.lot_CD_97 = D.lot_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND C.regist_DT BETWEEN #start_date1# AND #end_date1#
+				AND A.supply_clie_CD_97 = #supply_clie_CD_97#
+		]]>
+	</select>
+	
+	<!-- M9701030_1_View -->
+	<select id="M970DAO.M9701030_3_View" resultMap="M9701030_1_View">
+		<![CDATA[
+			SELECT 
+				A.supply_clie_CD_97,
+				SUM(C.out_quantity * B.price) total_price
+			FROM 97_Master_exit_TB A 
+			LEFT JOIN 97_Details_exit_TB B
+			ON A.comp_CD = B.comp_CD AND A.exit_CD_97 = B.exit_CD_97
+			LEFT JOIN 97_Data_basic_TB C
+			ON B.comp_CD = C.comp_CD AND B.data_CD_97 = C.data_CD_97
+			LEFT JOIN 97_Master_client_TB D
+			ON A.comp_CD = D.comp_CD AND A.supply_clie_CD_97 = D.client_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND C.regist_DT BETWEEN #start_date2# AND #end_date2#
+				AND D.client_NM_97 REGEXP (#supply_clie_NM_972#)
+			GROUP BY A.supply_clie_CD_97
+		]]>
+	</select>
+	
+	<!-- M9701030_4_View -->
+	<select id="M970DAO.M9701030_4_View" resultMap="M9701030_2_View">
+		<![CDATA[
+			SELECT 
+				A.exit_CD_97,
+				B.data_CD_97,
+				C.regist_DT,
+				D.item_CD_97,
+				C.exit_clie_CD_97,
+				D.color_CD_97,
+				C.out_quantity,
+				B.price,
+				C.out_quantity * B.price total_price,
+				B.memo style_NO,
+				A.order_NO
+			FROM 97_Master_exit_TB A 
+			LEFT JOIN 97_Details_exit_TB B
+			ON A.comp_CD = B.comp_CD AND A.exit_CD_97 = B.exit_CD_97
+			LEFT JOIN 97_Data_basic_TB C
+			ON B.comp_CD = C.comp_CD AND B.data_CD_97 = C.data_CD_97
+			LEFT JOIN 97_Master_lot_TB D
+			ON C.comp_CD = D.comp_CD AND C.lot_CD_97 = D.lot_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND C.regist_DT BETWEEN #start_date2# AND #end_date2#
+				AND A.supply_clie_CD_97 = #supply_clie_CD_97#
+		]]>
+	</select>
+	
+	<!-- M9701030_2_Insert   -->
+	<update id="M970DAO.M9701030_2_Insert" >
+		<![CDATA[
+			UPDATE 97_Details_exit_TB SET style_NO = #style_NO#, order_NO = #order_NO#
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND data_CD_97 = #data_CD_97#
+		]]>
+	</update>
+
+	<!-- M9701040_1_View -->
+	<select id="M970DAO.M9701040_1_View" resultMap="inven_Check">
+		<![CDATA[
+			SELECT
+				A.lot_CD_97,
+				A.item_CD_97,
+				A.color_CD_97,
+				A.inventory,
+				A.check_DT
+			FROM 97_inventory_Log_TB A
+			LEFT JOIN 97_Master_lot_TB B
+			ON A.comp_CD = B.comp_CD AND A.lot_CD_97 = B.lot_CD_97			
+			WHERE 1=1
+				AND B.lot_NM_97 REGEXP (#lot_NM_97#)
+				AND A.item_CD_97 LIKE #item_CD_97#
+				AND A.comp_CD = #comp_CD#
+				AND A.check_DT = #check_DT#
+		]]>
+	</select>
+	
+	<!-- M9701040_2_View -->
+	<select id="M970DAO.M9701040_2_View" resultMap="inven_Check">
+		<![CDATA[
+			SELECT 
+				A.lot_CD_97,
+				A.item_CD_97,
+				A.color_CD_97,
+				A.inventory
+			FROM 97_Master_lot_TB A
+			LEFT JOIN 97_Master_color_TB B
+			ON A.comp_CD = B.comp_CD AND A.color_CD_97 = B.color_CD_97
+			WHERE 1=1
+				AND A.item_CD_97 LIKE #item_CD_97#
+				AND A.lot_NM_97 REGEXP (#lot_NM_97#)
+				AND B.color_NM_97 REGEXP (#color_NM_97#)
+				AND A.comp_CD = #comp_CD#
+				AND A.inventory > 0	
+		]]>
+</select>
+
+	<!-- M9701050_1_View -->
+	<select id="M970DAO.M9701050_1_View" resultMap="inven_Check2">
+<![CDATA[
+			SELECT 
+				A.color_CD_97,
+				IF(SUM(IF(B.inventory < 0 , 0 , B.inventory)) IS NULL,0,IF(SUM(IF(B.inventory < 0 , 0 , B.inventory)) < 0 , 0 , SUM(IF(B.inventory < 0 , 0 , B.inventory))) ) inventory
+			FROM 97_Master_color_TB A
+			LEFT JOIN 97_Master_lot_TB B
+			ON A.comp_CD = B.comp_CD AND A.color_CD_97 = B.color_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND B.item_CD_97 LIKE #item_CD_97#
+			GROUP BY A.color_CD_97
+		]]>
+</select>
+
+	<!-- M9701050_2_View -->
+	<select id="M970DAO.M9701050_2_View" resultMap="inven_Check3">
+		<![CDATA[
+			SELECT
+				D.color_CD_97,
+				IFNULL(E.inventory,0) out_quantity
+			FROM 97_Master_color_TB D
+			LEFT JOIN (SELECT 
+							A.color_CD_97,
+							SUM(C.out_quantity) inventory
+						FROM 97_Master_color_TB A
+						LEFT JOIN 97_Master_lot_TB B
+						ON A.comp_CD = B.comp_CD AND A.color_CD_97 = B.color_CD_97
+						LEFT JOIN 97_Data_basic_TB C
+						ON B.comp_CD = C.comp_CD AND B.lot_CD_97 = C.lot_CD_97
+						LEFT JOIN 97_Master_client_TB F
+						ON A.comp_CD = F.comp_CD AND C.supply_clie_CD_97 = F.client_CD_97
+						WHERE 1=1
+							AND A.comp_CD = #comp_CD#
+							AND B.item_CD_97 like #item_CD_97#
+							AND F.client_NM_97 REGEXP ( #exit_clie_NM_97#)
+							AND C.regist_DT BETWEEN #start_date# AND #end_date#
+						GROUP BY A.color_CD_97) E
+			ON D.color_CD_97 = E.color_CD_97
+			WHERE D.comp_CD = #comp_CD#
+				AND IFNULL(E.inventory,0) != 0
+		]]>
+	</select>
+	
+	<!-- M9701060_1_View -->
+	<select id="M970DAO.M9701060_1_View" resultMap="M9701060_1_View">
+		<![CDATA[
+			CALL 97_Data_View(#comp_CD#,#year#, 1, #item_CD_97#);
+		]]>
+	</select>
+	
+	<!-- M9701070_1_View -->
+	<select id="M970DAO.M9701070_1_View" resultMap="M9701070_1_View">
+		<![CDATA[
+			CALL 97_Data_View(#comp_CD#,#year#, 2, #item_CD_97#);
+		]]>
+	</select>	
+	
+	<!-- M9701080_1_View -->
+	<select id="M970DAO.M9701080_1_View" resultMap="M9701080_1_View">
+		<![CDATA[
+			SELECT 
+				A.lot_CD_97,
+				C.color_CD_97,
+				IFNULL(D.inventory,0) yesterday_inventory,
+				SUM(A.in_quantity) in_quantity,
+				SUM(A.out_quantity) out_quantity,
+				IFNULL(SUM(E.in_quantity),0) re_quantity,
+				IFNULL(D.inventory,0) + SUM(A.in_quantity) - SUM(A.out_quantity) + IFNULL(SUM(E.in_quantity),0) inventory
+			FROM 97_Data_basic_TB A
+			LEFT JOIN 97_Master_lot_TB B
+			ON A.comp_CD = B.comp_CD AND A.lot_CD_97 = B.lot_CD_97
+			LEFT JOIN 97_Master_color_TB C
+			ON B.comp_CD = C.comp_CD AND B.color_CD_97 = C.color_CD_97
+			LEFT JOIN 97_inventory_Log_TB D
+			ON B.comp_CD = D.comp_CD AND B.lot_CD_97 = D.lot_CD_97 AND D.check_DT = DATE_SUB(#start_date#,INTERVAL 1 DAY)
+			LEFT JOIN 97_Data_basic_TB E
+			ON A.comp_CD = E.comp_CD AND A.lot_CD_97 = E.lot_CD_97 AND E.division = 3 AND E.regist_DT BETWEEN #start_date# AND #end_date#
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND B.item_CD_97 LIKE #item_CD_97#
+				AND A.regist_DT BETWEEN #start_date# AND #end_date#
+				AND A.division != 3
+			GROUP BY A.lot_CD_97
+		]]>
+	</select>	
+	
+	<!-- M9701090_1_View -->
+	<select id="M970DAO.M9701090_1_View" resultMap="M9701090_1_View">
+		<![CDATA[
+			CALL 97_Data_View_2(#comp_CD#, #start_date#, #end_date#, #item_CD_97#, #supply_clie_CD_97#);
+		]]>
+	</select>	
+	
+	<!-- M9709010_1_View -->
+	<select id="M970DAO.M9709010_1_View" resultMap="M9709010_1_View">
+		<![CDATA[
+			SELECT                   
+				lot_CD_97,
+				lot_NM_97,
+				color_CD_97,
+				item_CD_97,
+				count_97,
+				memo       
+			FROM 97_Master_lot_TB   
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND item_CD_97 LIKE #item_CD_97#
+				AND color_CD_97 LIKE #color_CD_97#
+				AND lot_NM_97 REGEXP (#lot_NM_97#)
+				AND del_FL = 0
+		]]>
+	</select>
+	
+	<!-- M9709010_1_Insert   -->
+	<insert id="M970DAO.M9709010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 97_Master_lot_TB(
+				comp_CD,
+				lot_CD_97,
+				lot_NM_97,
+				color_CD_97,
+				item_CD_97,
+				count_97,
+				inventory,
+				memo,
+				del_FL
+			) VALUE (
+				#comp_CD#,
+				#lot_CD_97#,
+				#lot_NM_97#,
+				#color_CD_97#,
+				#item_CD_97#,
+				#count_97#,
+				0,
+				#s_memo#,
+				0
+			) ON DUPLICATE KEY UPDATE 
+				lot_NM_97 = #lot_NM_97#,
+				color_CD_97 = #color_CD_97#,
+				item_CD_97 = #item_CD_97#,
+				count_97 = #count_97#,
+				memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9709010_1_Delete   -->
+	<update id="M970DAO.M9709010_1_Delete" >
+		<![CDATA[
+			UPDATE 97_Master_lot_TB SET del_FL = 1 
+			WHERE comp_CD = #comp_CD# AND lot_CD_97 = #lot_CD_97#
+		]]>
+	</update>
+	
+	<!-- M9709020_1_View -->
+	<select id="M970DAO.M9709020_1_View" resultMap="M9709020_1_View">
+		<![CDATA[
+			SELECT 
+				client_CD_97,
+				client_NM_97,
+				contact_97,
+				phone_NO_97,
+				address,
+				account_NO,
+				enter_FL_97,
+				exit_FL_97,
+				supply_FL_97,
+				memo,
+				real_order
+			FROM 97_Master_client_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND del_FL = 0 
+				AND client_NM_97 != ''
+				AND client_NM_97 REGEXP (#client_NM_97#)
+		]]>
+	</select>
+	
+	<!-- M9709020_1_Insert   -->
+	<insert id="M970DAO.M9709020_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				97_Master_client_TB(
+					comp_CD,
+					client_CD_97,
+					client_NM_97,
+					contact_97,
+					phone_NO_97,
+					address,
+					account_NO,
+					enter_FL_97,
+					exit_FL_97,
+					supply_FL_97,
+					real_order,
+					memo,
+					del_FL
+				) VALUE (
+					#comp_CD#,
+					#client_CD_97#,
+					#client_NM_97#,
+					#contact_97#,
+					#phone_NO_97#,
+					#address#,
+					#account_NO#,
+					#enter_FL_97#,
+					#exit_FL_97#,
+					#supply_FL_97#,
+					#real_order#,
+					#memo#,
+					0
+				) ON DUPLICATE KEY UPDATE 
+					client_NM_97 = #client_NM_97#,
+					contact_97 = #contact_97#,
+					phone_NO_97 = #phone_NO_97#,
+					address = #address#,
+					account_NO = #account_NO#,
+					enter_FL_97 = #enter_FL_97#,
+					exit_FL_97 = #exit_FL_97#,
+					supply_FL_97 = #supply_FL_97#,
+					real_order = #real_order#,
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9709020_1_Delete   -->
+	<update id="M970DAO.M9709020_1_Delete" >
+		<![CDATA[
+			UPDATE 97_Master_client_TB SET del_FL = 1 
+			WHERE comp_CD = #comp_CD# AND client_CD_97 = #client_CD_97#
+		]]>
+	</update>
+	
+		<!-- M9709020_2_View -->
+	<select id="M970DAO.M9709020_2_View" resultMap="M9709020_2_View">
+		<![CDATA[
+			SELECT
+				A.client_CD_97,
+				A.item_CD_97,
+				A.price
+			FROM 
+				97_Details_client_TB A
+			LEFT JOIN 97_Master_item_TB B
+			ON A.comp_CD = B.comp_CD AND A.item_CD_97 = B.item_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND B.del_FL = 0
+				AND A.client_CD_97 = #client_CD_97#
+		]]>
+	</select>
+	
+	<!-- M9709020_2_Insert   -->
+	<insert id="M970DAO.M9709020_2_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				97_Details_client_TB(
+					comp_CD,
+					client_CD_97,
+					item_CD_97,
+					price
+				) VALUE (
+					#comp_CD#,
+					#client_CD_97#,
+					#item_CD_97#,
+					#price#
+				) ON DUPLICATE KEY UPDATE 
+					price = #price#
+		]]>
+	</insert>
+	
+	<!-- M9709020_1_Delete   -->
+	<delete id="M970DAO.M9709020_2_Delete" >
+		<![CDATA[
+			DELETE FROM 97_Details_client_TB 
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND client_CD_97 = #client_CD_97#
+				AND item_CD_97 = #item_CD_97#
+		]]>
+	</delete>
+	
+	<!-- M9709030_1_View -->
+	<select id="M970DAO.M9709030_1_View" resultMap="M9709030_1_View">
+		<![CDATA[
+			SELECT                   
+				item_CD_97,           
+				item_NM_97,           
+				price                 
+			FROM 97_Master_item_TB   
+			WHERE comp_CD = #comp_CD#
+				AND del_FL = 0
+		]]>
+	</select>
+	
+	<!-- M9709030_1_Insert   -->
+	<insert id="M970DAO.M9709030_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				97_Master_item_TB(
+					comp_CD,
+					item_CD_97,
+					item_NM_97,
+					price,
+					del_FL
+				) VALUE (
+					#comp_CD#,
+					#item_CD_97#,
+					#item_NM_97#,
+					#price#,
+					0
+				) ON DUPLICATE KEY UPDATE 
+					item_NM_97 = #item_NM_97#,
+					price = #price#
+		]]>
+	</insert>
+	
+	<!-- M9709030_1_Delete   -->
+	<update id="M970DAO.M9709030_1_Delete" >
+		<![CDATA[
+			UPDATE 97_Master_item_TB SET del_FL = 1 
+			WHERE comp_CD = #comp_CD# AND item_CD_97 = #item_CD_97#
+		]]>
+	</update>
+	
+	<!-- M9709040_1_View -->
+	<select id="M970DAO.M9709040_1_View" resultMap="M9709040_1_View">
+		<![CDATA[
+			SELECT                   
+				color_CD_97,           
+				color_NM_97        
+			FROM 97_Master_color_TB   
+			WHERE comp_CD = #comp_CD#
+				AND color_NM_97 REGEXP (#color_NM_97#)
+				AND del_FL = 0
+		]]>
+	</select>
+	
+	<!-- M9709040_1_Insert   -->
+	<insert id="M970DAO.M9709040_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				97_Master_color_TB(
+					comp_CD,
+					color_CD_97,
+					color_NM_97,
+					del_FL
+				) VALUE (
+					#comp_CD#,
+					#color_CD_97#,
+					#color_NM_97#,
+					0
+				) ON DUPLICATE KEY UPDATE 
+					color_NM_97 = #color_NM_97#
+		]]>
+	</insert>
+	
+	<!-- M9709040_1_Delete   -->
+	<update id="M970DAO.M9709040_1_Delete" >
+		<![CDATA[
+			UPDATE 97_Master_color_TB SET del_FL = 1 
+			WHERE comp_CD = #comp_CD# AND color_CD_97 = #color_CD_97#
+		]]>
+	</update>
+	
+	<!-- Lot_Change -->
+	<select id="M970DAO.Lot_Change" resultMap="Lot_Change">
+		<![CDATA[
+			SELECT 
+				A.color_CD_97,
+				A.item_CD_97,
+				A.count_97,
+				IFNULL(
+				(SELECT C.price FROM 97_Details_client_TB C WHERE comp_CD = A.comp_CD AND C.item_CD_97 = A.item_CD_97 AND C.client_CD_97 = #supply_clie_CD#)
+				,B.price) price
+			FROM 97_Master_lot_TB A
+			LEFT JOIN 97_Master_item_TB B
+			ON A.comp_CD = B.comp_CD AND A.item_CD_97 = B.item_CD_97
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.lot_CD_97 = #lot_CD_97#
+		]]>
+	</select>
+	
+</sqlMap>

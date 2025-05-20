@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UbiService port="16996">
+	<!-- Executor urfThreads="6" exportThreads="3" pageThreads="3" /-->
+	<!-- TaskInfo property value : MINUTE,HOUR,DAY,WEEK,MONTH,YEAR -->
+	<TaskInfo taskResId="UBIHTML" taskPeriod="1" taskPeriodType="DAY" delPeriod="1" delPeriodType="DAY" />
+	<LogInfo logPath=""
+		backupStyle="date"
+		backupPattern="yyyy-MM-dd"
+		backupSize="30" />
+	<S3Info useS3="false"
+		bucketName=""
+		accessKey=""
+		secretKey="" />
+	<!-- For Redbc
+	<Redbc configXml="/webapp/redbc/config/config.xml" 
+		drmCopyProtectFileName="/webapp/redbc/config/rlarnjsduq.bmp" 
+		drmBarcodeType="HTML"/>-->
+	<Resources> 
+		<Resource id="UBIHTML"
+			isLocalFile="true"
+			jrfDir="C:\Users\USER\Desktop\eGovFrameDev-3.10.0-64bit\workspace\git_MES\src\main\webapp\jrf"
+			resultDir="C:\Users\USER\Desktop\eGovFrameDev-3.10.0-64bit\workspace\git_MES\src\main\webapp\UbiService\results\"
+			ubiserverUrl="http://localhost:8080/UbiServer"
+			servletRoot="http://localhost/git_MES"
+			fileUrl="http://localhost/ubi4"
+			resource="true"
+			dataSource="GIANT_DB"
+			useLog="true"
+			useDebug="true"
+			useDetail="true"
+			voiceyeClassName="" />
+	</Resources>
+</UbiService>

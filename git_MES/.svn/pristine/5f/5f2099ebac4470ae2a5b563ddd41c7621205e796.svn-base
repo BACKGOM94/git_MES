@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="m990">
+	<typeAlias  alias="M990VO" type="gom.vo.M990VO"/>
+
+	<resultMap id="company_List" class="M990VO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="comp_ko_NM" 		column="comp_ko_NM" columnIndex="2"/>
+		<result property="comp_en_NM" 			column="comp_en_NM" columnIndex="3"/>
+		<result property="memb_ID" 		column="memb_ID" columnIndex="4"/>
+		<result property="join_DT" 		column="join_DT" columnIndex="5"/>
+		<result property="leader_NM" 			column="leader_NM" columnIndex="6"/>
+		<result property="leader_phone_NO" 			column="leader_phone_NO" columnIndex="7"/>
+		<result property="address" 		column="address" columnIndex="8"/>
+		<result property="address_detail" 		column="address_detail" columnIndex="9"/>
+		<result property="email" 		column="email" columnIndex="10"/>
+		<result property="memo" 		column="memo" columnIndex="11"/>
+		<result property="del_FL" 		column="del_FL" columnIndex="12"/>
+	</resultMap>
+	
+	<resultMap id="menu_auth" class="M990VO">
+		<result property="menu_CD" 			column="menu_CD" columnIndex="1"/>
+		<result property="upp_menu_CD" 		column="upp_menu_CD" columnIndex="2"/>
+		<result property="Level" 			column="Level" columnIndex="3"/>
+		<result property="auth" 		column="auth" columnIndex="4"/>
+		<result property="comp_CD" 		column="comp_CD" columnIndex="5"/>
+		<result property="memb_ID" 		column="memb_ID" columnIndex="6"/>
+	</resultMap>
+	
+	<resultMap id="get_Kpi_data" class="M990VO">
+		<result property="avg" 			column="avg" columnIndex="1"/>
+		<result property="count" 		column="count" columnIndex="2"/>
+	</resultMap>
+	
+	<!-- M9901010_1_View -->
+	<select id="M990DAO.M9901010_1_View" resultMap="company_List">
+		<![CDATA[
+			SELECT 
+				A.comp_CD,
+				A.comp_ko_NM,
+				A.comp_en_NM,
+				B.memb_ID,
+				A.join_DT,
+				A.leader_NM,
+				A.leader_phone_NO,
+				A.address,
+				A.address_detail,
+				A.email,
+				A.memo,
+				A.del_FL
+			 FROM Master_company_TB A
+			 LEFT JOIN Master_member_TB B
+			 ON A.comp_CD = B.comp_CD
+			 WHERE 1=1
+			 	AND A.comp_ko_NM REGEXP (#comp_ko_NM#)
+			 	AND A.del_FL = 0
+			 	AND B.memb_rating = 'COM'
+		]]>
+	</select>
+	
+	<!-- M9901010_1_Insert   -->
+	<insert id="M990DAO.M9901010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_company_TB(
+					comp_CD,
+					comp_ko_NM,
+					comp_en_NM,
+					join_DT,
+					leader_NM,
+					leader_phone_NO,
+					address,
+					address_detail,
+					email,
+					memo,
+					del_FL
+				) VALUE (
+              #comp_CD#,
+              #comp_ko_NM#,
+              #comp_en_NM#,
+              CURDATE(),
+              #leader_NM#,
+              #leader_phone_NO#,
+              #address#,
+              #address_detail#,
+              #email#,
+              #memo#,
+              0
+				) ON DUPLICATE KEY UPDATE 
+              comp_ko_NM = #comp_ko_NM#,
+              comp_en_NM = #comp_en_NM#,
+              join_DT = #join_DT#,
+              leader_NM = #leader_NM#,
+              leader_phone_NO = #leader_phone_NO#,
+              address = #address#,
+              address_detail = #address_detail#,
+              email = #email#,
+              memo = #memo#
+		]]>
+	</insert>
+	
+		<!-- M9901010_1_Insert2   -->
+	<insert id="M990DAO.M9901010_1_Insert2" >
+		<![CDATA[
+            INSERT INTO 
+                Master_member_TB(
+                    comp_CD,
+                    memb_ID,
+                    memb_PW,
+                    memb_NM,
+                    memb_rating,
+                    join_DT
+                ) VALUE (
+                      #comp_CD#,
+                      #memb_ID#,
+                      SHA2(#memb_PW# /**P*/, 256),
+                      #comp_ko_NM#,
+                      'COM',
+                      CURDATE()
+                ) ON DUPLICATE KEY UPDATE                     
+                    memb_PW = SHA2(#memb_PW# /**P*/, 256),
+                    memb_NM = #comp_ko_NM#
+		]]>
+	</insert>
+	
+	<!-- M9901010_1_Insert3   -->
+	<update id="M990DAO.M9901010_1_Insert3" >
+		<![CDATA[
+			UPDATE Master_member_TB
+			SET memb_NM = #memb_NM#
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND memb_ID = #memb_ID#		
+		]]>
+	</update>
+	
+	<update id="M990DAO.M9901010_1_Delete" >
+		<![CDATA[
+			UPDATE Master_company_TB 
+			SET del_FL = 1 
+			WHERE comp_CD = #comp_CD#
+		]]>
+	</update>
+	
+		<!-- M9901010_2_View -->
+	<select id="M990DAO.M9901010_2_View" resultMap="menu_auth">
+		<![CDATA[
+			SELECT 
+				A.menu_CD,
+				A.upp_menu_CD,
+				A.menu_LV Level,
+				(SELECT COUNT(B.menu_CD)
+				FROM Auth_company_TB B
+				WHERE B.menu_CD = A.menu_CD AND comp_CD = #comp_CD#) auth,
+				#comp_CD# comp_CD,
+				C.memb_ID				
+			FROM Master_menu_TB A
+			LEFT JOIN Master_member_TB C
+			ON C.comp_CD = #comp_CD#
+			WHERE C.memb_rating = 'COM'
+			ORDER BY A.menu_CD
+		]]>
+	</select>
+	
+	<!-- M9901010_2_Insert   -->
+	<insert id="M990DAO.M9901010_2_Insert" >
+		<![CDATA[
+			INSERT INTO Auth_company_TB
+			VALUES (#comp_CD#,#menu_CD#)
+		]]>
+	</insert>
+	
+	<!-- M9901010_2_Insert2   -->
+	<delete id="M990DAO.M9901010_2_Insert2" >
+		<![CDATA[
+			DELETE FROM Auth_company_TB
+			WHERE comp_CD = #comp_CD#
+		]]>
+	</delete>	
+	
+	<!-- M9901010_2_Insert3   -->
+	<insert id="M990DAO.M9901010_2_Insert3" >
+		<![CDATA[
+			INSERT INTO Auth_member_TB
+			VALUES (#comp_CD#,#menu_CD#,#memb_ID#)
+		]]>
+	</insert>
+	
+	<!-- get_Kpi_data -->
+	<select id="M990DAO.get_Kpi_data" resultMap="get_Kpi_data">
+		<![CDATA[
+			SELECT
+				IFNULL(FLOOR(AVG(read_TM)/60),0) avg,
+				COUNT(read_TM) count
+			FROM 
+				Data_equipment_TB
+			WHERE 1=1
+				AND check_DT = #check_DT#
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+</sqlMap>

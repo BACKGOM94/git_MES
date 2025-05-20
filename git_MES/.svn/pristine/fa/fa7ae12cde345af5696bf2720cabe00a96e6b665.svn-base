@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>IBMultiCombo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script type="text/javascript" src="ibmulticomboinfo.js"></script>
+	<script type="text/javascript" src="ibmulticombo.js"></script>
+</head>
+
+<script type="text/javascript">
+function InitCombo(){
+	var cnt = 0;
+	
+	MultiCombo.Init();
+	MultiCombo.SetTheme("Mono");
+	MultiCombo.InsertItem(cnt++, "foo", "01");
+	// MultiCombo.InsertItem(cnt++, "D2|D12", "02");
+	MultiCombo.InsertItem(cnt++, "bar", "03");
+	MultiCombo.InsertItem(cnt++, "baz", "04");
+	MultiCombo.InsertItem(cnt++, "bar", "03");
+	MultiCombo.InsertItem(cnt++, "baz", "04");
+	MultiCombo.InsertItem(cnt++, "bar", "03");
+	MultiCombo.InsertItem(cnt++, "baz", "04");
+	MultiCombo.InsertItem(cnt++, "bar", "03");
+	MultiCombo.InsertItem(cnt++, "baz", "04");
+	MultiCombo.InsertItem(cnt++, "bar", "03");
+	MultiCombo.InsertItem(cnt++, "baz", "04");
+	MultiCombo.InsertItem(cnt++, "bar", "03");
+	MultiCombo.InsertItem(cnt++, "baz", "04");
+
+	MultiCombo.SetUseEdit(true);
+
+	// MultiCombo.InsertItem(cnt++, "D5", "05");
+	// MultiCombo.InsertItem(cnt++, "D6", "06");
+
+	//     MultiCombo.Init();
+
+	//     var cnt = 0;
+	//     MultiCombo._insertItems({
+	//       data :[
+	//       {text: "D1",code:"01"},
+	//       {text: "D2|D12",code:"02"},
+	//       {text: "D3",code:"03"},
+	//       {text: "D4",code:"04"}]
+	//     });
+
+	// MultiCombo.InsertItem(cnt++, "D5", "05");
+	// MultiCombo.InsertItem(cnt++, "D6", "06");
+	// MultiCombo.InsertItem(cnt++, "D7", "07");
+	// MultiCombo.InsertItem(cnt++, "D8", "08");
+	// MultiCombo.InsertItem(cnt++, "D9", "09");
+	MultiCombo.SetTitleVisible(true);
+	MultiCombo.SetMultiSelect(true);
+	// MultiCombo.SetMultiSelect(true);
+	// MultiCombo.SetMaxSelect(2);
+	// MultiCombo.SetUseAutoComplete(true);
+	// MultiCombo.SetUseEdit(true);
+
+	ib("#excute").addEvent({
+		click: function(e) {
+			eval(ib("#better-multicombo").value());
+		}
+	});
+}
+// function MultiCombo_OnSelect(args1) {
+// 	var idx = MultiCombo.GetSelectIndex();
+
+// 	console.log('select: ' + args1 + ', ' + idx);
+// }
+// function MultiCombo_OnChange(args1, args2, args3, args4, args5, args6) {
+//     var idx = MultiCombo.GetSelectIndex();
+
+// 	console.log('change: ' + args4 + ', ' + idx);
+// }
+
+// function MultiCombo_OnMultiCheckError() {
+//   console.log("MultiCheckError", arguments);
+// }
+
+// function MultiCombo_OnSelect() {
+//   console.log("select", arguments);
+// }
+
+// function MultiCombo_OnChange() {
+//   console.log("change", arguments);
+// }
+
+// function MultiCombo_OnClear() {
+//   console.log("clear", arguments);
+// }
+// ib(function() {
+// 	// window.cc = ib("#better-multicombo").multicombo({
+// 	// 	width: 100,
+// 	// 	height: 22,
+// 	// 	cols: 3,
+// 	// 	titleVisible: true, 
+// 	// 	useImage: true,
+// 	// 	multiSelect: true,
+// 	// 	// data: data
+// 	// 	data: [{text: "foo|bar|baz1111111111111111111|zzz2222222222222|haha",code:"03"},
+// 	// 		{text: "foo|bar|baz",code:"03"},
+// 	// 		{text: "foo|bar|baz",code:"03"},
+// 	// 		{text: "foo|bar|baz",code:"03"},
+// 	// 		{text: "foo|bar|baz",code:"03"},
+// 	// 		{text: "foo|bar|baz",code:"03"},
+// 	// 		{text: "foo|bar|baz",code:"03"}
+// 	// 		]
+// 	// }).getMulticombo();
+// 	var id,
+// 	prevTime = (new Date()).getTime();
+// 	var data = [];
+// 	for (var i = 0; i < 1000; i++) {
+// 		data.push({text: "foo|bar|bazzzzzzz" + i,code:"03"});
+// 	}
+
+// 	// ib("#better-multicombo").multicombo({
+// 	// 	width: 100,
+// 	// 	height: 22,
+// 	// 	cols: 3,
+// 	// 	data: data
+// 	// });
+// 	window.cc = ib("#better-multicombo").multicombo({
+// 		width: 100,
+// 		height: 22,
+// 		cols: 3,
+// 		titleVisible: true, 
+// 		useImage: true,
+// 		multiSelect: true,
+// 		data: data
+// 		// data: [{text: "foo|bar|baz|zzz|haha",code:"03"},
+// 		// 	{text: "foo|bar|baz11111111111111111",code:"03"},
+// 		// 	{text: "foo|bar|baz",code:"03"},
+// 		// 	{text: "foo|bar|baz",code:"03"},
+// 		// 	{text: "foo|bar|baz",code:"03"},
+// 		// 	{text: "foo|bar|baz",code:"03"},
+// 		// 	{text: "foo|bar|baz",code:"03"}
+// 		// 	]
+// 	}).getMulticombo();
+	
+// 	console.log("version 45: " + ((new Date()).getTime() - prevTime));
+// });
+
+// ib(function() {
+// 	var id,
+// 	prevTime = (new Date()).getTime();
+// 	for (var i = 0; i < 100; i++) {
+// 		id = "multicombo" + i;
+// 		// createIBMultiCombo(id, 100, 22, 1);
+// 		// window[id].InsertItem(0, "D1", "01");
+// 		// window[id].InsertItem(1, "D2|D12", "02");
+// 		// window[id].InsertItem(2, "D3", "03");
+// 		// window[id].InsertItem(3, "D4", "04");
+// 		// window[id].InsertItem(4, "D5", "05");
+// 		// window[id].InsertItem(5, "D6", "06");
+// 		// window[id].InsertItem(6, "D7", "07");
+// 		// window[id].InsertItem(7, "D8", "08");
+
+// 		//   // window[id]._insertItems({
+// 		//   //         data :[
+// 		//   //     {text: "D1",code:"01"},
+// 		//   //     {text: "D2|D12",code:"02"},
+// 		//   //     {text: "D3",code:"03"},
+// 		//   //     {text: "D4",code:"04"},
+// 		//   //     {text: "D5",code:"05"},
+// 		//   //     {text: "D6",code:"06"},
+// 		//   //     {text: "D7",code:"07"},
+// 		//   //     {text: "D8",code:"08"}]
+// 		//   //   });
+// 		// var multicombo = ib("<input type='text' id='"+ id +"'>").multicombo({
+// 		//  width: 100,
+// 		//  height: 22,
+// 		//  cols: 2,
+// 		//  titleVisible: true,
+// 		//  title: "col1",
+// 		//  data :[
+// 		//    {text: "D1",code:"01"},
+// 		//    {text: "D2",code:"02"},
+// 		//    {text: "D3",code:"03"},
+// 		//    {text: "D4",code:"04"}
+// 		//    // ,
+// 		//    // {text: "D5",code:"05"},
+// 		//    // {text: "D6",code:"06"},
+// 		//    // {text: "D7",code:"07"},
+// 		//    // {text: "D8",code:"08"},
+// 		//    // {text: "D1",code:"01"},
+// 		//    // {text: "D2|D12",code:"02"},
+// 		//    // {text: "D3",code:"03"},
+// 		//    // {text: "D4",code:"04"},
+// 		//    // {text: "D5",code:"05"},
+// 		//    // {text: "D6",code:"06"},
+// 		//    // {text: "D7",code:"07"},
+// 		//    // {text: "D8",code:"08"},
+// 		//    // {text: "D1",code:"01"},
+// 		//    // {text: "D2|D12",code:"02"},
+// 		//    // {text: "D3",code:"03"},
+// 		//    // {text: "D4",code:"04"}
+// 		//  ]
+// 		// }).getMulticombo();
+
+// 		// multicombo.IBCBMainDiv.appendChildTo("body");
+// 		// multicombo._setDropDownWidth();
+
+// 		// ib("<input type='text' id=" + id + ">").multicombo({
+// 		var multicombo = ib("<input type='text' id='"+ id +"'>").multicombo({
+// 		width: 100,
+// 		height: 22,
+// 		cols: 2,
+// 		multiSelect: true,
+// 		maxSelect: 1,
+// 		// titleVisible: true,
+// 		// title: "col1|col222",
+// 		data :[
+// 			{text: "D1",code:"01"},
+// 			{text: "D2",code:"02"},
+// 			{text: "D3",code:"03"},
+// 			{text: "D4",code:"04"}
+// 			// ,
+// 			// {text: "D5",code:"05"},
+// 			// {text: "D6",code:"06"},
+// 			// {text: "D7",code:"07"},
+// 			// {text: "D8",code:"08"},
+// 			// {text: "D1",code:"01"},
+// 			// {text: "D2|D12",code:"02"},
+// 			// {text: "D3",code:"03"},
+// 			// {text: "D4",code:"04"},
+// 			// {text: "D5",code:"05"},
+// 			// {text: "D6",code:"06"},
+// 			// {text: "D7",code:"07"},
+// 			// {text: "D8",code:"08"},
+// 			// {text: "D1",code:"01"},
+// 			// {text: "D2|D12",code:"02"},
+// 			// {text: "D3",code:"03"},
+// 			// {text: "D4",code:"04"}
+// 			]
+// 		}).getMulticombo();
+
+// 		multicombo.IBCBMainDiv.appendChildTo("body");
+// 		multicombo._setDropDownWidth();
+
+// 		// .getMulticombo()._insertItems({text:"haha",code:"haha"}, 1);
+// 	}
+// 	console.log((new Date()).getTime() - prevTime);
+// });
+
+function MultiCombo_OnFocus(args1) {
+	// console.log(args1);
+}
+</script>
+</head>
+<body onload="InitCombo()">
+  <script type="text/javascript"> createIBMultiCombo("MultiCombo", "100px", "22px",1); </script>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+  <input type="text" id="better-multicombo" />
+  <input type="button" id="excute" />
+  <!--div id ="text"></div-->
+</body>
+</html>

@@ -1,0 +1,138 @@
+#-----------------------------------------------------------------------
+#
+#   globals.properties : \uc2dc\uc2a4\ud15c
+#
+#-----------------------------------------------------------------------
+#   1.  key = value \uad6c\uc870\uc785\ub2c8\ub2e4.
+#   2.  key\uac12\uc740 \uacf5\ubc31\ubb38\uc790\ub97c \ud3ec\ud568\ubd88\uac00, value\uac12\uc740 \uacf5\ubc31\ubb38\uc790\ub97c \uac00\ub2a5
+#   3.  key\uac12\uc73c\ub85c \ud55c\uae00\uc744 \uc0ac\uc6a9\ubd88\uac00,   value\uac12\uc740 \ud55c\uae00\uc0ac\uc6a9\uc774 \uac00\ub2a5
+#   4.  \uc904\uc744 \ubc14\uafc0 \ud544\uc694\uac00 \uc788\uc73c\uba74 '\'\ub97c \ub77c\uc778\uc758 \ub05d\uc5d0 \ucd94\uac00(\ub9cc\uc57d  '\'\ubb38\uc790\ub97c \uc0ac\uc6a9\ud574\uc57c \ud558\ub294 \uacbd\uc6b0\ub294 '\\'\ub97c \uc0ac\uc6a9)
+#   5.  Windows\uc5d0\uc11c\uc758 \ub514\ub809\ud1a0\ub9ac \ud45c\uc2dc : '\\' or '/'  ('\' \uc0ac\uc6a9\ud558\uba74 \uc548\ub428)
+#   6.  Unix\uc5d0\uc11c\uc758 \ub514\ub809\ud1a0\ub9ac \ud45c\uc2dc : '/'
+#   7.  \uc8fc\uc11d\ubb38 \ucc98\ub9ac\ub294  #\uc0ac\uc6a9
+#   8.  value\uac12 \ub4a4\uc5d0 \uc2a4\ud398\uc774\uc2a4\uac00 \uc874\uc7ac\ud558\ub294 \uacbd\uc6b0 \uc11c\ube14\ub9bf\uc5d0\uc11c \ucc38\uc870\ud560\ub54c\ub294 \uc5d0\ub7ec\ubc1c\uc0dd\ud560 \uc218 \uc788\uc73c\ubbc0\ub85c trim()\ud558\uac70\ub098 \ub9c8\uc9c0\ub9c9 \uacf5\ubc31\uc5c6\uc774 properties \uac12\uc744 \uc124\uc815\ud560\uac83
+#-----------------------------------------------------------------------
+
+pageUnit=10
+pageSize=10
+posblAtchFileSize=5242880
+Globals.addedOptions=false
+
+# \uc6b4\uc601\uc11c\ubc84 \ud0c0\uc785(WINDOWS, UNIX)
+Globals.OsType=WINDOWS
+#Globals.OsType=UNIX
+
+# G4C \uc5f0\uacb0\uc6a9 IP (localhost)
+Globals.LocalIp=127.0.0.1
+
+# DB\uc11c\ubc84 \ud0c0\uc785(mysql,oracle,altibase,tibero) - datasource \ubc0f sqlMap \ud30c\uc77c \uc9c0\uc815\uc5d0 \uc0ac\uc6a9\ub428
+#Globals.DbType=oracle
+
+Globals.DbType=mysql
+
+#mysql
+
+Globals.UserName=root
+Globals.Password=fhzjfghtmxm
+
+Globals.DriverClassName=org.mariadb.jdbc.Driver
+#Globals.DriverClassName=net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+
+#oracle
+#Globals.Url=jdbc:oracle:thin:@127.0.0.1:1521:orcl
+#Globals.Url=jdbc:oracle:thin:@172.16.1.7:1521:niisora
+#Globals.Url=jdbc:oracle:thin:@192.168.125.112:1521:niisora
+
+#mysql
+Globals.Url=jdbc:mysql://125.6.36.166:3306/GIANT_DB
+#Globals.Url=jdbc:mysql://192.168.0.8:3306/GIANT_DB
+
+# DB\uc11c\ubc84 \ud0c0\uc785(mssql) - datasource \ubc0f sqlMap \ud30c\uc77c \uc9c0\uc815\uc5d0 \uc0ac\uc6a9\ub428
+#Globals.SmsDbType=mssql
+#Globals.SmsUserName=vocuser
+#Globals.SmsPassword=vocuser1
+Globals.SmsDbType=mysql
+Globals.SmsUserName=giantf7
+Globals.SmsPassword=3108686
+
+#mssql
+#Globals.SmsDriverClassName=com.microsoft.jdbc.sqlserver.SQLServerDriver
+#Globals.SmsUrl=jdbc:microsoft:sqlserver://211.51.166.15:4577:DatabaseName=GBVOC
+#Globals.SmsDriverClassName=net.sourceforge.jtds.jdbc.Driver
+Globals.SmsDriverClassName=core.log.jdbc.driver.OracleDriver
+#Globals.SmsUrl=jdbc:jtds:sqlserver://211.51.166.15:4577/GBVOC;tds=8.0;lastupdatecount=true
+Globals.SmsUrl=jdbc:oracle:thin:@192.168.125.112:1521:niisora
+
+# MainPage Setting
+Globals.MainPage=/cmm/main/mainPage.do
+
+# MainPage Setting
+Globals.domain=niis.gbdc.co.kr
+#Globals.domain = http://localhost/niis
+
+#\ucca8\ubd80\ud30c\uc77c \uc124\uc815
+Globals.fileStorePath_Win=C:/file_uploaded/
+#Globals.fileStorePath_Unix=/webapp/upload/
+Globals.fileStorePath_Unix=/upload/
+
+Globals.fileLinkPath_Win=C:/niis/workspace/niis_dev/src/main/webapp/files/
+Globals.fileLinkPath_Unix=/webapp/niis/files/
+
+Globals.fileTempPath_Win=D:/file_uploaded/temp
+#Globals.fileTempPath_Unix=/webapp/upload/tempfiles
+Globals.fileTempPath_Unix=/upload/tempfiles
+
+#\ucca8\ubd80\ud30c\uc77c Max Limit 2\uae30\uac00(2*1024*1024*1024) -> 100Mb\ub85c \uc870\uc815(10*1024*1024)
+#Globals.fileMaxLimit=2147483648
+Globals.fileMaxLimit=104857600
+#\ucca8\ubd80\ud30c\uc77c Available Memory(16 * 1024 * 1024)
+Globals.availableMemory=16777216
+
+#\ucca8\ubd80\ud30c\uc77c \uc778\ucf54\ub529\uc14b
+Globals.uploadEncoding=utf-8
+
+#\uc6b0\uc815\uc0ac\uc5c5\ubd80 API URL
+Globals.jusoUrl=http://www.juso.go.kr/addrlink/addrLinkApi.do
+
+#\uc6b0\uc815\uc0ac\uc5c5\ubd80 API KEY
+Globals.jusoKey=U01TX0FVVEgyMDE2MDQwMTE2NDcxMTA=
+
+#SSO Agent Value
+Globals.sso_domain_Dev=http://192.168.125.111:8086
+Globals.sso_domain_Real=http://sso.gbdc.co.kr
+
+Globals.sso_libDir_Dev=/webapp/sso/SSOClient/WEB-INF/lib
+Globals.sso_libDir_Real=/webapp/sso/WEB-INF/lib
+
+#Globals.sso_target_Dev=http://192.168.125.111:8082
+#Globals.sso_target_Real=http://192.168.125.111:8082
+Globals.sso_target_Dev=http://192.168.125.111:8082
+Globals.sso_target_Real=http://172.16.1.11
+
+#\uac01 \uc0ac\uc774\ud2b8\uc758 \ube44\ubc00\ubc88\ud638 \ucd08\uae30\ud654\ub97c \uc704\ud55c URL \ud638\ucd9c
+#\uc5c5\ubb34\ud3ec\ud138
+Globals.pwdCleanPortalUrl_Dev=http://192.168.125.110:8088/plugin/organization/user/password/reset
+Globals.pwdCleanPortalUrl_Real=http://portal.gbdc.co.kr/plugin/organization/user/password/reset
+#\uadf8\ub8f9\uc6e8\uc5b4
+Globals.pwdCleanGroupWareUrl_Dev=http://192.168.125.110:8800/ATWork/portal/sync/passwd_init.jsp
+Globals.pwdCleanGroupWareUrl_Real=http://gw.gbdc.co.kr/ATWork/portal/sync/passwd_init.jsp
+
+#\uba54\uc2e0\uc800 \uc815\ubcf4
+Globals.MessengerIp=192.168.125.110
+Globals.MessengerPort=1234
+Globals.MessangerTime=3
+
+#SMS \uc11c\ube44\uc2a4ID
+#Globals.SmsServiceId=4993
+Globals.SmsServiceId=5187
+
+#MAIL \uc11c\ube44\uc2a4\uc815\ubcf4
+mail.transport.protocol=smtp
+#mail.smtp.host=211.51.166.45
+mail.smtp.host=www2.gbdc.co.kr
+mail.smtp.auth=true
+mail.smtp.port=25
+mail.smtp.socketFactory.port=25
+mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+mail.smtp.socketFactory.fallback=false
+mail.smtp.quitwait=false

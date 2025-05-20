@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="common">
+
+	<typeAlias  alias="CommonVO" type="gom.vo.CommonVO"/>
+	<typeAlias  alias="UserVO" type="gom.vo.UserVO"/>
+	<typeAlias  alias="MenuVO" type="gom.vo.MenuVO"/>
+	
+	<!-- 사용자 정보를 가져오기 위한 resultMap -->
+	<resultMap id="UserVO" class="UserVO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="memb_ID" 		column="memb_ID" columnIndex="2"/>
+		<result property="memb_NM" 		column="memb_NM" columnIndex="3"/>
+		<result property="memb_rating" 		column="memb_rating" columnIndex="4"/>
+		<result property="comp_ko_NM" 		column="comp_ko_NM" columnIndex="5"/>
+		<result property="comp_en_NM" 		column="comp_en_NM" columnIndex="6"/>
+	</resultMap>
+	
+	<!-- 사용자에 따른 메뉴를 가져오기 위한 resultMap -->
+	<resultMap id="MenuVO" class="MenuVO">
+		<result property="menu_CD" 			column="menu_CD" columnIndex="1"/>
+		<result property="menu_NM" 		column="menu_NM" columnIndex="2"/>
+		<result property="upp_menu_CD" 		column="upp_menu_CD" columnIndex="3"/>
+		<result property="menu_LV" 		column="menu_LV" columnIndex="4"/>
+		<result property="pgmURL" 		column="pgmURL" columnIndex="5"/>
+		<result property="upp_menu_NM" 		column="upp_menu_NM" columnIndex="6"/>
+	</resultMap>
+	
+	<!-- 사용자에 따른 메뉴를 가져오기 위한 resultMap -->
+	<resultMap id="IBSheet_col_Data" class="CommonVO">
+		<result property="some_CD" 			column="some_CD" columnIndex="1"/>
+		<result property="some_NM" 		column="some_NM" columnIndex="2"/>
+	</resultMap>
+	
+	<!-- 데이터 변경시 다른데이터의 콤보박스 자동 변경 -->
+	<resultMap id="get_data_combo" class="CommonVO">
+		<result property="some_CD" 			column="some_CD" columnIndex="1"/>
+		<result property="some_NM" 		column="some_NM" columnIndex="2"/>
+	</resultMap>
+	
+	<!-- 특정value 변환시 다른 값 변경을 위한 데이터를 가져옴(item) -->
+	<resultMap id="get_data_item" class="CommonVO">
+		<result property="item_CD" 			column="item_CD" columnIndex="1"/>
+		<result property="order_unit_C" 		column="order_unit_C" columnIndex="2"/>
+		<result property="exchange_value" 		column="exchange_value" columnIndex="3"/>
+		<result property="inventory_unit_C" 		column="inventory_unit_C" columnIndex="4"/>
+		<result property="inventory_item_CD" 		column="inventory_item_CD" columnIndex="5"/>
+		<result property="item_group_C" 		column="item_group_C" columnIndex="6"/>
+		<result property="proc_CD" 		column="proc_CD" columnIndex="7"/>
+		<result property="price" 		column="price" columnIndex="8"/>
+		<result property="order_price" 		column="order_price" columnIndex="9"/>
+		<result property="sale_price" 		column="order_price" columnIndex="910"/>
+		<result property="standard" 		column="standard" columnIndex="11"/>
+		<result property="tax_FL" 		column="tax_FL" columnIndex="12"/>
+	</resultMap>
+	
+	<!-- 특정value 변환시 다른 값 변경을 위한 데이터를 가져옴(item) -->
+	<resultMap id="get_data_clie" class="CommonVO">
+		<result property="clie_CD" 			column="clie_CD" columnIndex="1"/>
+		<result property="clie_NM" 		column="clie_NM" columnIndex="2"/>
+		<result property="manager_NM" 		column="manager_NM" columnIndex="3"/>
+		<result property="manager_phone_NO" 		column="manager_phone_NO" columnIndex="4"/>
+		<result property="memo" 		column="memo" columnIndex="5"/>
+	</resultMap>
+	
+	<!-- 특정value 변환시 다른 값 변경을 위한 데이터를 가져옴(item) -->
+	<resultMap id="get_data_L97" class="CommonVO">
+		<result property="lot_CD_97" 			column="lot_CD_97" columnIndex="1"/>
+		<result property="color_CD_97" 		column="color_CD_97" columnIndex="2"/>
+		<result property="item_CD_97" 		column="item_CD_97" columnIndex="3"/>
+		<result property="count_97" 		column="count_97" columnIndex="4"/>
+	</resultMap>
+	
+	<!-- 특정value 변환시 다른 값 변경을 위한 데이터를 가져옴(item) -->
+	<resultMap id="get_data_E97" class="CommonVO">
+		<result property="enter_clie_CD_97" 			column="enter_clie_CD_97" columnIndex="1"/>
+		<result property="real_order" 		column="real_order" columnIndex="2"/>
+	</resultMap>
+	
+	<!-- 로그인 -->
+	<select id="CommonDAO.actionLogin" resultMap="UserVO">
+		<![CDATA[
+			SELECT 
+				A.comp_CD,
+				A.memb_ID,
+				A.memb_NM,
+				A.memb_rating,
+				B.comp_ko_NM,
+				B.comp_en_NM
+			FROM
+				Master_member_TB A
+			LEFT JOIN
+				Master_company_TB B
+			ON
+				A.comp_CD = B.comp_CD
+			WHERE 1=1
+				AND memb_ID = #memb_ID#
+				AND memb_PW = SHA2(#memb_PW# /**P*/, 256)
+		]]>
+	</select>
+	
+	<!-- 로그인 로그 남기기 -->
+	<insert id="CommonDAO.make_log">
+		<![CDATA[
+			INSERT INTO 
+				History_login_TB 
+			VALUE (#comp_CD#,#memb_ID#,#IP#,CURDATE(),CURTIME())
+		]]>
+	</insert>
+	
+		<!-- 탑 메뉴 가져오기 -->
+	<select id="CommonDAO.get_Top_menu" resultMap="MenuVO">
+		<![CDATA[
+		SELECT 
+			A.menu_CD,
+			A.menu_NM,
+			A.upp_menu_CD,
+			A.menu_LV,
+			A.pgmURL,
+			C.menu_NM upp_menu_NM
+		FROM Master_menu_TB A
+		LEFT JOIN Auth_member_TB B
+		ON A.menu_CD = B.menu_CD
+		LEFT JOIN Master_menu_TB C
+		ON A.upp_menu_CD = C.menu_CD
+		WHERE 1=1
+			AND B.memb_ID = #memb_ID#
+			AND A.menu_LV = 1
+		]]>
+	</select>
+	
+	<!-- 좌측 메뉴 가져오기 -->
+	<select id="CommonDAO.get_Left_menu" resultMap="MenuVO">
+		<![CDATA[
+		SELECT 
+			A.menu_CD,
+			A.menu_NM,
+			A.upp_menu_CD,
+			A.menu_LV,
+			A.pgmURL,
+			C.menu_NM upp_menu_NM
+		FROM Master_menu_TB A
+		LEFT JOIN Auth_member_TB B
+		ON A.menu_CD = B.menu_CD
+		LEFT JOIN Master_menu_TB C
+		ON A.upp_menu_CD = C.menu_CD
+		WHERE 1=1
+			AND B.memb_ID = #memb_ID#
+			AND A.menu_CD BETWEEN  #menu_CD# AND #menu_CD#+10000;
+		]]>
+	</select>
+	
+	<!-- 각 페이지 이동시 권한이 있는지 확인 -->
+	<select id="commonDAO.security" resultClass="Integer">
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM Auth_member_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND memb_ID = #memb_ID#
+				AND menu_CD = (SELECT menu_CD
+									FROM Master_menu_TB
+									WHERE pgmURL = #pgmURL#)
+		]]>
+	</select>
+	
+	<!-- 아이디 중복확인 -->
+	<select id="commonDAO.double_Check_memb_ID" resultClass="String">
+		<![CDATA[
+			SELECT COUNT(memb_ID)
+			FROM Master_member_TB    
+			WHERE memb_ID = #value#
+		]]>
+	</select>
+	
+	<!-- 마스터파일_comp를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_comp_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				comp_CD some_CD,
+				comp_ko_NM some_NM
+			FROM 
+				Master_company_TB
+			WHERE 1=1
+				AND del_FL = 0
+		]]>
+	</select>
+	
+	<!-- 마스터파일_menu를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_menu_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.menu_CD some_CD,
+				A.menu_NM some_NM
+			FROM 
+				Master_menu_TB A
+		]]>
+	</select>
+	
+	<!-- 마스터파일_menu를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_category_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.category_CD some_CD,
+				A.category_NM some_NM
+			FROM 
+				Master_category_TB A
+		]]>
+	</select>
+	
+	<!-- 마스터파일_item을 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_item_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.item_CD some_CD,
+				A.item_NM some_NM
+			FROM 
+				Master_item_TB A
+			WHERE A.comp_CD = #comp_CD#
+				AND del_FL = 0
+		]]>
+	</select>
+	
+	<!-- 마스터파일_equi를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_equi_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.equi_CD some_CD,
+				A.equi_NM some_NM
+			FROM 
+				Master_equipment_TB A
+			WHERE A.comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 마스터파일_equi를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_clie_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.clie_CD some_CD,
+				A.clie_NM some_NM
+			FROM 
+				Master_client_TB A
+			WHERE A.comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 마스터파일_clie 발주처를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_clie_CD_order" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.clie_CD some_CD,
+				A.clie_NM some_NM
+			FROM 
+				Master_client_TB A
+			WHERE A.comp_CD = #comp_CD# AND A.enter_FL = 1 AND A.del_FL = 0
+		]]>
+	</select>
+	
+	<!-- 마스터파일_clie 수주처를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_clie_CD_sale" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.clie_CD some_CD,
+				A.clie_NM some_NM
+			FROM 
+				Master_client_TB A
+			WHERE A.comp_CD = #comp_CD# AND A.exit_FL = 1 AND A.del_FL = 0
+		]]>
+	</select>
+	
+	<!-- 마스터파일_proc를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_proc_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.proc_CD some_CD,
+				A.proc_NM some_NM
+			FROM 
+				Master_process_TB A
+			WHERE A.comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 마스터파일_work를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_work_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.work_CD some_CD,
+				A.work_NM some_NM
+			FROM 
+				Master_workplace_TB A
+			WHERE A.comp_CD = #comp_CD#
+		]]>
+	</select>
+		
+	<!-- 마스터파일_vehi를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_vehi_CD" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.vehi_CD some_CD,
+				A.vehi_NO some_NM
+			FROM 
+				Master_vehicle_TB A
+			WHERE A.comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 재돈 Lot를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_lot_CD_97" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.Lot_CD_97 some_CD,
+				A.Lot_NM_97 some_NM
+			FROM 
+				97_Master_lot_TB A
+			WHERE A.comp_CD = #comp_CD#
+			AND del_FL = 0
+			ORDER BY lot_CD_97 desc;
+		]]>
+	</select>
+	
+	<!-- 재돈 color를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_item_CD_97" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.item_CD_97 some_CD,
+				A.item_NM_97 some_NM
+			FROM 
+				97_Master_item_TB A
+			WHERE A.comp_CD = #comp_CD#
+			AND del_FL = 0
+			ORDER BY item_NM_97
+		]]>
+	</select>
+	
+	<!-- 재돈 item를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_color_CD_97" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.color_CD_97 some_CD,
+				A.color_NM_97 some_NM
+			FROM 
+				97_Master_color_TB A
+			WHERE A.comp_CD = #comp_CD#
+			AND del_FL = 0
+			ORDER BY color_NM_97
+		]]>
+	</select>
+	
+	<!-- 재돈 거래처를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_client_CD_97" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.client_CD_97 some_CD,
+				A.client_NM_97 some_NM
+			FROM 
+				97_Master_client_TB A
+			WHERE A.comp_CD = #comp_CD#
+			ORDER BY client_NM_97
+		]]>
+	</select>
+	
+	<!-- 재돈 입고처를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_enter_clie_CD_97" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.client_CD_97 some_CD,
+				A.client_NM_97 some_NM
+			FROM 
+				97_Master_client_TB A
+			WHERE A.comp_CD = #comp_CD#
+			AND del_FL = 0
+			AND enter_FL_97 = 1
+			ORDER BY client_NM_97
+		]]>
+	</select>
+	
+	<!-- 재돈 출고처를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_exit_clie_CD_97" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.client_CD_97 some_CD,
+				A.client_NM_97 some_NM
+			FROM 
+				97_Master_client_TB A
+			WHERE A.comp_CD = #comp_CD#
+			AND del_FL = 0
+			AND exit_FL_97 = 1
+			ORDER BY client_NM_97
+		]]>
+	</select>
+	
+	<!-- 재돈 공급처처를 코드 : 명칭 으로 가져옴 -->
+	<select id="commonDAO.IBSheet_supply_clie_CD_97" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				A.client_CD_97 some_CD,
+				A.client_NM_97 some_NM
+			FROM 
+				97_Master_client_TB A
+			WHERE A.comp_CD = #comp_CD#
+			AND del_FL = 0
+			AND supply_FL_97 = 1
+			ORDER BY client_NM_97
+		]]>
+	</select>
+	
+	<!-- 데이터 변경시 다른데이터의 콤보박스 자동 변경 -->
+	<select id="commonDAO.set_data_combo_set_item_get_color_97" resultMap="get_data_combo">
+		<![CDATA[
+			SELECT 
+				A.color_CD_97 some_CD,
+				B.color_NM_97 some_NM
+			FROM 97_Details_item_TB A
+			LEFT JOIN 97_Master_color_TB B
+			ON A.comp_CD = B.comp_CD AND A.color_CD_97 = B.color_CD_97
+			WHERE 1=1 
+				AND A.comp_CD = #comp_CD#
+				AND A.item_CD_97 = #key_data#
+		]]>
+	</select>
+	
+	<!-- 특정value 변환시 다른 값 변경을 위한 데이터를 가져옴 -->
+	<select id="commonDAO.get_data_item" resultMap="get_data_item">
+		<![CDATA[
+			SELECT
+				item_CD,
+				order_unit_C,
+				exchange_value,
+				inventory_unit_C,
+				inventory_item_CD,
+				item_group_C,
+				proc_CD,
+				price,
+				price order_price,
+				price sale_price,
+				standard,
+				tax_FL
+			FROM Master_item_TB
+			WHERE comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 특정value 변환시 다른 값 변경을 위한 데이터를 가져옴 -->
+	<select id="commonDAO.get_data_clie" resultMap="get_data_clie">
+		<![CDATA[
+			SELECT
+				clie_CD,
+				clie_NM,
+				manager_NM,
+				manager_phone_NO,
+				memo
+			FROM Master_client_TB
+			WHERE comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 특정value 변환시 다른 값 변경을 위한 데이터를 가져옴 -->
+	<select id="commonDAO.get_data_L97" resultMap="get_data_L97">
+		<![CDATA[
+			SELECT
+				lot_CD_97,
+				color_CD_97,
+				item_CD_97,
+				count_97
+			FROM 97_Master_lot_TB
+			WHERE comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 특정value 변환시 다른 값 변경을 위한 데이터를 가져옴 -->
+	<select id="commonDAO.get_data_E97" resultMap="get_data_E97">
+		<![CDATA[
+			SELECT
+				client_CD_97 enter_clie_CD_97,
+				real_order
+			FROM 97_Master_client_TB
+			WHERE comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 비밀번호 변경시 비밀번호 확인 -->
+	<select id="commonDAO.check_pwdChange" resultClass="Integer">
+		<![CDATA[
+			SELECT                   
+				COUNT(*)              
+			FROM                     
+				Master_member_TB      
+			WHERE 1=1                
+				AND comp_CD = #comp_CD#
+				AND memb_ID = #memb_ID#
+				AND memb_PW = SHA2(#memb_PW# /**P*/, 256)
+		]]>
+	</select>
+	
+	<!-- 비밀번호 변경시 비밀번호 확인후 변경 -->
+	<update id="commonDAO.action_pwdChange" >
+		<![CDATA[
+			UPDATE Master_member_TB
+			SET memb_PW = SHA2(#memb_PW# /**P*/, 256)
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND memb_ID = #memb_ID#
+		]]>
+	</update>
+	
+	<!-- 회사코드 생성 -->
+	<select id="commonDAO.make_comp_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(comp_CD) != 0 ,
+				CONCAT(SUBSTRING(comp_CD,1,11),LPAD(SUBSTRING(max(comp_CD),12,4) + 1,4,'0')),
+				CONCAT('COM',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_company_TB
+			WHERE 
+				comp_CD REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+		]]>
+	</select>
+	
+	<!-- 제품코드 생성 -->
+	<select id="commonDAO.make_item_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(item_CD) != 0 ,
+				CONCAT(SUBSTRING(item_CD,1,11),LPAD(SUBSTRING(max(item_CD),12,4) + 1,4,'0')),
+				CONCAT('ITE',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_item_TB
+			WHERE 1=1
+				AND SUBSTRING(item_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+
+	<!-- 거래처코드 생성 -->
+	<select id="commonDAO.make_clie_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(clie_CD) != 0 ,
+				CONCAT(SUBSTRING(clie_CD,1,11),LPAD(SUBSTRING(max(clie_CD),12,4) + 1,4,'0')),
+				CONCAT('CLI',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_client_TB
+			WHERE 1=1
+				AND SUBSTRING(clie_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	<!-- 설비코드 생성 -->
+	<select id="commonDAO.make_equi_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(equi_CD) != 0 ,
+				CONCAT(SUBSTRING(equi_CD,1,11),LPAD(SUBSTRING(max(equi_CD),12,4) + 1,4,'0')),
+				CONCAT('EQU',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_equipment_TB
+			WHERE 1=1
+				AND SUBSTRING(equi_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 공정코드 생성 -->
+	<select id="commonDAO.make_proc_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(proc_CD) != 0 ,
+				CONCAT(SUBSTRING(proc_CD,1,11),LPAD(SUBSTRING(max(proc_CD),12,4) + 1,4,'0')),
+				CONCAT('PRO',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_process_TB
+			WHERE 1=1
+				AND SUBSTRING(proc_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 작업장코드 생성 -->
+	<select id="commonDAO.make_work_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(work_CD) != 0 ,
+				CONCAT(SUBSTRING(work_CD,1,11),LPAD(SUBSTRING(max(work_CD),12,4) + 1,4,'0')),
+				CONCAT('WOR',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_workplace_TB
+			WHERE 1=1
+				AND SUBSTRING(work_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 발주코드 생성 -->
+	<select id="commonDAO.make_orde_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(orde_CD) != 0 ,
+				CONCAT(SUBSTRING(orde_CD,1,11),LPAD(SUBSTRING(max(orde_CD),12,4) + 1,4,'0')),
+				CONCAT('ORD',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_order_TB
+			WHERE 1=1
+				AND SUBSTRING(orde_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 재고코드 생성 -->
+	<select id="commonDAO.make_inve_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(inve_CD) != 0 ,
+				CONCAT(SUBSTRING(inve_CD,1,11),LPAD(SUBSTRING(max(inve_CD),12,4) + 1,4,'0')),
+				CONCAT('INV',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_inventory_TB
+			WHERE 1=1
+				AND SUBSTRING(inve_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 생산지시서코드 생성 -->
+	<select id="commonDAO.make_manu_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(manu_CD) != 0 ,
+				CONCAT(SUBSTRING(manu_CD,1,11),LPAD(SUBSTRING(max(manu_CD),12,4) + 1,4,'0')),
+				CONCAT('MAN',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_manufacture_TB
+			WHERE 1=1
+				AND SUBSTRING(manu_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 차량코드 생성 -->
+	<select id="commonDAO.make_vehi_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(vehi_CD) != 0 ,
+				CONCAT(SUBSTRING(vehi_CD,1,11),LPAD(SUBSTRING(max(vehi_CD),12,4) + 1,4,'0')),
+				CONCAT('VEH',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_vehicle_TB
+			WHERE 1=1
+				AND SUBSTRING(vehi_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 수주코드 생성 -->
+	<select id="commonDAO.make_sale_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(sale_CD) != 0 ,
+				CONCAT(SUBSTRING(sale_CD,1,11),LPAD(SUBSTRING(max(sale_CD),12,4) + 1,4,'0')),
+				CONCAT('SAL',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				Master_sales_TB
+			WHERE 1=1
+				AND SUBSTRING(sale_CD,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 재돈 item코드 생성 -->
+	<select id="commonDAO.make_I97_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(item_CD_97) != 0 ,
+				CONCAT(SUBSTRING(item_CD_97,1,11),LPAD(SUBSTRING(max(item_CD_97),12,4) + 1,4,'0')),
+				CONCAT('I97',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				97_Master_item_TB
+			WHERE 1=1
+				AND SUBSTRING(item_CD_97,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 재돈 color코드 생성 -->
+	<select id="commonDAO.make_C97_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(color_CD_97) != 0 ,
+				CONCAT(SUBSTRING(color_CD_97,1,11),LPAD(SUBSTRING(max(color_CD_97),12,4) + 1,4,'0')),
+				CONCAT('C97',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				97_Master_color_TB
+			WHERE 1=1
+				AND SUBSTRING(color_CD_97,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>	
+	
+	<!-- 재돈 Lot코드 생성 -->
+	<select id="commonDAO.make_L97_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(Lot_CD_97) != 0 ,
+				CONCAT(SUBSTRING(Lot_CD_97,1,11),LPAD(SUBSTRING(max(Lot_CD_97),12,4) + 1,4,'0')),
+				CONCAT('L97',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				97_Master_lot_TB
+			WHERE 1=1
+				AND SUBSTRING(Lot_CD_97,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>	
+			
+	<!-- 재돈 client코드 생성 -->
+	<select id="commonDAO.make_E97_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(client_CD_97) != 0 ,
+				CONCAT(SUBSTRING(client_CD_97,1,11),LPAD(SUBSTRING(max(client_CD_97),12,4) + 1,4,'0')),
+				CONCAT('E97',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				97_Master_client_TB
+			WHERE 1=1
+				AND SUBSTRING(client_CD_97,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>	
+	
+	<!-- 재돈 Bagic_DATA 코드 생성 -->
+	<select id="commonDAO.make_D97_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(data_CD_97) != 0 ,
+				CONCAT(SUBSTRING(data_CD_97,1,11),LPAD(SUBSTRING(max(data_CD_97),12,4) + 1,4,'0')),
+				CONCAT('D97',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				97_Data_basic_TB
+			WHERE 1=1
+				AND SUBSTRING(data_CD_97,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>	
+	
+	<!-- 재돈 exit_CD 코드 생성 -->
+	<select id="commonDAO.make_X97_CD" resultClass="String">
+		<![CDATA[
+			SELECT
+				IF(
+				COUNT(exit_CD_97) != 0 ,
+				CONCAT(SUBSTRING(exit_CD_97,1,11),LPAD(SUBSTRING(max(exit_CD_97),12,4) + 1,4,'0')),
+				CONCAT('X97',DATE_FORMAT(NOW(),'%Y%m%d'),LPAD(1, 4 ,'0'))
+				) value
+			FROM
+				97_Master_exit_TB
+			WHERE 1=1
+				AND SUBSTRING(exit_CD_97,4,8) REGEXP DATE_FORMAT(NOW(),'%Y%m%d')
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>	
+	
+	
+	<!-- 카테고리 데이터 가져오기 -->
+	<select id="commonDAO.category_Data" resultMap="IBSheet_col_Data">
+		<![CDATA[
+			SELECT
+				sub_category_CD some_CD,
+				sub_category_NM some_NM
+			FROM Details_category_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND category_CD = #category_CD#
+				AND del_FL = 0
+		]]>
+	</select>
+</sqlMap>

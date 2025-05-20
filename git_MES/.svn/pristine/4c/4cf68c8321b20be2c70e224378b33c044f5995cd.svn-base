@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UbiServer version="4.0.0000.0000">
+	<Environment licensePath="{APP_ROOT}/ubi4/license"
+		admin="YWRtcEBzc3dkIQ=="
+		adminImgUri="./ubi4/js/images"
+		xslPath=""
+		osCharset="KSC5601" />
+	<LogInfo logPath="{APP_ROOT}/ubi4/logs"
+		timeZone="GMT+9"
+		rowSize="5"
+		backupStyle="date"
+		backupSize="30"
+		backupPattern="yyyy-MM-dd"
+		useLog="true"
+		info="false" />
+	<Resources>
+		<DataSource id="GIANT_DB"			
+			type="direct" 
+			vendor="Mariadb"
+			driverClassName="org.mariadb.jdbc.Driver"
+			url="jdbc:mysql://125.6.36.166:3306/GIANT_DB"
+			charset="KSC5601"
+			username="root"
+			password="fhzjfghtmxm" />
+	</Resources>
+	<UbiServiceInfo urftype="normal" connectionTime="1800000">
+		<UbiService ip="localhost" port="16996" />
+	</UbiServiceInfo>
+</UbiServer>

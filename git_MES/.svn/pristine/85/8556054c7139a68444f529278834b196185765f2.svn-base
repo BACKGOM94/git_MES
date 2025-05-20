@@ -1,0 +1,655 @@
+/*-------------------------------------*/
+/*기본 레이아웃*/
+.wrapper {
+	width: 100%;
+	min-width: 1280px;
+}
+.row {
+	margin-right: -15px;
+	margin-left: -15px;
+}
+.container {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}
+.overlay {
+	background: #000;/*백그라운드 컬러*/
+	width: 100%;/*고정 가로 사이즈*/
+	position: absolute;
+	left: 0;
+	z-index: 10;/*필요시 수정 가능*/
+	opacity: 0.2;/*투명도 진하기 6-7-8-9 숫자 높을 수록 진함 수정가능*/
+	visibility: visible;
+	height: 100%;	/*height사이즈 다양한 기기 및 사이즈 적용*/
+}
+.loading-overlay {
+	background-image: url(../../../images/gom/com/ui-bg_loading.gif); /*백그라운드로딩이미지*/
+	background-repeat: no-repeat;
+	background-position: center center;
+/* 	background-size: 10% 10%; */
+	width: 100%;/*고정 가로 사이즈*/
+	position: absolute;
+	left: 0;
+	z-index: 99;/*필요시 수정 가능*/
+	visibility: visible;
+	height: 100%;	/*height사이즈 다양한 기기 및 사이즈 적용*/
+}
+/*-------------------------------------*/
+/*contants*/
+.page-content {
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 100%;
+	min-width: 1000px;
+}
+.page-content2 {
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 100%;
+	min-width: 922px;
+}
+/*-------------------------------------*/
+/*main (main화면에 사용되는 layout css)*/
+.main-wrap {
+	padding: 10px;
+	overflow: hidden;
+}
+.main-left {
+	width: 35%;
+	float: left;
+}
+.main-right {
+	width: 65%;
+	float: right;
+}
+.main-con1 {
+	height: auto;
+	padding: 5px;
+}
+.main-con2 {
+	height: auto;
+	padding: 15px;
+}
+.main-con3 {
+	height: auto;
+	padding: 15px;
+}
+/*-------------------------------------*/
+/*popup*/
+.popup-container {
+	width: 100%;
+	height: 100%;
+	min-width: 500px;/*팝업 사이즈 조정 가능*/
+	position: relative;
+	margin: 0px;
+}
+.popup-page-content {
+	padding-left: 30px;
+	padding-right: 30px;
+	height: 100%;
+	min-width: 600px;
+	overflow: auto; /*오버플로우 했을때 결과 상의 */
+}
+/*-------------------------------------*/
+/*table*/
+table {
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+caption {
+	overflow: hidden;/*position:absolute;*/
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	font-size: 0;
+	line-height: 0;
+}
+.table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+/*table responsive 적용시 일정 브라우저 px이하에서는 table에 스크롤이 생성됩니다. */
+.table-responsive {
+	width: 100%;
+	margin-bottom: 15px;
+	overflow-y: hidden;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	border: 1px solid #ddd;
+}
+.table-responsive > .table {
+	margin-bottom: 0;
+}
+.table-responsive > .table > thead > tr > th, 
+.table-responsive > .table > tbody > tr > th, 
+.table-responsive > .table > tfoot > tr > th, 
+.table-responsive > .table > thead > tr > td, 
+.table-responsive > .table > tbody > tr > td, 
+.table-responsive > .table > tfoot > tr > td {
+	white-space: nowrap;
+}
+.table > thead > tr > th, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > tbody > tr > td, 
+.table > tfoot > tr > td {
+	padding: 5px;
+	line-height: 1.42857143;
+	vertical-align: middle;
+	border-top: 0px;
+}
+.table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #ddd;
+}
+/*table 전체에 border 선이 적용됩니다.*/
+.table-bordered {
+	border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th, 
+.table-bordered > tbody > tr > th, 
+.table-bordered > tfoot > tr > th, 
+.table-bordered > thead > tr > td, 
+.table-bordered > tbody > tr > td, 
+.table-bordered > tfoot > tr > td {
+	border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th, 
+.table-bordered > thead > tr > td {
+	border-bottom-width: 2px;
+}
+/*-------------------------------------*/
+/*기본 layout*/
+.layout-grid {
+	position: relative;
+	padding-bottom :10px;
+	clear: both;
+}
+/*필수입력 class [필수입력이 필요한 부분의 title th 및 td에 class를 사용하시면 표시가 됩니다.]*/
+.layout-grid .required:before {
+	color: red;
+	content: "*";
+}
+/*-------------------------------------*/
+/* grid layout */
+.grid-full-width {
+	width: 100%;
+	margin-bottom: 15px;
+}
+.grid-left {
+	width: 49%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left32{
+	width: 32%;
+	margin: 0 2%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-right {
+	width: 50%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+/*-------------------------------------*/
+/* form layout */
+.form-full-width {
+	width: 100%;
+	margin-bottom: 15px;
+}
+.form-left {
+	width: 49%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+
+.form-right {
+	width: 50%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+
+.form-right20 {
+	width: 20%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+
+.form-left32 {
+	width: 32%;
+	margin-bottom: 15px;
+	float: left;
+	height: auto; 
+}
+
+.form-right49 {
+	width: 49%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto; 
+}
+
+.form-right60 {
+	width: 60%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto; 
+}
+
+.form-right70 {
+	width: 70%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto; 
+}
+/*한 그리드 안에 여러개의 form 사용시*/
+.form-wrap {
+	padding-bottom: 10px;
+}
+
+.form-wrap2 {
+	padding-bottom: 2px;
+}
+
+/*한 그리드 안에 여러개의 grid 사용시*/
+.grid-wrap {
+	padding-bottom: 10px;
+}
+
+/*한 그리드 안에 여러개의 그리드 데이터 사용시 그리드 바텀부분에  margin 값 px 조정*/
+.grid-wrap-nopd {
+	padding-bottom: 6px;
+}
+.grid-br {
+	padding-bottom: 35px;
+}
+/*-------------------------------------*/
+/*grid 예외 추가*/
+.grid-left5 {
+	width: 5%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left9 {
+	width: 9%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left24 {
+ width: 24%;
+ padding-bottom: 15px;
+ float: left;
+ height: auto;
+}
+.grid-left29 {
+	width: 29%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left39 {
+	width: 39%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left40 {
+	width: 40%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+
+.grid-left45 {
+	width: 45%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+
+.grid-left50 {
+	width: 50%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left59 {
+	width: 59%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left65 {
+	width: 65%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left80 {
+	width: 80%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+
+.grid-left79 {
+	width: 79%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+.grid-left100 {
+	width:  100%;
+	padding-bottom: 15px;
+	float: left;
+	height: auto;
+}
+
+.grid-right40 {
+	width: 40%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+
+.grid-right45 {
+	width: 45%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+
+.grid-right50 {
+	width: 50%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+.grid-right60 {
+	width: 60%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+.grid-right70 {
+	width: 70%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+.grid-right75 {
+ width: 75%;
+ margin-bottom: 15px;
+ float: right;
+ height: auto;
+}
+.grid-right90 {
+	width: 90%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+.grid-right19 {
+	width: 19%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto;
+}
+.form-right34 {
+	width: 34%;
+	margin-bottom: 15px;
+	float: right;
+	height: auto; 
+}
+
+/*-------------------------------------*/
+/*width (5단위 추가생성)*/
+.width10 {
+	width: 10% !important;
+}
+.width15 {
+	width: 15% !important;
+}
+.width20 {
+	width: 20% !important;
+}
+.width25 {
+	width: 25% !important;
+}
+.width30 {
+	width: 30% !important;
+}
+.width35 {
+	width: 35% !important;
+}
+.width40 {
+	width: 40% !important;
+}
+.width45 {
+	width: 45% !important;
+}
+.width50 {
+	width: 50% !important;
+}
+.width55 {
+	width: 55% !important;
+}
+.width60 {
+	width: 60% !important;
+}
+.width65 {
+	width: 65% !important;
+}
+.width70 {
+	width: 70% !important;
+}
+.width75 {
+	width: 75% !important;
+}
+.width80 {
+	width: 80% !important;
+}
+.width85 {
+	width: 85% !important;
+}
+.width90 {
+	width: 90% !important;
+}
+.width95 {
+	width: 95% !important;
+}
+.width100 {
+	width: 100% !important;
+}
+/*width 예외 추가*/
+.grid-4 {
+	width: 24% !important;
+	margin-right: 1%;
+}
+.grid-33-0 {
+	width: 33% !important;
+	margin-right: 0%;
+}
+.grid-33-1 {
+	width: 32% !important;
+	margin-right: 1%;
+}
+.grid-34 {
+	width: 33% !important;
+	margin-right: 1%;
+}
+.width19-mg1 {
+	width: 19% !important;
+	margin-right: 1% !important;
+}
+.width29-mg1 {
+	width: 29% !important;
+	margin-right: 1% !important;
+}
+.width39-mg1 {
+	width: 39% !important;
+	margin-right: 1% !important;
+}
+.width4 {
+	width: 4% !important;
+}
+.width6 {
+	width: 6% !important;
+}
+.width46 {
+	width: 46% !important;
+}
+.width49 {
+	width: 49% !important;
+}
+.width29 {
+	width: 29% !important;
+}
+.width22 {
+	width: 22% !important;
+}
+.width23 {
+	width: 23% !important;
+}
+.width13 {
+	width: 13% !important;
+}
+.width59 {
+	width: 59% !important;
+}
+.width62 {
+	width: 62% !important;
+}
+.width69 {
+	width: 69% !important;
+}
+.width67 {
+	width: 67% !important;
+}
+.width39 {
+	width: 39% !important;
+}
+
+/* spin width area */
+.spin-width-area {
+	float: left;
+	vertical-align: middle;
+	padding:50px 8px;
+	display:inline-block;
+}
+/* title btn-y-group 안에서의 form style처리 */
+.width120px {width:120px !important; }
+/*-------------------------------------*/
+/*height*/
+.height20 {
+	height: 20px !important;
+}
+.height25 {
+	height: 25px !important;
+}
+.height30 {
+	height: 30px !important;
+}
+.height35 {
+	height: 35px !important;
+}
+.height40 {
+	height: 40px !important;
+}
+.height45 {
+	height: 45px !important;
+}
+.height50 {
+	height: 50px !important;
+}
+.height100 {
+	height: 100px !important;
+}
+.height150 {
+	height: 150px !important;
+}
+.height200 {
+	height: 200px !important;
+}
+.height250 {
+	height: 250px !important;
+}
+.height300 {
+	height: 300px !important;
+}
+.height350 {
+	height: 350px !important;
+}
+.height400 {
+	height: 400px !important;
+}
+.height450 {
+	height: 400px !important;
+}
+.height500 {
+	height: 500px !important;
+}
+.height600 {
+	height: 600px !important;
+}
+/*height 예외 추가*/
+.height59 {
+	height: 59px !important;
+}
+.height78 {
+	height: 78px !important;
+}
+.height80 {
+	height: 80px !important;
+}
+.height115 {
+	height: 115px !important;
+}
+.height109 {
+	height: 109px !important;
+}
+.hg100 {height: 100% !important;}
+/*-------------------------------------*/
+/*input align (input안에 다양한 위치조정을 위해 사용 ※ 기본 left 정렬)*/
+.input-align-right {
+	text-align: right;
+}
+.input-align-center {
+	text-align: center;
+}
+/*-------------------------------------*/
+/*margin+*/
+.mg5 {margin:5px 0px;}
+/*-------------------------------------*/
+/*말줄임 css*/
+.ellipsis{ 
+ overflow: hidden;
+ text-overflow: ellipsis;
+ /*display: -webkit-box;*/
+ -webkit-line-clamp: 1; /* 라인수 */
+ -webkit-box-orient: vertical;
+ word-wrap:break-word; 
+} 
+
+input.han, textarea.han {
+	-webkit-ime-mode:active;
+	-moz-ime-mode:active;
+	-ms-ime-mode:active;
+	-o-ime-mode:active;
+	ime-mode:active;
+}

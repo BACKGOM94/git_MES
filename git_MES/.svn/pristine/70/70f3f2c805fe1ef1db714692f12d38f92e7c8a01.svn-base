@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="m510">
+	<typeAlias  alias="M510VO" type="gom.vo.M510VO"/>
+
+	<resultMap id="M5101010_1_View" class="M510VO">
+		<result property="equi_NM" column="equi_NM" columnIndex="1"/>
+		<result property="equi_location" column="equi_location" columnIndex="2"/>
+		<result property="equi_standard" column="equi_standard" columnIndex="3"/>
+		<result property="memo" column="memo" columnIndex="4"/>
+		<result property="last_DT" column="last_DT" columnIndex="5"/>
+		<result property="last_TM" column="last_TM" columnIndex="6"/>
+	</resultMap>
+		
+	<resultMap id="equi_monitor" class="M510VO">
+		<result property="view_spot" column="view_spot" columnIndex="1"/>
+		<result property="item_NM" column="item_NM" columnIndex="2"/>
+		<result property="target_CT" column="target_CT" columnIndex="3"/>
+		<result property="read_TM" column="read_TM" columnIndex="4"/>
+		<result property="count" column="count" columnIndex="5"/>
+		<result property="error_count" column="error_count" columnIndex="6"/>
+	</resultMap>
+
+	<resultMap id="M5101030_1_View" class="M510VO">
+		<result property="equi_CD" column="equi_CD" columnIndex="1"/>
+		<result property="equi_NM" column="equi_NM" columnIndex="2"/>
+		<result property="equi_location" column="equi_location" columnIndex="3"/>
+		<result property="equi_standard" column="equi_standard" columnIndex="4"/>
+		<result property="memo" column="memo" columnIndex="5"/>
+		<result property="total_make" column="total_make" columnIndex="6"/>
+		<result property="total_error" column="total_error" columnIndex="7"/>
+		<result property="error_percent" column="error_percent" columnIndex="8"/>
+	</resultMap>
+	
+	<resultMap id="M5101030_2_View" class="M510VO">
+		<result property="check_DT" column="check_DT" columnIndex="1"/>
+		<result property="total_make" column="total_make" columnIndex="2"/>
+		<result property="total_error" column="total_error" columnIndex="3"/>
+	</resultMap>
+		
+	<resultMap id="M5102010_1_View" class="M510VO">
+		<result property="equi_NM" column="equi_NM" columnIndex="1"/>
+		<result property="equi_location" column="equi_location" columnIndex="2"/>
+		<result property="equi_standard" column="equi_standard" columnIndex="3"/>
+		<result property="check_DT" column="check_DT" columnIndex="4"/>
+		<result property="check_TM" column="check_TM" columnIndex="5"/>
+		<result property="error_FL" column="error_FL" columnIndex="6"/>
+		<result property="equi_CD" column="equi_CD" columnIndex="7"/>
+	</resultMap>
+	
+	<resultMap id="M5102030_1_View" class="M510VO">
+		<result property="equi_CD" column="equi_CD" columnIndex="1"/>
+		<result property="equi_NM" column="equi_NM" columnIndex="2"/>
+		<result property="equi_location" column="equi_location" columnIndex="3"/>
+		<result property="equi_standard" column="equi_standard" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="M5102030_2_View" class="M510VO">
+		<result property="check_DT" column="check_DT" columnIndex="1"/>
+		<result property="ing_time" column="ing_time" columnIndex="2"/>
+		<result property="total_make" column="total_make" columnIndex="3"/>
+	</resultMap>
+	
+	<resultMap id="M5102040_2_View" class="M510VO">
+		<result property="check_DT" column="check_DT" columnIndex="1"/>
+		<result property="total_make" column="total_make" columnIndex="2"/>
+		<result property="total_error" column="total_error" columnIndex="3"/>
+	</resultMap>
+	
+	<resultMap id="M5102050_1_View" class="M510VO">
+		<result property="comp_CD" column="comp_CD" columnIndex="1"/>
+		<result property="kpiFld_CD" column="kpiFld_CD" columnIndex="2"/>
+		<result property="kpiDtl_CD" column="kpiDtl_CD" columnIndex="3"/>
+		<result property="send_DTTM" column="send_DTTM" columnIndex="4"/>
+		<result property="value" column="value" columnIndex="5"/>
+		<result property="rate" column="rate" columnIndex="6"/>
+		<result property="level" column="level" columnIndex="7"/>
+	</resultMap>
+	
+	<resultMap id="M5102060_1_View" class="M510VO">
+		<result property="kpiFld_CD" column="kpiFld_CD" columnIndex="1"/>
+		<result property="kpiDtl_CD" column="kpiDtl_CD" columnIndex="2"/>
+		<result property="unit" column="unit" columnIndex="3"/>
+		<result property="cycle" column="cycle" columnIndex="4"/>
+		<result property="befor_CT" column="befor_CT" columnIndex="5"/>
+		<result property="taget_CT" column="taget_CT" columnIndex="6"/>
+		<result property="improvement_rate" column="improvement_rate" columnIndex="7"/>
+		<result property="achievement_rate" column="achievement_rate" columnIndex="8"/>
+	</resultMap>
+	
+	
+	<resultMap id="equi" class="M510VO">
+		<result property="view_spot" column="view_spot" columnIndex="1"/>
+		<result property="comp_CD" column="comp_CD" columnIndex="2"/>
+		<result property="equi_CD" column="equi_CD" columnIndex="3"/>
+		<result property="equi_location" column="equi_location" columnIndex="4"/>
+		<result property="target_CT" column="target_CT" columnIndex="5"/>
+		<result property="item_CD" column="item_CD" columnIndex="6"/>
+		<result property="cycle" column="cycle" columnIndex="7"/>
+		<result property="memo" column="memo" columnIndex="8"/>
+	</resultMap>
+	
+	<resultMap id="get_kpi_List" class="M510VO">
+		<result property="comp_CD" column="comp_CD" columnIndex="1"/>
+		<result property="kpiFld_CD" column="kpiFld_CD" columnIndex="2"/>
+		<result property="kpiDtl_CD" column="kpiDtl_CD" columnIndex="3"/>
+		<result property="Cert_Key" column="Cert_Key" columnIndex="4"/>
+		<result property="taget_CT" column="taget_CT" columnIndex="5"/>
+		<result property="unit" column="unit" columnIndex="6"/>
+		<result property="befor_CT" column="befor_CT" columnIndex="6"/>
+	</resultMap>
+	
+	<!-- M5101010_1_View -->
+	<select id="M510DAO.M5101010_1_View" resultMap="M5101010_1_View">
+		<![CDATA[
+			SELECT
+				A.equi_NM,
+				A.equi_location,
+				A.equi_standard,
+				A.memo,
+				MAX(B.check_DT) last_DT,
+				(SELECT MAX(C.check_TM) FROM Data_equipment_TB C WHERE C.comp_CD = A.comp_CD AND C.equi_CD = A.equi_CD AND C.check_DT = MAX(B.check_DT)) last_TM
+			FROM
+				Master_equipment_TB A
+			LEFT JOIN Data_equipment_TB B
+			ON A.equi_CD = B.equi_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1 
+				AND A.comp_CD = #comp_CD#
+				AND A.del_FL = 0
+			GROUP BY A.equi_CD
+		]]>
+	</select>
+	
+	<!-- M5101020_1_View -->
+	<select id="M510DAO.M5101020_1_View" resultMap="equi_monitor">
+		<![CDATA[
+			SELECT
+				A.view_spot,
+				B.item_NM,
+				A.target_CT,				
+				IF(A.cycle = 1 , (SELECT AVG(read_TM) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND check_DT = CURDATE()),
+				IF(A.cycle = 2 , (SELECT AVG(read_TM) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND check_DT BETWEEN DATE_ADD(CURDATE(),INTERVAL -WEEKDAY(CURDATE()) DAY) AND CURDATE()),
+				IF(A.cycle = 3 , (SELECT AVG(read_TM) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND check_DT BETWEEN LAST_DAY(NOW() - INTERVAL 1 MONTH) + INTERVAL 1 DAY AND CURDATE()), 0 ))) read_TM,
+				IF(A.cycle = 1 , (SELECT COUNT(equi_CD) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND check_DT = CURDATE()),
+				IF(A.cycle = 2 , (SELECT COUNT(equi_CD) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND check_DT BETWEEN DATE_ADD(CURDATE(),INTERVAL -WEEKDAY(CURDATE()) DAY) AND CURDATE()),
+				IF(A.cycle = 3 , (SELECT COUNT(equi_CD) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND check_DT BETWEEN LAST_DAY(NOW() - INTERVAL 1 MONTH) + INTERVAL 1 DAY AND CURDATE()), 0 ))) COUNT,
+				IF(A.cycle = 1 , (SELECT COUNT(equi_CD) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND error_FL = 1 AND check_DT = CURDATE()),
+				IF(A.cycle = 2 , (SELECT COUNT(equi_CD) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND error_FL = 1 AND check_DT BETWEEN DATE_ADD(CURDATE(),INTERVAL -WEEKDAY(CURDATE()) DAY) AND CURDATE()),
+				IF(A.cycle = 3 , (SELECT COUNT(equi_CD) FROM Data_equipment_TB WHERE comp_CD = #comp_CD# AND error_FL = 1 AND check_DT BETWEEN LAST_DAY(NOW() - INTERVAL 1 MONTH) + INTERVAL 1 DAY AND CURDATE()), 0 ))) error_count
+			FROM View_equipment_TB A
+			LEFT JOIN Master_item_TB B
+			ON A.item_CD = B.item_CD AND A.comp_CD = B.comp_CD
+			WHERE A.comp_CD = #comp_CD#
+		]]>
+	</select>
+		
+	<!-- M5101021_1_View -->
+	<select id="M510DAO.M5101021_1_View" resultMap="equi">
+		<![CDATA[
+			SELECT 
+				A.view_spot,
+				#comp_CD# comp_CD,
+				IFNULL((SELECT B.equi_CD FROM View_equipment_TB B WHERE B.comp_CD = #comp_CD# AND B.view_spot = A.view_spot),'') equi_CD,
+				(SELECT C.equi_location FROM Master_equipment_TB C WHERE C.comp_CD = #comp_CD# AND C.equi_CD =
+				(SELECT B.item_CD FROM View_equipment_TB B WHERE B.comp_CD = #comp_CD# AND B.view_spot = A.view_spot)) equi_location,				
+				IFNULL((SELECT B.target_CT FROM View_equipment_TB B WHERE B.comp_CD = #comp_CD# AND B.view_spot = A.view_spot),0) target_CT,
+				IFNULL((SELECT B.item_CD FROM View_equipment_TB B WHERE B.comp_CD = #comp_CD# AND B.view_spot = A.view_spot),'') item_CD,
+				IFNULL((SELECT B.cycle FROM View_equipment_TB B WHERE B.comp_CD = #comp_CD# AND B.view_spot = A.view_spot),0) cycle,
+				(SELECT B.memo FROM View_equipment_TB B WHERE B.comp_CD = #comp_CD# AND B.view_spot = A.view_spot) memo
+			FROM (SELECT 1 view_spot UNION SELECT 2  UNION SELECT 3  UNION SELECT 4  UNION SELECT 5  UNION SELECT 6) A
+			ORDER BY A.view_spot
+		]]>
+	</select>
+
+	<!-- M5101021_1_Insert   -->
+	<insert id="M510DAO.M5101021_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				View_equipment_TB(
+					comp_CD,
+					equi_CD,
+					view_spot,
+					target_CT,
+					item_CD,
+					cycle,
+					memo
+				) VALUE (
+					#comp_CD#,
+					#equi_CD#,
+					#view_spot#,
+					#target_CT#,
+					#item_CD#,
+					#cycle#,
+					#memo#
+				) ON DUPLICATE KEY UPDATE 
+					equi_CD = #equi_CD#,
+					target_CT = #target_CT#,
+					item_CD = #item_CD#,
+					cycle = #cycle#,
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M5101021_1_Delete   -->
+	<delete id="M510DAO.M5101021_1_Delete" >
+		<![CDATA[
+			DELETE FROM View_equipment_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND view_spot = #view_spot#
+		]]>
+	</delete>
+	
+	<!-- M5101030_1_View -->
+	<select id="M510DAO.M5101030_1_View" resultMap="M5101030_1_View">
+		<![CDATA[
+			SELECT 
+				A.equi_CD,
+				A.equi_NM,
+				A.equi_location,
+				A.equi_standard,
+				A.memo,
+				(SELECT COUNT(B.error_FL) FROM Data_equipment_TB B WHERE B.comp_CD = A.comp_CD AND B.equi_CD = A.equi_CD AND B.error_FL = 0) total_make,
+				(SELECT COUNT(B.error_FL) FROM Data_equipment_TB B WHERE B.comp_CD = A.comp_CD AND B.equi_CD = A.equi_CD AND B.error_FL = 1) total_error,
+				((SELECT COUNT(B.error_FL) FROM Data_equipment_TB B WHERE B.comp_CD = A.comp_CD AND B.equi_CD = A.equi_CD AND B.error_FL = 1)/
+				(SELECT COUNT(B.error_FL) FROM Data_equipment_TB B WHERE B.comp_CD = A.comp_CD AND B.equi_CD = A.equi_CD) * 100) error_percent
+			FROM Master_equipment_TB A
+			WHERE 1=1 
+				AND A.comp_CD = #comp_CD#
+				AND A.del_FL = 0
+		]]>
+	</select>
+
+	<!-- M5101030_2_View -->
+	<select id="M510DAO.M5101030_2_View" resultMap="M5101030_2_View">
+		<![CDATA[
+			SELECT 
+				A.check_DT,
+				(SELECT COUNT(B.check_DT) FROM Data_equipment_TB B WHERE A.comp_CD = B.comp_CD AND A.equi_CD = B.equi_CD AND B.check_DT = A.check_DT AND B.error_FL = 0) total_make,
+				(SELECT COUNT(B.check_DT) FROM Data_equipment_TB B WHERE A.comp_CD = B.comp_CD AND A.equi_CD = B.equi_CD AND B.check_DT = A.check_DT AND B.error_FL = 1) total_error
+			FROM Data_equipment_TB A
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.equi_CD = #equi_CD#
+			GROUP BY A.check_DT
+			ORDER BY A.check_DT DESC
+		]]>
+	</select>
+	
+	<!-- M5102010_1_View -->
+	<select id="M510DAO.M5102010_1_View" resultMap="M5102010_1_View">
+		<![CDATA[
+			SELECT                                     
+				B.equi_NM,                              
+				B.equi_location,                        
+				B.equi_standard,                        
+				A.check_DT,                             
+				A.check_TM,                             
+				A.error_FL,
+				B.equi_CD            
+			FROM Data_equipment_TB A                   
+			LEFT JOIN Master_equipment_TB B            
+			ON A.comp_CD = B.comp_CD AND A.equi_CD = B.equi_CD
+			WHERE 1=1                                  
+				AND B.comp_CD = #comp_CD#               
+				AND B.del_FL = 0                        
+			ORDER BY A.check_DT DESC , A.check_TM DESC 
+		]]>
+	</select>
+	
+	<!-- M5102020_1_View -->
+	<select id="M510DAO.M5102020_1_View" resultMap="M5102010_1_View">
+		<![CDATA[
+			SELECT                                   
+				B.equi_NM,                              
+				B.equi_location,                        
+				B.equi_standard,                        
+				A.check_DT,                             
+				A.check_TM,                             
+				A.error_FL,
+				B.equi_CD      
+			FROM Data_equipment_TB A                   
+			LEFT JOIN Master_equipment_TB B            
+			ON A.comp_CD = B.comp_CD AND A.equi_CD = B.equi_CD
+			WHERE 1=1                                  
+				AND B.comp_CD = #comp_CD#               
+				AND B.del_FL = 0                        
+			ORDER BY A.check_DT DESC , A.check_TM DESC 
+		]]>
+	</select>
+	
+	<!-- M5102020_1_Insert -->
+	<update id="M510DAO.M5102020_1_Insert">
+		<![CDATA[
+			UPDATE Data_equipment_TB
+			SET error_FL = #error_FL#
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND equi_CD = #equi_CD#
+				AND check_DT = #check_DT#
+				AND check_TM = #check_TM#	
+		]]>
+	</update>
+	
+	<!-- M5102030_1_View -->
+	<select id="M510DAO.M5102030_1_View" resultMap="M5102030_1_View">
+		<![CDATA[
+			SELECT 
+				equi_CD,
+				equi_NM,
+				equi_location,
+				equi_standard
+			FROM Master_equipment_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- M5102030_2_View -->
+	<select id="M510DAO.M5102030_2_View" resultMap="M5102030_2_View">
+		<![CDATA[
+			SELECT 
+				A.check_DT,
+				(SELECT
+					TIMESTAMPDIFF(minute,MIN(B.check_TM),MAX(B.check_TM)) 
+				FROM Data_equipment_TB B 
+				WHERE 1=1
+					AND B.comp_CD = A.comp_CD 
+					AND B.equi_CD = A.equi_CD 
+					AND B.check_DT = A.check_DT) ing_time,
+				(SELECT 
+					COUNT(check_TM)
+				FROM Data_equipment_TB B 	
+				WHERE 1=1
+					AND B.comp_CD = A.comp_CD 
+					AND B.equi_CD = A.equi_CD 
+					AND B.check_DT = A.check_DT) total_make
+			FROM 
+				Data_equipment_TB A 
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.equi_CD = #equi_CD#
+			GROUP BY A.check_DT
+			ORDER BY A.check_DT DESC 
+		]]>
+	</select>
+		
+	<!-- M5102040_1_View -->
+	<select id="M510DAO.M5102040_1_View" resultMap="M5102030_1_View">
+		<![CDATA[
+			SELECT 
+				equi_CD,
+				equi_NM,
+				equi_location,
+				equi_standard
+			FROM Master_equipment_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- M5102040_2_View -->
+	<select id="M510DAO.M5102040_2_View" resultMap="M5102040_2_View">
+		<![CDATA[
+			SELECT 
+				A.check_DT,
+				(SELECT 
+					COUNT(check_TM)
+				FROM Data_equipment_TB B 	
+				WHERE 1=1
+					AND B.comp_CD = A.comp_CD 
+					AND B.equi_CD = A.equi_CD 
+					AND B.check_DT = A.check_DT
+					AND B.error_FL = 0) total_make,
+				(SELECT 
+					COUNT(check_TM)
+				FROM Data_equipment_TB B 	
+				WHERE 1=1
+					AND B.comp_CD = A.comp_CD 
+					AND B.equi_CD = A.equi_CD 
+					AND B.check_DT = A.check_DT
+					AND B.error_FL = 1) total_error
+			FROM 
+				Data_equipment_TB A 
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.equi_CD = #equi_CD#
+			GROUP BY A.check_DT
+			ORDER BY A.check_DT DESC 
+		]]>
+	</select>
+
+	<!-- M5102050_1_View -->
+	<select id="M510DAO.M5102050_1_View" resultMap="M5102050_1_View">
+		<![CDATA[
+			SELECT
+				comp_CD,
+				kpiFld_CD,
+				kpiDtl_CD,
+				send_DTTM,
+				value,
+				rate,
+				level
+			FROM kpi_Log_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND DATE_FORMAT(send_DTTM, '20%y-%m-%d') BETWEEN #start_date# AND #end_date#
+				AND LEVEL = 1
+		]]>
+	</select>
+	
+		<!-- M5102050_2_View -->
+	<select id="M510DAO.M5102050_2_View" resultMap="M5102050_1_View">
+		<![CDATA[
+			SELECT
+				comp_CD,
+				kpiFld_CD,
+				kpiDtl_CD,
+				send_DTTM,
+				value,
+				rate,
+				level
+			FROM kpi_Log_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND DATE_FORMAT(send_DTTM, '20%y-%m-%d') BETWEEN #start_date# AND #end_date#
+				AND LEVEL = 2
+		]]>
+	</select>
+	
+		<!-- M5102050_3_View -->
+	<select id="M510DAO.M5102050_3_View" resultMap="M5102050_1_View">
+		<![CDATA[
+			SELECT
+				comp_CD,
+				kpiFld_CD,
+				kpiDtl_CD,
+				send_DTTM,
+				value,
+				rate,
+				level
+			FROM kpi_Log_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND DATE_FORMAT(send_DTTM, '20%y-%m-%d') BETWEEN #start_date# AND #end_date#
+				AND LEVEL = 3
+		]]>
+	</select>
+	
+	<!-- M5102060_1_View -->
+	<select id="M510DAO.M5102060_1_View" resultMap="M5102060_1_View">
+		<![CDATA[
+			SELECT 
+				A.kpiFld_CD,
+				A.kpiDtl_CD,
+				A.unit,
+				A.cycle,
+				A.befor_CT,
+				A.taget_CT,
+				AVG(B.rate) improvement_rate,
+				IF(A.befor_CT >= A.taget_CT,
+				((A.befor_CT - A.taget_CT) * AVG(B.rate) / A.taget_CT),
+				((A.taget_CT - A.befor_CT) * AVG(B.rate) / A.befor_CT)) achievement_rate
+			FROM kpi_List_TB A
+			LEFT JOIN kpi_Log_TB B
+			ON A.comp_CD = B.comp_CD AND
+				A.kpiFld_CD = B.kpiFld_CD and
+				A.kpiDtl_CD = B.kpiDtl_CD
+			WHERE 1=1
+				AND A.cycle != 0
+				AND A.comp_CD = #comp_CD#
+			GROUP BY B.comp_CD,B.kpiFld_CD,B.kpiDtl_CD
+		]]>
+	</select>
+	
+	<!-- equi_CD 변환시 equi_location 반환 -->
+	<select id="M510DAO.get_equi_location" resultClass="String">
+		<![CDATA[
+			SELECT equi_location      
+			FROM Master_equipment_TB  
+			WHERE 1=1                 
+				AND comp_CD = #comp_CD#  
+				AND equi_CD = #equi_CD#
+		]]>
+	</select>
+	
+	<!-- M510_DataIn_insert -->
+	<insert id="M510DAO.M510_DataIn">
+		<![CDATA[
+			INSERT INTO 
+				Data_equipment_TB(
+					comp_CD,
+					equi_CD,
+					read_TM,
+					check_DT,
+					check_TM,
+					error_FL
+				) VALUE (
+					#comp_CD#,
+					#equi_CD#,
+					#read_TM#,
+					CURDATE(),
+					CURTIME(),
+					0
+				)
+		]]>
+	</insert>
+	
+	<!-- 실행해야하는 kpi 리스트를 가져옴 -->
+	<select id="M510DAO.get_kpi_List" resultMap="get_kpi_List">
+		<![CDATA[
+			SELECT 
+				comp_CD,
+				kpiFld_CD,
+				kpiDtl_CD,
+				Cert_Key,
+				taget_CT,
+				unit,
+				befor_CT
+			FROM
+				kpi_List_TB
+			WHERE
+				cycle = #cycle#
+		]]>
+	</select>
+	
+	<!-- 실행해야하는 kpi 리스트를 가져옴 -->
+	<select id="M510DAO.get_kpi_read_time" resultClass="String">
+		<![CDATA[
+			SELECT
+				IFNULL(ROUND(AVG(read_TM)/60,1),0) read_TM
+			FROM 
+				Data_equipment_TB 
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND check_DT BETWEEN IF(#cycle#=1,CURDATE(),IF(#cycle#=2,ADDDATE(CURDATE(),-WEEKDAY(CURDATE())),IF(#cycle#=3,DATE_FORMAT(CURDATE(), '%Y-%m-01'),CURDATE()))) AND CURDATE()
+		]]>
+	</select>
+	
+	<!-- 실행해야하는 kpi 리스트를 가져옴 -->
+	<select id="M510DAO.get_kpi_count" resultClass="String">
+		<![CDATA[
+			SELECT
+				COUNT(*) count
+			FROM 
+				Data_equipment_TB 
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND check_DT BETWEEN IF(#cycle#=1,CURDATE(),IF(#cycle#=2,ADDDATE(CURDATE(),-WEEKDAY(CURDATE())),IF(#cycle#=3,DATE_FORMAT(CURDATE(), '%Y-%m-01'),CURDATE()))) AND CURDATE()
+		]]>
+	</select>
+	
+	<!-- 실행해야하는 kpi 리스트를 가져옴 -->
+	<select id="M510DAO.get_kpi_error_count" resultClass="String">
+		<![CDATA[
+			SELECT
+				COUNT(*) count
+			FROM 
+				Data_equipment_TB 
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND error_FL = 1
+				AND check_DT BETWEEN IF(#cycle#=1,CURDATE(),IF(#cycle#=2,ADDDATE(CURDATE(),-WEEKDAY(CURDATE())),IF(#cycle#=3,DATE_FORMAT(CURDATE(), '%Y-%m-01'),CURDATE()))) AND CURDATE()
+		]]>
+	</select>
+	
+	<!-- kpi_log_insert -->
+	<insert id="M510DAO.kpi_log_insert">
+		<![CDATA[
+			INSERT INTO 
+				kpi_Log_TB(
+					comp_CD,
+					kpiFld_CD,
+					kpiDtl_CD,
+					send_DTTM,
+					value,
+					rate,
+					level
+				) VALUE (
+					#comp_CD#,
+					#kpiFld_CD#,
+					#kpiDtl_CD#,
+					#send_DTTM#,
+					#value#,
+					#rate#,
+					#level#
+				)
+		]]>
+	</insert>
+</sqlMap>

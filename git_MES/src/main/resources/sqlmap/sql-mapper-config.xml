@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<sqlMap resource="sqlmap/mappers/m100.xml"/>
+	<sqlMap resource="sqlmap/mappers/m210.xml"/>
+	<sqlMap resource="sqlmap/mappers/m310.xml"/>
+	<sqlMap resource="sqlmap/mappers/m510.xml"/>
+	<sqlMap resource="sqlmap/mappers/m970.xml"/>
+	<sqlMap resource="sqlmap/mappers/m980.xml"/>
+	<sqlMap resource="sqlmap/mappers/m990.xml"/>
+    <sqlMap resource="sqlmap/mappers/common.xml"/>
+</sqlMapConfig>

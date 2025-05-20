@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>IBTab7</title>
+
+
+    <script src="ibmditab.js"></script>
+    <script src="ibmditabinfo.js"></script>
+
+
+    <!-- jQuery -->
+    <script src="../../../../libs/jquery/jquery/dist/jquery.js"></script>
+
+
+
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!--<link rel="stylesheet" href="../common/css/style.css"/>-->
+        <style>
+            iframe {
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        </style>
+        <!--<script type="text/javascript" src="../common/js/public.js"></script>-->
+        <script src="../common/js/tytabs.jquery.min.js" type="text/javascript"></script>
+        <!--<script type="text/javascript" src="./js/ibmditab.js"></script>-->
+        <script type="text/javascript" src="ibmditabinfo.js"></script>
+        <script type="text/javascript" src="../sheet/ibsheet.js"></script>
+        <script type="text/javascript" src="../sheet/ibsheetinfo.js"></script>
+        <!--<script type="text/javascript" src=".ibmditabscroll.js"></script>-->
+        <script type="text/javascript">
+            var childrenSize = 600;
+            $(document).ready(function(){
+                //시트 초기화
+                var initData = {};
+                initData.Cfg = {SearchMode:smLazyLoad,Page:30};
+                initData.HeaderMode = {Sort:0,ColMove:1,ColResize:1,HeaderCheck:0};
+                initData.Cols = [
+                    {Header:"발령일",Type:"Text",Align:"Center",Width:140},
+                    {Header:"발령유형",Type:"Text",Align:"Center",Width:140},
+                    {Header:"발령사유",Type:"Text",Align:"Center",Width:140},
+                    {Header:"소속",Type:"Text",Align:"Center",Width:140},
+                    {Header:"직무",Type:"Text",Align:"Center",Width:140}
+                ];
+                IBS_InitSheet(orderSheet,initData);
+
+                orderSheet.DoSearch("data.xml");
+
+            });
+            var item = new Array(["기본정보", "", "./images/01.gif"],
+                    ["상세정보", "", ""],
+                    ["발령정보", "", ""],
+                    ["병역정보", "", ""]
+            );
+
+            function PageLoad()
+            {
+                myIBTab1.Init(1, true, true);
+                myIBTab1.SetContentOutline(true);
+                myIBTab1.SetTabItemLayout(1);
+                myIBTab1.SetTabUserWidth(180);
+                myIBTab1.SetViewTabCount(6);
+                myIBTab1.SetTabTitleAlign("center");
+                myIBTab1.SetSelectFontBold(true);
+                myIBTab1.SetTabCloseButtonUse(false);
+                for(var i=0;i<item.length;i++){
+                    myIBTab1.InsertItem(item[i][0], item[i][1], item[i][2]);
+                }
+                myIBTab1.SetSelectedIndex(0);
+
+                var IEVersion;
+                var userAgent = navigator.userAgent;
+                userAgent = userAgent.toLowerCase();
+
+                if (userAgent.indexOf("msie") > -1) {
+                    userAgent = "IE";
+                    var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+                    if (re.exec(navigator.userAgent) != null) {
+                        IEVersion = parseFloat(RegExp.$1);
+                        if (isNaN(IEVersion) == true) {
+                            if (userAgent.indexOf("msie 5") > -1) { IEVersion = 5; }
+                            if (userAgent.indexOf("msie 6") > -1) { IEVersion = 6; }
+                            if (userAgent.indexOf("msie 7") > -1) { IEVersion = 7; }
+                            if (userAgent.indexOf("msie 8") > -1) { IEVersion = 8; }
+                            if (userAgent.indexOf("msie 9") > -1) { IEVersion = 9; }
+                        }
+                    }
+                }
+                if(userAgent == "IE" && IEVersion == 6){
+                    window.onresizeed = OnWindowResize;
+                }else{
+                    window.onresize = OnWindowResize;
+                }
+                resizeWidth(myIBTab1);
+            }
+            function myIBTab1_OnChange(x,curidx, oldidx) {
+
+                $("#tab"+curidx).show();
+                $("#tab"+oldidx).hide();
+            }
+
+            function OnWindowResize() {
+                var objTable = document.getElementById("divMain");
+                resizeWidth(myIBTab1);
+            }
+
+            function doAction(sAction)
+            {
+                switch(sAction)
+                {
+                    case "insert":      //조회
+                        // 탭을 추가한다.
+                        var next = myIBTab1.GetCount()+1;
+                        var id = myIBTab1.InsertItem("TAB"+next, "./tabpage.jsp?pageName="+next, "");
+
+
+
+                        break;
+                    case "delete":      //
+                        myIBTab1.DeleteItem(-1, false);
+                        break;
+                    case "removeall":      //
+                        myIBTab1.RemoveAll(true);
+                        break;
+                }
+            }
+
+            function resizeWidth(obj)
+            {
+                var isMobileDevice = false;
+
+                var userAgent = navigator.userAgent;
+                userAgent = userAgent.toLowerCase();
+
+                var mobilePhones = new Array('iphone', 'ipad', 'ipod', 'android', 'blackberry', 'windows ce', 'nokia', 'webos', 'opera mini', 'sonyericsson', 'opera mobi', 'iemobile');
+                for (var i = 0; i < mobilePhones.length; i++) {
+                    if (userAgent.indexOf(mobilePhones[i]) > -1) {
+                        isMobileDevice = true;
+                    }
+                }
+                if(!isMobileDevice)
+                    obj.SetWidth(document.body.clientWidth-40);
+            }
+        </script>
+    </head>
+
+<body  onload='PageLoad();' style="overflow:hidden">
+<div class="page_title">
+    <span class="title"><b>기본 기능</b></span>
+</div>
+
+
+<div class="main_content">
+    <div class="exp_product">
+        MDITab 컨트롤의 기본 스타일 및 기능을 확인한다.
+    </div>
+
+    <div class="ib_function">
+        <a href="javascript:doAction('insert')" class="md-btn btn-set md-raised m-b-sm w-xs indigo">추가</a>
+        <a href="javascript:doAction('delete')" class="md-btn btn-set md-raised m-b-sm w-xs ib-red">삭제</a>
+        <a href="javascript:doAction('removeall')" class="md-btn btn-set md-raised m-b-sm w-xs ib-red">전체삭제</a>
+    </div>
+
+    <div id='divMain' style="margin-top:20px">
+        <script type="text/javascript">
+            createIBMDITab("myIBTab1", "700px", "26px");
+        </script>
+    </div>
+    <div id="tab0" class="templateTab">
+        <table class="tb01">
+            <colgroup>
+                <col style="width:30%;"></col>
+                <col style="width:12%;"></col>
+                <col style="width:23%;"></col>
+                <col style="width:12%;"></col>
+                <col style="width:23%;"></col>
+            </colgroup>
+            <tr>
+                <td class="bg02_c" rowspan="6">
+                    <img id="EMP_IMG" src="./images/sawon.jpg" >
+                    <br><br>
+                    <img src="./images/file_up.gif"  style="cursor:hand;"  onclick="file_upload();">
+                </td>
+                <td class="bg01_r">사번</td>
+                <td class="bg02_l">0010000</td>
+                <td class="bg01_r" >성명</td>
+                <td class="bg02_l">홍길동</td>
+            </tr>
+            <tr>
+                <td class="bg01_r">소속</td>
+                <td class="bg02_l">개발팀</td>
+                <td class="bg01_r">고용상태</td>
+                <td class="bg02_l">재직</td>
+            </tr>
+            <tr>
+                <td class="bg01_r">직책</td>
+                <td class="bg02_l">과장</td>
+                <td class="bg01_r">직무</td>
+                <td class="bg02_l">유지보수팀장</td>
+            </tr>
+            <tr>
+                <td class="bg01_r">입사일</td>
+                <td class="bg02_l">2099-01-01</td>
+                <td class="bg01_r">퇴직일</td>
+                <td class="bg02_l"></td>
+            </tr>
+
+            <tr>
+                <td class="bg01_r">입사구분</td>
+                <td class="bg02_l">NULL</td>
+                <td class="bg01_r">휴대전화</td>
+                <td class="bg02_l">010-6272-9510</td>
+            </tr>
+            <tr>
+                <td class="bg01_r">주소</td>
+                <td colspan="3" class="bg02_l" id="EMP_ADDRESS">부산시 금정구 두실로45번길 53, 2층(구서동)</td>
+            </tr>
+        </table>
+    </div>
+    <div id="tab1" class="templateTab">
+        <table class="tb01">
+            <colgroup>
+                <col style="width:20%;"></col>
+                <col style="width:30%;"></col>
+                <col style="width:20%;"></col>
+                <col style="width:30%;"></col>
+            </colgroup>
+            <tr>
+                <td class="bg01_r">한자</td>
+                <td class="bg02_l">
+                    洪吉童
+                </td>
+                <td class="bg01_r">영문</td>
+                <td class="bg02_l">
+                    Gil-dong Hong
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">혈액형</td>
+                <td class="bg02_l">
+                    Rh+ A
+                </td>
+                <td class="bg01_r">결혼기념일</td>
+                <td class="bg02_l">
+                    2099-01-01
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">생년월일</td>
+                <td class="bg02_l">
+                    2099-01-01
+                </td>
+                <td class="bg01_r">사내전화</td>
+                <td class="bg02_l">
+                    010-6272-9510
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">본적</td>
+                <td class="bg02_l" colspan="3">
+                    부산시 금정구 구서동
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="tab2" class="templateTab">
+        <script>
+            createIBSheet("orderSheet","700px","200px");
+        </script>
+    </div>
+    <div id="tab3" class="templateTab">
+        <table cellpadding="0" cellspacing="1" border="0" width="95%" class="tb01">
+            <colgroup>
+                <col style="width:20%;"></col>
+                <col style="width:30%;"></col>
+                <col style="width:20%;"></col>
+                <col style="width:30%;"></col>
+            </colgroup>
+            <tr>
+                <td class="bg01_r">
+                    병역
+                </td>
+                <td class="bg02_l">
+                    만기제대
+                </td>
+                <td class="bg01_r">
+                    역종
+                </td>
+                <td class="bg02_l">
+                    기타
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">
+                    군별
+                </td>
+                <td class="bg02_l">
+                    육군
+                </td>
+                <td class="bg01_r">
+                    병과
+                </td>
+                <td class="bg02_l">
+                    통신
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">
+                    계급
+                </td>
+                <td class="bg02_l">
+                    병장
+                </td>
+                <td class="bg01_r">
+                    군번
+                </td>
+                <td class="bg02_l">
+                    00-12345678
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">
+                    입대일
+                </td>
+                <td class="bg02_l">
+                    2099-01-01
+                </td>
+                <td class="bg01_r">
+                    전역일
+                </td>
+                <td class="bg02_l">
+                    2099-01-01
+                </td>
+            </tr>
+            <tr>
+                <td class="bg01_r">
+                    미필사유
+                </td>
+                <td class="bg02_l" colspan="3">
+                    <textarea style="width:510px;height:50px;border:1px solid #999999"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--main contents-->
+</body>
+</html>
+
+
+
+
+
+
+
+

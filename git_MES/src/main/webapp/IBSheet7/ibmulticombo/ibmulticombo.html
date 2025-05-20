@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>IBMultiCombo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script type="text/javascript" src="ibmulticombo.js"></script>
+  <script type="text/javascript" src="ibmulticomboinfo.js"></script>
+</head>
+
+<script type="text/javascript">
+function InitCombo(){
+  with(IBMultiCombo) {
+    Init();
+
+    var cnt = 0;
+    InsertItem(cnt++, "D1", "01");
+    InsertItem(cnt++, "D2", "02");
+    InsertItem(cnt++, "D3", "03");
+    InsertItem(cnt++, "D4", "04");
+
+  }
+}
+</script>
+
+<body onload="InitCombo();">
+  <script type="text/javascript"> createIBMultiCombo("IBMultiCombo", "100px", "22px",1); </script>
+</body>
+
+</html>

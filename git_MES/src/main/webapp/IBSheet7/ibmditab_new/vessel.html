@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CyberLogitec</title>
+<link type="text/css" rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="./assets/plugins/bootstrap-slider/css/bootstrap-slider.css" />
+<link type="text/css" rel="stylesheet" href="./assets/plugins/switch-button/lc_switch.css" />
+<link type="text/css" rel="stylesheet" href="./assets/plugins/slick/css/slick.css" />
+<link type="text/css" rel="stylesheet" href="./assets/css/style.css" />
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="./assets/plugins/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="./assets/plugins/jquery-jsonrpcclient/jquery.jsonrpcclient.js"></script>
+<script type="text/javascript" src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./assets/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<script type="text/javascript" src="./assets/plugins/switch-button/lc_switch.js"></script>
+<script type="text/javascript" src="./assets/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+<script type="text/javascript" src="./assets/plugins/moment/moment.js"></script>
+<script type="text/javascript" src="./assets/plugins/slick/js/slick.js"></script>
+<script type="text/javascript" src="./assets/plugins/ibchart/ibleaders.js"></script>
+<script type="text/javascript" src="./assets/plugins/ibchart/ibchartinfo.js"></script>
+<script type="text/javascript" src="./assets/plugins/ibsheet/ibsheet.js"></script>
+<script type="text/javascript" src="./assets/plugins/ibsheet/ibsheetinfo.js"></script>
+<script type="text/javascript" src="./assets/plugins/ibchart/ibchart.js"></script>
+<script type="text/javascript" src="./assets/plugins/ibtab/ibmditab.js"></script>
+<script type="text/javascript" src="./assets/plugins/ibtab/ibmditabinfo.js"></script>	
+<script type="text/javascript" src="./assets/plugins/ibchart/theme/chart.common.js"></script>
+<script type="text/javascript" src="./assets/plugins/ibchart/theme/theme1.html.js"></script>
+
+<script src="./assets/js/common.js"></script>
+
+</head>
+<body class="clt-body-type1" onload="App()">
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid clt-top-bar">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand clt-n-p" href="#"><img src="./assets/images/clt_logo.png" /></a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="clt_app dropdown clt-display-none"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="clt-top-btn glyphicon glyphicon-th-large" aria-hidden="true"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Vessel / Berth</a></li>
+							<li><a href="#">Yard</a></li>
+							<li><a href="#">Equipment</a></li>
+							<li><a href="#">Gate</a></li>
+							<!-- li role="separator" class="divider"></li -->
+						</ul></li>
+					<li class="clt_resize" data-state="0"><a href="#"><span class="clt-top-btn glyphicon glyphicon-resize-small" aria-hidden="true"></span></a></li>
+					<li><a href="#"><span class="clt-top-btn glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+					<li><a href="#"><span class="clt-top-btn glyphicon glyphicon-bell" aria-hidden="true"></span></a></li>
+					<li><a href="#"><span class="clt-top-btn glyphicon glyphicon-bookmark" aria-hidden="true"></span></a></li>
+					<li><a href="#"><span class="clt-top-btn glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="container-fluid clt-top-tab">
+			<ul class="nav nav-tabs">
+				<li class="active" style="width: 25%"><a href="#" >Vessel / Berth</a></li>
+				<li style="width: 25%"><a href="./yard.html" >Yard</a></li>
+				<li style="width: 25%"><a href="./equipment.html" >Equipment</a></li>
+				<li style="width: 25%"><a href="./gate.html" >Gate</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="main-content">
+		<div class="topbar">
+			<div class="page-content">
+				<div class="clt-info-layer">
+					<div class="row clt-info-row">
+						<div class="clt-info-type5 clt-br-r-gray1 clt-p-r-50 clt-p-l-30">
+							<ul class="clt-ul-left clt-top-time-sliderbar">
+								<li></li>
+								<li class="clt-p-r-10 clt-p-l-10"><input id="clt_time_slidebar" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3, 4, 5]" data-slider-ticks-labels='["0","5","10","15","20"]' data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="3"
+									data-slider-tooltip="hide" /></li>
+							</ul>
+						</div>
+						<div class="clt-info-type5 clt-p-l-50">
+							<ul class="clt-ul-left clt-top-switch">
+								<li class="clt-fc-white ">Detail View</li>
+								<li><input type="checkbox" class="lcs_check" value="1" id="detail_view_sButton" /></li>
+							</ul>
+						</div>
+						<div class="clt-info-type5 clt-p-l-50">
+							<ul class="clt-ul-left clt-top-switch">
+								<li class="clt-fc-white ">Main View</li>
+								<li><input type="checkbox" class="lcs_check" value="1" id="content_view_sButton" /></li>
+							</ul>
+						</div>
+						<div class="clt-info clt-info5 clt-m-t-5">
+							<div class="row">
+								<div class="col-sm-1"></div>
+								<div class="col-sm-3 weather"></div>
+								<div class="col-sm-7">
+									<div class="row info">
+										<h3 class="h3 clt-fc-white clt-m-t-5 clt-m-b-0">20 ℃</h3>
+										<h5 class="h5 clt-fc-gray1 clt-m-t-0 clt-m-b-0">Stockholm, Sweden</h5>
+									</div>
+								</div>
+								<div class="col-sm-1"></div>
+							</div>
+						</div>
+						<div class="clt-info clt-info6 clt-m-t-3">
+							<div class="row info">
+								<h3 class="h3 clt-fc-gray1 clt-m-b-0 clt-m-t-5 clt-moment-time clt-ta-c">00:00:00</h3>
+								<h5 class="h5 clt-fc-gray1 clt-m-b-0 clt-m-t-5 clt-moment-ymd clt-ta-c"></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //page-content -->
+		</div>
+		<!-- //top bar -->
+
+		<div class="page-content clt-wrap clt-n-p-r clt-n-p-l">
+
+			<div class="row clt-m-0" id="clt_content_layer">
+				<!-- =========== BERTH =========== -->
+				<!-- BERTH -> header -->
+				<div class="clt-layout-p clt-n-p-t clt-n-p-b clt-m-b-10">
+					<span class="glyphicon glyphicon-chevron-right icon-size" aria-hidden="true"></span> <span class="clt-head">Berth</span> <span class="clt-subhead">Contents of Berth</span>
+				</div>
+				<!--// Vessel -> header -->
+				<!-- Vessel -> content -->
+				<div class="clt-vessel-section-slider">
+					<!-- Vessel -> total slider1 -->
+					<div class="panel clt-panel">
+						<div class="col-md-12 col-sm-12 portlets">
+							<div class="row clt-p-10 clt-back-white clt-br-t-gray1 clt-br-b-gray1">
+								<div class="col-md-5 col-sm-5 clt-ta-r clt-p-r-50 clt-p-t-15 ">
+									<div class="clt-navy clt-f25 clt-flt-r"><span id="ber_estBrthQty">3</span> / <span id="ber_actBrthQty">5</span></div>
+									<div class="clt-f20 clt-flt-r clt-m-t-3 clt-m-r-15">Actual Berthing</div>
+								</div>
+								<div class="col-md-7 col-sm-7 clt-br-l-gray1 clt-p-t-15">
+									<div class="col-md-12 col-sm-12">
+										<div class="col-md-3 col-sm-3 clt-f20 clt-ta-c clt-m-t-3 ">Berth Occupied</div>
+										<div class="col-md-5 col-sm-9 clt-n-p">
+											<ul class="clt-pogress-top clt-m-b-0">
+												<li><span class="clt-navy glyphicon glyphicon-chevron-down" aria-hidden="true"></span></li>
+												<li class="clt-fc-gray2">&nbsp;Utilization</li>
+												<li class="clt-per clt-navy clt-f15"><strong><span id="ber_occupBrthRto1">29.3</span>%</strong></li>
+											</ul>
+											<div class="clt-n-p">
+												<div class="progress">
+													<div class="progress-bar progress-bar-success clt-back-blue" id="ber_occupBrthRto2" data-transitiongoal="0"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--// BERTH -> total slider1 -->
+				</div>
+				<!--// BERTH -> content -->
+				<!--// =========== BERTH =========== -->
+
+				<!-- =========== VESSEL =========== -->
+				<!-- Vessel -> header -->
+				<div class="clt-layout-p clt-n-p-t clt-n-p-b clt-m-b-10 clt-m-t-20">
+					<span class="glyphicon glyphicon-chevron-right icon-size" aria-hidden="true"></span> <span class="clt-head">Vessel</span> <span class="clt-subhead">CONTENTS OF VESSEL</span>
+				</div>
+				<!--// Vessel -> header -->
+				<!-- Vessel -> content -->
+				<div class="clt-vessel-section-slider">
+					<!-- Vessel -> total slider1 -->
+					<div class="panel clt-panel">
+						<div class="col-md-12 col-sm-12 portlets">
+							<div class="row clt-p-l-15 clt-p-r-15">
+								<div class="clt-back-sky1 clt-navy2 clt-fw-700 clt-ta-c clt-p-5 clt-br-gray2">Work Status</div>
+								<script type="text/javascript"> createIBSheet("mySheet", "100%", "100%"); </script>
+							</div>
+
+							<div class="row clt-m-t-20">
+								<div class="row clt-p-10 clt-back-white clt-br-t-gray1 clt-br-b-gray1 tbt-btn" Onclick="callWorkshop()">
+									<div class="clt-vessel-timer">
+										<ul class="clt-tbt clt-m-t-10">
+											<li class="clt-tbt-clock"></li>
+											<li class="clt-f20 clt-m-t-3">Total Break Time(min)</li>
+											<li class="clt-f25 clt-navy2"><span>90</span> min</li>
+										</ul>
+									</div>
+								
+								</div>
+							</div>
+
+							<div class="row clt-p-l-15 clt-p-r-15 clt-m-t-20 clt-p-b-15">
+								<div class="col-md-6 col-sm-6 clt-n-p-l">
+									<div class="clt-back-sky1 clt-navy2 clt-fw-700 clt-ta-c clt-p-5 clt-br-gray2">Pool Status</div>
+									<script type="text/javascript"> createIBSheet("mySheet2", "100%", "100%"); </script>
+								</div>
+								<div class="col-md-6 col-sm-6 clt-n-p-r">
+									<div class="clt-back-sky1 clt-navy2 clt-fw-700 clt-ta-c clt-p-5 clt-br-gray2">T / S Work Plan Status</div>
+									<script type="text/javascript"> createIBSheet("mySheet3", "100%", "100%"); </script>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<!--// Vessel -> total slider1 -->
+				</div>
+				<!--// Vessel -> content -->
+				<!--// =========== VESSEL =========== -->
+			</div>
+			
+			
+			<div class="col-md-12 col-sm-12 clt-m-t-30 clt-n-p">
+				<div class="row clt-p-10 clt-back-navy">
+					<ul class="clt-detail-bar clt-ul-left clt-n-p-l">
+						<li class="clt-detail-icon1 clt-m-l-25"></li>
+						<li class="clt-detail-title clt-m-l-15 clt-fw-700 clt-fc-white">Detail View</li>
+						<li class="clt-detail-icon2 clt-m-r-25 clt-cs-pointer" onclick="clt_datail_view_change('btn')" id="clt_detail_view_mBtn"></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="col-md-12 col-sm-12 clt-p-l-15 clt-p-r-15 clt-m-t-20" id="clt_datail_view">
+				<div id="IBTab2" class="ib_product clt-m-0">
+					<script>
+						createIBTab("IBTab2", "100%", "700px", "Theme1");
+					</script>
+				</div>
+			</div>
+			
+			
+		</div>
+		<!-- //page-content -->
+	</div>
+
+	<!--//script files -->
+	<script type="text/javascript">		
+		/***
+		* Redraw Method
+		***/
+		$.fn.redraw = function() {
+			$(this).each(function() {
+			var redraw = this.offsetHeight;
+			});
+			return $(this);
+		};
+		
+		/***
+		* 메인페이지에서 로드되는 요소 Guide(Main Load Function Guide)
+		* 
+		* $('selector').progressbar();  |  Progress Bar 로드 함수(Progress Bar Init)
+		* $('.lcs_check').lc_switch();  |  Main View, Contents View 스위치 생성(Create the Main Veiw, Contents View Switch)
+		* $('.lcs_check').lcs_on();  |  스위치 동작(Activate Switch)
+		*
+		*
+		***/
+		
+		// Public variable for rpcRequest 
+		var TOKENS = new Object();
+		var TOKENS_FIRST_USE = false;
+		var jsonValue = new Array();
+		// End rpcRequest
+		
+		var winHeight = $(window).height();
+		var vessel_qc1 = new Array([ "ML", "./html/vessel_detail_ml.html", "./assets/plugins/ibtab/Theme1/line.png"]);
+		
+		/***
+		* Page Reload Part
+		* Refresh Time Useing setInterval
+		* 
+		***/
+		var timer = setInterval(reloadTimer, 10000);
+		function reloadTimer() {
+			console.log("Re-Flow");
+			var jsonKey1 = ['JSON_VesselInfoOfferer', 'vesselSchedule'];
+			var jsonKey2 = ['JSON_VesselInfoOfferer', 'vesselSchedule'];
+			jsonValue = executeRPC(jsonKey1, jsonKey2);			
+			
+			// Display data process            
+            var berth_value = jsonValue[0].kpiValue;
+            var vessel_work_status = {"DATA":jsonValue[1].kpiValue};
+           
+            $("#ber_estBrthQty").text(berth_value.estBrthQty);
+            $("#ber_actBrthQty").text(berth_value.actBrthQty);
+            $("#ber_occupBrthRto1").text(berth_value.occupBrthRto);
+            $("#ber_occupBrthRto2").attr("data-transitiongoal",berth_value.occupBrthRto);
+            
+            // IB Sheet LoadSearchData(Obj or string)
+            mySheet.LoadSearchData(vessel_work_status, {Wait:0});
+            // End
+            
+            mySheet2.DoSearch("./data/v_poolstatus.json");
+            mySheet3.DoSearch("./data/v_wpstatus.json");
+
+            $('.progress-bar').progressbar();
+		}
+		
+		// to be called when you want to stop the timer
+		function abortTimer() { 
+			  console.log("Stop Refresh");
+			  clearInterval(timer);
+		}
+
+		$(document).ready(function() {
+			$(".slider-tick.round").remove();
+			$('.lcs_check').lc_switch();
+			$('.lcs_check').lcs_on();
+			
+			// 스위치 동작 시 실행되는 함수(Switch Action)
+			$(".lcs_switch").click(function(){
+				var _id = $(this).prev().attr("id");
+				if(_id == "detail_view_sButton"){
+					clt_datail_view_change("switch");
+				}else if(_id == "content_view_sButton"){
+					clt_content_view_change($(this).prev().is(":checked"));
+				}
+			});
+			
+			// 화면 풀사이즈(전체화면) 모드 적용 함수(Full-Screen Mode Function)
+			$(".clt_resize").click(function() {
+				var _this = $(this);
+				var _state = _this.attr("data-state");
+
+				if (_state == "0") {	
+					_this.find("span.clt-top-btn").removeClass("glyphicon-resize-small");
+					_this.find("span.clt-top-btn").addClass("glyphicon-resize-full");
+					_this.attr("data-state", "1");
+					$(".clt_app").removeClass("clt-display-none");
+					$(".container-fluid.clt-top-tab").addClass("clt-display-none");
+					clt_fullScreen(document.documentElement);
+				} else {
+					_this.find("span.clt-top-btn").removeClass("glyphicon-resize-full");
+					_this.find("span.clt-top-btn").addClass("glyphicon-resize-small");
+					_this.attr("data-state", "0");
+					$(".clt_app").addClass("clt-display-none");
+					$(".container-fluid.clt-top-tab").removeClass("clt-display-none");
+					clt_exitFullscreen();
+				}
+			});
+			
+			// executeRPC
+			var jsonKey1 = ['JSON_VesselInfoOfferer', 'vesselSchedule'];
+			var jsonKey2 = ['JSON_VesselInfoOfferer', 'vesselSchedule'];
+			jsonValue = executeRPC(jsonKey1, jsonKey2); 			
+		});
+
+		/***
+		* IBSheet Click Event 설정(Work Status)
+		* 
+		* function mySheet_OnClick(row, col, value){} 
+		* | Row : 열 | Col : 컬럼 | value : 특정 값 |
+		*
+		* Work Status의 Row 중 ML,DF,CC를 클릭하면 Contents View의 TAB을 갱신
+		* IBTab.SetTabTitle(탭위치, "내용");  |  탭의 타이틀을 변경
+		* IBTab.SetTabUrl(탭위치, "변경할 탭 콘텐츠 URL");  |  변경할 탭 내부의 내용 페이지 URL
+ 		*
+		***/
+		function mySheet_OnClick(row, col, value, cellX, cellY, cellW, cellH) {		    
+		    if(row == 1 && value == "ML"){
+		    	IBTab2.SetTabTitle(0, "ML");
+		    	IBTab2.SetTabUrl(0, "./html/vessel_detail_ml.html");
+		    	IBTab2.SetSelectedIndex(0);
+		    } else if (row == 2 && value == "DF") {
+		    	IBTab2.SetTabTitle(0, "DF");
+		    	IBTab2.SetTabUrl(0, "./html/vessel_detail_df.html");
+		    	IBTab2.SetSelectedIndex(0);
+		    } else if (row == 3 && value == "CC") {
+		    	IBTab2.SetTabTitle(0, "CC");
+		    	IBTab2.SetTabUrl(0, "./html/vessel_detail_cc.html");
+		    	IBTab2.SetSelectedIndex(0);
+		    }
+ 		}
+
+		function OnSheet(){
+			/***
+            *
+			* IBSheet 설정 항목 가이드
+			* 
+			* (1)기본설정 : 조회방식 | 페이징 방식 = SearchMode:smClientPaging
+			*			  머지설정 | 헤더만 머지 = MergeSheet:msHeaderOnly
+			*			  터치여부 | 터치스크롤 가능 = TouchScrolling:0
+			*			  시트사이즈설정 | 좌/우 스크롤 없이 자동사이즈 조절 = SizeMode:1
+			*			  자동가로맞춤 | 자동컬럼 가로사이즈 조절 = AutoFitColWidth:"resize"
+			* (2)헤더설정 : Array.HeaderMode={Sort,ColMove,ColResize,HeaderCheck}
+			*			  정렬기능 | 사용안함 = Sort:0
+			*			  컬럼이동 | 사용함 = ColMove:1
+			*			  컬럼리사이즈 | 사용함 = ColResize:1
+			*			  헤더체크표시여부 | 사용안함 = HeaderCheck:0
+			* (3)헤더항목 설정 : Array.Cols = [{Header,Type,Width,SaveName,Align}]
+			*			  헤더명 설정 | Header:"헤더명"
+			*			  데이터타입설정 | Type:"Text|Status|DelCheck|CheckBox|DummyCheck|Radio|Combo|ComboEdit|AutuSum|Image|Int|Float|Date|Popup|Pass|Seq"
+	 		*			  가로크기 | Width:"Value"
+	 		*			  JSON 데이터 타이틀 | SaveName:"타이틀명"
+	 		*			  정렬 | Align:"Left|Center|Right"
+	 		*
+			***/
+			
+            var initSheet = {}; // Work Status
+            var initSheet2 = {}; // Pool Status
+            var initSheet3 = {}; // T/S Work Plan Status
+
+            initSheet.Cfg = {SearchMode:smClientPaging,Page:5,MergeSheet:msHeaderOnly,TouchScrolling:0,SizeMode:1,AutoFitColWidth:"resize"};
+            initSheet.HeaderMode = {Sort:0,ColMove:1,ColResize:1,HeaderCheck:0};
+            initSheet.Cols = [
+                    {Header:"",Type:"Text",Width:95,SaveName:"vslTp",Align:"Center"},
+                    {Header:"Total",Type:"Text",Width:95,SaveName:"ttlWrkQty",Align:"Center"},
+                    {Header:"Complete",Type:"Text",Width:95,SaveName:"cmplWrkQty",Align:"Center"},
+                    {Header:"Remain",Type:"Text",Width:95,SaveName:"rmnWrkQty",Align:"Center"},
+                    {Header:"GMPH",Type:"Text",Width:95,SaveName:"gmph",Align:"Center"},
+                    {Header:"BMPH",Type:"Text",Width:95,SaveName:"bmph",Align:"Center"},
+                    {Header:"Twin",Type:"Text",Width:95,SaveName:"twnWrkQty",Align:"Center"},
+                    {Header:"Single",Type:"Text",Width:95,SaveName:"sglWrkQty",Align:"Center"},
+                    {Header:"Tandem",Type:"Text",Width:95,SaveName:"tndmWrkQty",Align:"Center"},
+                    {Header:"Dual",Type:"Text",Width:95,SaveName:"dulWrkQty",Align:"Center"}
+            ];
+
+            initSheet2.Cfg = {SearchMode:0,Page:5,MergeSheet:msHeaderOnly,TouchScrolling:0,SizeMode:4,AutoFitColWidth:"resize"};
+            initSheet2.HeaderMode = {Sort:0,ColMove:1,ColResize:1,HeaderCheck:0};
+            initSheet2.Cols = [
+                    {Header:"",Type:"Text",Width:95,SaveName:"POOL",Align:"Center"},
+                    {Header:"Assigned ITV",Type:"Text",Width:95,SaveName:"ASITV",Align:"Center"},
+                    {Header:"LogOn",Type:"Text",Width:95,SaveName:"LOGON",Align:"Center"},
+                    {Header:"Fetching",Type:"Text",Width:95,SaveName:"FETCHING",Align:"Center"},
+                    {Header:"Ave. ITV by QC",Type:"Text",Width:95,SaveName:"AVITV",Align:"Center"}                    
+            ];
+
+            initSheet3.Cfg = {SearchMode:smClientPaging,Page:5,MergeSheet:msHeaderOnly,TouchScrolling:0,SizeMode:1,AutoFitColWidth:"resize"};
+            initSheet3.HeaderMode = {Sort:0,ColMove:1,ColResize:1,HeaderCheck:0};
+            initSheet3.Cols = [
+                    {Header:"",Type:"Text",Width:95,SaveName:"PLAN",Align:"Center"},
+                    {Header:"Discharge",Type:"Text",Width:95,SaveName:"DISCHARGE",Align:"Center"},
+                    {Header:"Load",Type:"Text",Width:95,SaveName:"LOAD",Align:"Center"},
+                    {Header:"Ratio",Type:"Text",Width:95,SaveName:"RATIO",Align:"Center"}
+            ];
+
+            IBS_InitSheet(mySheet,initSheet);
+            IBS_InitSheet(mySheet2,initSheet2);
+            IBS_InitSheet(mySheet3,initSheet3);
+
+            mySheet.SetHeaderRowHeight(40);
+            mySheet.SetSheetHeight(180);
+            mySheet.SetFocusAfterProcess(0);
+            mySheet.SetEditableColorDiff(0);
+            mySheet.SetEditable(0);
+            
+            mySheet2.SetHeaderRowHeight(40);
+            mySheet2.SetSheetHeight(180);
+            mySheet2.SetFocusAfterProcess(0);
+            mySheet2.SetEditableColorDiff(0);
+            mySheet2.SetEditable(0);
+            
+            mySheet3.SetHeaderRowHeight(40);
+            mySheet3.SetSheetHeight(180);
+            mySheet3.SetFocusAfterProcess(0);
+            mySheet3.SetEditableColorDiff(0);
+            mySheet3.SetEditable(0);
+            
+			// Display data process            
+            var berth_value = jsonValue[0].kpiValue;
+            var vessel_work_status = {"DATA":jsonValue[1].kpiValue};
+           
+            $("#ber_estBrthQty").text(berth_value.estBrthQty);
+            $("#ber_actBrthQty").text(berth_value.actBrthQty);
+            $("#ber_occupBrthRto1").text(berth_value.occupBrthRto);
+            $("#ber_occupBrthRto2").attr("data-transitiongoal",berth_value.occupBrthRto);
+            
+            // IB Sheet LoadSearchData(Obj or string)
+            mySheet.LoadSearchData(vessel_work_status);
+            // End
+            
+            mySheet2.DoSearch("./data/v_poolstatus.json");
+            mySheet3.DoSearch("./data/v_wpstatus.json");
+
+            $('.progress-bar').progressbar();
+        }
+		
+
+		// Pool Status 데이터 조회 완료 후 폰트 사이즈 변경
+		function mySheet2_OnSearchEnd(){
+        	mySheet2.SetCellFont("FontSize",1,0,1,4,18);
+    	}
+		
+		// T/S Work Status 데이터 조회 완료 후 폰트 사이즈 변경
+		function mySheet3_OnSearchEnd(){
+			mySheet3.SetCellFont("FontSize",1,0,1,3,18);
+    	}
+						
+		function App() {
+			// IBTab2 Initialize
+			OnSheet();
+			IBTab2.Init(2, true, true);
+			IBTab2.SetContentOutline(false);
+			IBTab2.SetTabTitleAlign("center");
+			IBTab2.SetTabOffset(0);
+			for (var i = 0; i < vessel_qc1.length; i++) {
+				IBTab2.InsertItem(vessel_qc1[i][0], vessel_qc1[i][1],
+						vessel_qc1[i][2]);
+			}
+			IBTab2.SetSelectedIndex(0);
+			if (winHeight < 1024) {
+				IBTab2.SetHeight(800);
+			} else {
+				IBTab2.SetHeight(650);
+			}
+		}		
+		
+		function iframeResize(id, h){
+			IBTab2.SetHeight(h);			
+		}
+		
+		function callWorkshop(){
+			IBTab2.InsertItem("QC Workshop", "./html/qc_workshop.html", "./assets/plugins/ibtab/Theme1/line.png");
+		}
+		
+		// Detail View Folded
+		function clt_datail_view_change(type){
+			var _ele = $("#clt_datail_view");
+			if(!_ele.is(":hidden")){
+				$("#clt_detail_view_mBtn").css("background","url(./assets/images/icons/icon-arrow-a002.png) center center no-repeat");
+				_ele.slideUp();
+				if(type != "switch"){
+					$("#detail_view_sButton").lcs_off()
+				};
+			}else{
+				$("#clt_detail_view_mBtn").css("background","url(./assets/images/icons/icon-arrow-a001.png) center center no-repeat");
+				_ele.slideDown();
+				if(type != "switch"){
+					$("#detail_view_sButton").lcs_on();
+				}
+			}
+		}
+		
+		// Content View Folded
+		function clt_content_view_change(type){
+			if(type){
+				$("#clt_content_layer").slideUp();
+			}else{
+				$("#clt_content_layer").slideDown();
+			}
+		}
+		
+		// Full Screen Function
+		function clt_fullScreen(element) {
+			if (element.requestFullscreen) {
+				element.requestFullscreen();
+			} else if (element.mozRequestFullScreen) {
+				element.mozRequestFullScreen();
+			} else if (element.webkitRequestFullscreen) {
+				element.webkitRequestFullscreen();
+			} else if (element.msRequestFullscreen) {
+				element.msRequestFullscreen();
+			}
+		}
+		
+		// Exit Full Screen Function
+		function clt_exitFullscreen() {
+			if(document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if(document.mozCancelFullScreen) {
+				document.mozCancelFullScreen();
+			} else if(document.webkitExitFullscreen) {
+				document.webkitExitFullscreen();
+			}
+		}				
+		
+		/**	
+		*   Call Token Process
+		*
+		*   Construction : ['serviceName', 'methodName']
+		*	param1 arr1:Array[2] //ex : ['JSON_Actual_Berth', 'vesselBerth']
+		*	param2 arr2:Array[2] //ex : ['JSON_VesselInfoOfferer', 'vesselSchedule']
+		*
+		*/
+        function executeRPC(arr1, arr2){
+			var result_array = new Array();
+			
+        	//var serviceName = arr1[0]; Sample Usage
+        	//var methodName = arr1[1]; Sample Usage
+        	var tokenKey1 = arr1[0]+"."+arr1[1];
+        	var tokenKey2 = arr2[0]+"."+arr2[1];
+        	
+        	var lastToken1 = TOKENS[tokenKey1];
+        	var lastToken2 = TOKENS[tokenKey2];
+        	
+        	if(lastToken1==null){
+        		lastToken1 = '';
+        	}
+        	if(lastToken2==null){
+        		lastToken2 = '';
+        	}
+        	
+        	// Test Data (for localhost environment)
+        	result_array[0] = {"token":"1465371274840","changed":true,"kpiValue":{"tmlId":"JAT3","estBrthQty":1,"actBrthQty":4,"occupBrthRto":10}};
+        	result_array[1] = {"token":"1465371454744","changed":true,"kpiValue":[{"tmlId":"JAT3","vslTp":"F","vslCd":"HJCQ","voySeq":"001/2014","ttlWrkQty":0,"cmplWrkQty":0,"rmnWrkQty":0,"sglWrkQty":29,"twnWrkQty":3,"tndmWrkQty":0,"dulWrkQty":0,"gmph":0,"bmph":0}]};
+        	return result_array;
+        	// Test Data End
+        	
+        	//$("#req_token").val(lastToken);  Sample Usage
+        	/* Call server service */
+	        var foo = new $.JsonRpcClient({ ajaxUrl: '/kpisvc/RPC/'+ arr1[0]});
+	        var foo2 = new $.JsonRpcClient({ ajaxUrl: '/kpisvc/RPC/'+ arr2[0]});
+	        
+        	foo.call( 
+        			arr1[1],		//Method name
+	        		[ lastToken1 ],	//Params
+					function(result) {	//Callback - success
+						if(!result.changed){
+							alert('Kpi-value is not changed from before kpi-value.');
+							return;
+						}
+						/* Set new token */
+						TOKENS[tokenKey1] = result.token;
+						/* Show result */
+						/*
+						$("#token").val(JSON.stringify(result.token));
+						$("#changed").val(JSON.stringify(result.changed));
+						$("#kpiValue").val(JSON.stringify(result.kpiValue));
+						$("#holeJSON").val(JSON.stringify(result));
+						*/
+						
+						//result_array[0] = result;
+	          		},
+					function(error)  {	//Callback - error
+						console.log('There was an error', error);
+					}
+	        );
+        	
+        	foo2.call( 
+        			arr2[1],		//Method name
+	        		[ lastToken2 ],	//Params
+					function(result) {	//Callback - success
+						if(!result.changed){
+							alert('Kpi-value is not changed from before kpi-value.');
+							return;
+						}
+						/* Set new token */
+						TOKENS[tokenKey2] = result.token;
+						/* Show result */
+						/*
+						$("#token").val(JSON.stringify(result.token));
+						$("#changed").val(JSON.stringify(result.changed));
+						$("#kpiValue").val(JSON.stringify(result.kpiValue));
+						$("#holeJSON").val(JSON.stringify(result));
+						*/
+						
+						//result_array[1] = result;
+	          		},
+					function(error)  {	//Callback - error
+						console.log('There was an error', error);
+					}
+	        );        	
+
+        	return result_array;
+	    }
+	</script>
+
+</body>
+</html>

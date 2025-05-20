@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="m100">
+	<typeAlias  alias="M100VO" type="gom.vo.M100VO"/>
+	
+	<resultMap id="order_M" class="M100VO">
+		<result property="orde_CD" column="orde_CD" columnIndex="1"/>
+		<result property="clie_CD" column="clie_CD" columnIndex="2"/>
+		<result property="manager_NM" column="manager_NM" columnIndex="3"/>
+		<result property="manager_phone_NO" column="manager_phone_NO" columnIndex="4"/>
+		<result property="supply_price" column="supply_price" columnIndex="5"/>
+		<result property="tax_price" column="tax_price" columnIndex="6"/>
+		<result property="total_price" column="total_price" columnIndex="7"/>
+		<result property="order_DT" column="order_DT" columnIndex="8"/>
+		<result property="complete_FL" column="complete_FL" columnIndex="9"/>
+	</resultMap>
+	
+	<resultMap id="order_D" class="M100VO">
+		<result property="clie_CD" column="clie_CD" columnIndex="1"/>
+		<result property="orde_CD" column="orde_CD" columnIndex="2"/>
+		<result property="item_CD" column="item_CD" columnIndex="3"/>
+		<result property="quantity" column="quantity" columnIndex="4"/>
+		<result property="order_price" column="order_price" columnIndex="5"/>
+		<result property="order_unit_C" column="order_unit_C" columnIndex="6"/>
+		<result property="supply_price" column="supply_price" columnIndex="7"/>
+		<result property="tax_price" column="tax_price" columnIndex="8"/>
+		<result property="total_price" column="total_price" columnIndex="9"/>
+		<result property="standard" column="standard" columnIndex="10"/>
+		<result property="item_group_C" column="item_group_C" columnIndex="11"/>
+	</resultMap>
+	
+	<resultMap id="inventory_D" class="M100VO">
+		<result property="inve_CD" column="inve_CD" columnIndex="1"/>
+		<result property="befor_CD" column="befor_CD" columnIndex="2"/>
+		<result property="item_CD" column="item_CD" columnIndex="3"/>
+		<result property="in_quantity" column="in_quantity" columnIndex="4"/>
+		<result property="out_quantity" column="out_quantity" columnIndex="5"/>
+		<result property="inventory_unit_C" column="inventory_unit_C" columnIndex="6"/>
+	</resultMap>
+	
+	<resultMap id="item_sandData" class="M100VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="quantity" column="quantity" columnIndex="2"/>
+	</resultMap>
+	
+	<resultMap id="order_C" class="M100VO">
+		<result property="clie_CD" column="clie_CD" columnIndex="1"/>
+		<result property="clie_NM" column="clie_NM" columnIndex="2"/>
+	</resultMap>
+	
+	<resultMap id="order_I" class="M100VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="item_NM" column="item_NM" columnIndex="2"/>
+	</resultMap>
+	
+	<!-- M1001010_1_View -->
+	<select id="M100DAO.M1001010_1_View" resultMap="order_M">
+		<![CDATA[
+			SELECT
+				A.orde_CD,
+				A.clie_CD,
+				B.manager_NM,
+				B.manager_phone_NO,
+				IFNULL((SELECT SUM(IF(D.tax_FL=0,C.total_price,C.total_price*0.9)) FROM Details_order_TB C
+				LEFT JOIN Master_item_TB D	ON C.item_CD = D.item_CD WHERE C.orde_CD = A.orde_CD AND A.comp_CD = C.comp_CD),0) supply_price,
+				IFNULL((SELECT SUM(IF(D.tax_FL=0,0,C.total_price*0.1)) FROM Details_order_TB C
+				LEFT JOIN Master_item_TB D	ON C.item_CD = D.item_CD WHERE C.orde_CD = A.orde_CD AND A.comp_CD = C.comp_CD),0) tax_price,
+				IFNULL((SELECT SUM(C.total_price) FROM Details_order_TB C
+				LEFT JOIN Master_item_TB D	ON C.item_CD = D.item_CD WHERE C.orde_CD = A.orde_CD AND A.comp_CD = C.comp_CD),0) total_price,			
+				A.order_DT,
+				A.complete_FL
+			FROM Master_order_TB A
+			LEFT JOIN Master_client_TB B
+			ON A.clie_CD = B.clie_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1 
+				AND A.comp_CD = #comp_CD# 
+				AND A.order_DT BETWEEN #start_date# AND #end_date#
+			ORDER BY A.order_DT DESC
+		]]>
+	</select>
+
+	<!-- M1001010_1_Insert   -->
+	<insert id="M100DAO.M1001010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_order_TB(
+					comp_CD,
+					orde_CD,
+					clie_CD,
+					order_DT,
+					complete_FL
+				) VALUE (
+					#comp_CD#,
+					#orde_CD#,
+					#clie_CD#,
+					#order_DT#,
+					#complete_FL#
+				) ON DUPLICATE KEY UPDATE 
+					clie_CD = #clie_CD#,
+					complete_FL = #complete_FL#
+		]]>
+	</insert>
+	
+	<!-- M1001010_1_Delete   -->
+	<delete id="M100DAO.M1001010_1_Delete" >
+		<![CDATA[
+			DELETE FROM Master_order_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND orde_CD = #orde_CD#
+		]]>
+	</delete>
+	
+	<!-- M1001010_2_View -->
+	<select id="M100DAO.M1001010_2_View" resultMap="order_D">
+		<![CDATA[
+			SELECT 
+				A.clie_CD,
+				A.orde_CD,
+				B.item_CD,
+				B.quantity,
+				B.order_price,
+				C.order_unit_C,
+				IF(C.tax_FL=0,B.order_price*B.quantity,B.order_price*B.quantity*0.9) supply_price,
+				IF(C.tax_FL=0,0,B.order_price*B.quantity*0.1) tax_price,
+				B.total_price,
+				C.standard,
+				C.item_group_C
+			FROM
+				Master_order_TB A
+			LEFT JOIN Details_order_TB B
+			ON A.comp_CD = B.comp_CD AND A.orde_CD = B.orde_CD
+			LEFT JOIN Master_item_TB C
+			ON B.comp_CD = C.comp_CD AND B.item_CD = C.item_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND B.orde_CD = #orde_CD#
+		]]>
+	</select>
+
+	<!-- M1001010_2_Insert   -->
+	<insert id="M100DAO.M1001010_2_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Details_order_TB(
+					comp_CD,
+					orde_CD,
+					item_CD,
+					order_price,
+					quantity,
+					total_price
+				) VALUE (
+					#comp_CD#,
+					#orde_CD#,
+					#item_CD#,
+					#order_price#,
+					#quantity#,
+					#total_price#
+				) ON DUPLICATE KEY UPDATE 
+					item_CD = #item_CD#,
+					quantity = #quantity#,
+					order_price = #order_price#,
+					total_price = #total_price#
+		]]>
+	</insert>
+	
+	<!-- M1001010_2_Delete   -->
+	<delete id="M100DAO.M1001010_2_Delete" >
+		<![CDATA[
+			DELETE FROM Details_order_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND orde_CD = #orde_CD#
+				AND item_CD = #item_CD#
+		]]>
+	</delete>
+		
+	<!-- M1001020_1_View -->
+	<select id="M100DAO.M1001020_1_View" resultMap="order_M">
+		<![CDATA[
+			SELECT
+				A.orde_CD,
+				A.clie_CD,
+				'' manager_NM,
+				'' manager_phone_NO,
+				0 supply_price,
+				0 tax_price,
+				0 total_price,
+				A.order_DT,
+				A.complete_FL
+			FROM Master_order_TB A
+			LEFT JOIN Master_client_TB B
+			ON A.clie_CD = B.clie_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND B.clie_CD LIKE #clie_CD#
+				AND A.complete_FL LIKE #complete_FL#
+		]]>
+	</select>
+	
+	<!-- M1001020_2_View -->
+	<select id="M100DAO.M1001020_2_View" resultMap="order_D">
+		<![CDATA[
+			SELECT
+				A.clie_CD,
+				A.orde_CD,
+				B.item_CD,
+				IFNULL(B.quantity,0) quantity,
+				0 order_price,
+				IFNULL(C.order_unit_C,0) order_unit_C,
+				0 supply_price,
+				0 tax_price,
+				0 total_price,
+				C.standard,
+				0 item_group_C
+			FROM Master_order_TB A
+			LEFT JOIN Details_order_TB B
+			ON A.comp_CD = B.comp_CD AND A.orde_CD = B.orde_CD
+			LEFT JOIN Master_item_TB C
+			ON A.comp_CD = C.comp_CD AND B.item_CD = C.item_CD
+			WHERE 1=1
+				AND B.item_CD IS NOT NULL
+				AND A.comp_CD = #comp_CD#
+				AND A.orde_CD = #orde_CD#
+		]]>
+	</select>
+	
+	<!-- M1001020_3_View -->
+	<select id="M100DAO.M1001020_3_View" resultMap="inventory_D">
+		<![CDATA[
+			SELECT
+				A.inve_CD,
+				A.befor_CD,
+				B.item_CD,
+				IFNULL(A.in_quantity,0) in_quantity,
+				IFNULL(A.out_quantity,0) out_quantity,
+				IFNULL(C.inventory_unit_C,0) inventory_unit_C
+			FROM Details_inventory_TB A
+			LEFT JOIN Master_inventory_TB B
+			ON A.comp_CD = B.comp_CD AND A.inve_CD = B.inve_CD
+			LEFT JOIN Master_item_TB C
+			ON A.comp_CD = C.comp_CD AND B.item_CD = C.item_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.befor_CD = #orde_CD#
+		]]>
+	</select>
+	
+	<!-- M1001020_3_Insert   -->
+	<insert id="M100DAO.M1001020_3_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_inventory_TB(
+					comp_CD,
+					inve_CD,
+					item_CD,
+					quantity
+				) VALUE (
+					#comp_CD#,
+					#inve_CD#,
+					#item_CD#,
+					#in_quantity#
+				) ON DUPLICATE KEY UPDATE 
+					item_CD = #item_CD#,
+					quantity = #in_quantity#					
+		]]>
+	</insert>
+	
+	<!-- M1001020_3_Insert2   -->
+	<insert id="M100DAO.M1001020_3_Insert2" >
+		<![CDATA[
+			INSERT INTO 
+				Details_inventory_TB(
+					comp_CD,
+					inve_CD,
+					befor_CD,
+					in_quantity,
+					out_quantity,
+					move_DT,
+					move_TM
+				) VALUE (
+					#comp_CD#,
+					#inve_CD#,
+					#befor_CD#,
+					#in_quantity#,
+					0,
+					CURDATE(),
+					CURTIME()
+				)				
+		]]>
+	</insert>
+	
+	<!-- M1001020_3_Insert3   -->
+	<insert id="M100DAO.M1001020_3_Insert3" >
+		<![CDATA[                     
+			UPDATE Master_order_TB
+			SET complete_FL = 1        
+			WHERE 1=1                  
+				AND comp_CD = #comp_CD# 
+				AND orde_CD = #befor_CD#
+		]]>
+	</insert>
+	
+	<!-- M1001020_3_Delete   -->
+	<delete id="M100DAO.M1001020_3_Delete" >
+		<![CDATA[
+			DELETE FROM Master_inventory_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND inve_CD = #inve_CD#
+				AND item_CD = #item_CD#
+		]]>
+	</delete>
+	
+	<!-- M1001020_3_Delete2   -->
+	<update id="M100DAO.M1001020_3_Delete2" >
+		<![CDATA[
+			UPDATE Master_order_TB
+			SET complete_FL = 0        
+			WHERE 1=1                  
+				AND comp_CD = #comp_CD# 
+				AND orde_CD = #befor_CD#
+		]]>
+	</update>
+	
+	
+	<!-- item_sandData -->
+	<select id="M100DAO.item_sandData" resultMap="item_sandData">
+		<![CDATA[
+			SELECT
+				inventory_item_CD item_CD,
+				exchange_value * #quantity# quantity
+			FROM Master_item_TB
+			 WHERE 1=1
+			 	AND item_CD = #item_CD#
+			 	AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- 거래처명 콤보박스 데이터로 가져오기 -->
+	<select id="M100DAO.get_clie_CD_ComBo" resultMap="order_C">
+		<![CDATA[
+			SELECT 
+				clie_CD,
+				clie_NM
+			FROM
+				Master_client_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND enter_FL = 1
+				AND del_FL = 0
+		]]>
+	</select>
+	
+	<!-- 거래처명 콤보박스 데이터로 가져오기 -->
+	<select id="M100DAO.get_item_CD_ComBo" resultMap="order_I">
+		<![CDATA[
+			SELECT 
+				A.item_CD,
+				B.item_NM
+			FROM
+				Details_client_TB A
+			LEFT JOIN Master_item_TB B
+			ON A.item_CD = B.item_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.clie_CD = #clie_CD#
+				AND B.del_FL = 0
+		]]>
+	</select>
+</sqlMap>

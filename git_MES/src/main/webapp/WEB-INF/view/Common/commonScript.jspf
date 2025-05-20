@@ -1,0 +1,64 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+    
+<%-- DOCTYPE 및 태그라이브러리정의 --%>
+<%@ taglib prefix="c"         uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt"       uri="http://java.sun.com/jsp/jstl/fmt"  %>
+<%@ taglib prefix="ui"        uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="fn"        uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="spring"    uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form"      uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="validator" uri="http://www.springmodules.org/tags/commons-validator" %>
+
+<%--jQuery UI CSS--%>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/gom/tool/jquery-ui.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/gom/tool/jquery-ui.structure.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/gom/tool/jquery-ui.theme.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/gom/tool/jquery.contextMenu.min.css' />" />
+
+<%--공통 CSS--%>
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/gom/com/default.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/gom/com/layout.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/gom/com/style_new.css' />" />
+<link type="text/css" rel="stylesheet" href="<c:url value='/css/gom/tool/font-awesome-4.7.0/css/font-awesome.min.css' />" />
+
+<style>
+	.ibsheetPageIndex {height:20px; width:400px; float:left;margin-left:35%;}
+	.ibsheetPageIndex ul{margin:0; padding:0; list-style:none; float:left; }
+	.ibsheetPageIndex li{margin:0 1px; background-color:#e7ebf1; padding: 4px; display: block; float: left; width: auto; border-top:1px solid #235d9d; border-left:1px solid #235d9d; border-right:1px solid #235d9d;border-bottom:1px solid #235d9d;}
+	.ibsheetPageIndex a {z-index: 10;	display: block;	float: left; text-decoration: none; white-space: nowrap; width: auto; text-align:center; color:999999;}
+	.ibsheetPageIndex ul.pageindex li a:hover span {background-color:#e7ebf1; color:#000000;}
+	.ibsheetPageIndex li.current{background-color:#1a4677;}
+	.ibsheetPageIndex li.current a{color:#e7ebf1;}
+</style>
+
+<%--IBSheet 스크립트--%>
+<script type="text/javascript" src="<c:url value='/IBSheet7/ibsheet/ibsheet.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/IBSheet7/ibsheet/ibsheetinfo.js'/>"></script>	
+	
+<%--JQUERY 기본 스크립트--%>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<%--공통 스크립트 함수--%>
+<script type="text/javascript">
+
+var ibleaders;
+ibleaders = ibleaders || {};
+
+ibleaders = {
+	license: "W2FtSztPKCNzbzY1YjJxbn9SMVxtHykvZXw0enEidH49IAF8H3tSJX5sOz5nNWU/Z2s/TyNHNF46I217dTx+dm0iYntMPEEkXQ=="
+};
+
+$(document).ready(
+
+			function() {
+				if($.isFunction(parent.gfn_loadingScreenCancle)) {
+					parent.gfn_loadingScreenCancle();
+				}
+			});
+			
+$('a[href="#"]').click(function(event)
+{
+    event.preventDefault();      
+});
+</script>
+<%--공통 스크립트 함수--%>

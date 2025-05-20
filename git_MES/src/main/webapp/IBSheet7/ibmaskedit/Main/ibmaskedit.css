@@ -1,0 +1,11 @@
+/* Default Border */
+INPUT.ib-maskedit {
+    border: 1px solid #999;
+}
+INPUT.ib-maskedit::-ms-clear {
+    display: none;
+}
+/* SetEnable(false) */
+INPUT.ib-maskedit.disabled {
+    /* Disabled MaskEdit Input Element Style Customizing */
+}

@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="m980">
+	<typeAlias  alias="M980VO" type="gom.vo.M980VO"/>
+	
+	<resultMap id="category" class="M980VO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="category_CD" 		column="category_CD" columnIndex="2"/>
+		<result property="sub_category_CD" 			column="sub_category_CD" columnIndex="3"/>
+		<result property="sub_category_NM" 		column="sub_category_NM" columnIndex="4"/>
+		<result property="del_FL" 		column="del_FL" columnIndex="5"/>
+	</resultMap>
+	
+	<resultMap id="item" class="M980VO">
+		<result property="comp_CD" column="comp_CD" columnIndex="1"/>
+		<result property="item_CD" column="item_CD" columnIndex="2"/>
+		<result property="item_NM" column="item_NM" columnIndex="3"/>
+		<result property="order_unit_C" column="order_unit_C" columnIndex="4"/>
+		<result property="exchange_value" column="exchange_value" columnIndex="5"/>
+		<result property="inventory_unit_C" column="inventory_unit_C" columnIndex="6"/>
+		<result property="inventory_item_CD" column="inventory_item_CD" columnIndex="7"/>
+		<result property="tax_FL" column="tax_FL" columnIndex="8"/>
+		<result property="item_group_C" column="item_group_C" columnIndex="9"/>
+		<result property="proc_CD" column="proc_CD" columnIndex="10"/>
+		<result property="price" column="price" columnIndex="11"/>
+		<result property="standard" column="standard" columnIndex="12"/>
+		<result property="use_order" column="use_order" columnIndex="13"/>
+		<result property="use_production" column="use_production" columnIndex="14"/>
+		<result property="use_sale" column="use_sale" columnIndex="15"/>
+		<result property="memo" column="memo" columnIndex="16"/>
+	</resultMap>
+	
+	<resultMap id="get_bom_Show" class="M980VO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="item_sub_CD" 		column="item_sub_CD" columnIndex="2"/>
+		<result property="item_CD" 			column="item_CD" columnIndex="3"/>
+		<result property="Level" 		column="Level" columnIndex="4"/>
+		<result property="need_count" 			column="need_count" columnIndex="5"/>
+		<result property="loss_rate" 			column="loss_rate" columnIndex="6"/>
+		<result property="real_need_count" 		column="real_need_count" columnIndex="7"/>
+		<result property="memo" 		column="memo" columnIndex="8"/>
+		<result property="inventory_unit_C" 		column="inventory_unit_C" columnIndex="9"/>
+	</resultMap>
+	
+	<resultMap id="process_Master" class="M980VO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="proc_CD" 		column="proc_CD" columnIndex="2"/>
+		<result property="proc_NM" 			column="proc_NM" columnIndex="3"/>
+		<result property="memo" 		column="memo" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="process_Details" class="M980VO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="proc_CD" 		column="proc_CD" columnIndex="2"/>
+		<result property="work_CD" 			column="work_CD" columnIndex="3"/>
+		<result property="work_SQ" 		column="work_SQ" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="workplace_Master" class="M980VO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="work_CD" 		column="work_CD" columnIndex="2"/>
+		<result property="work_NM" 			column="work_NM" columnIndex="3"/>
+		<result property="memo" 		column="memo" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="Master_vehicle_TB" class="M980VO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="vehi_CD" 		column="vehi_CD" columnIndex="2"/>
+		<result property="vehi_NO" 			column="vehi_NO" columnIndex="3"/>
+		<result property="vehi_kind_C" 		column="vehi_kind_C" columnIndex="4"/>
+		<result property="memo" 		column="memo" columnIndex="5"/>
+	</resultMap>
+	
+	<resultMap id="Details_vehicle_TB" class="M980VO">
+		<result property="vehi_CD" 			column="vehi_CD" columnIndex="1"/>
+		<result property="clie_CD" 			column="clie_CD" columnIndex="2"/>
+		<result property="race_seq" 		column="race_seq" columnIndex="3"/>
+		<result property="manager_NM" 			column="manager_NM" columnIndex="4"/>
+		<result property="manager_phone_NO" 		column="manager_phone_NO" columnIndex="5"/>
+	</resultMap>	
+	
+	<resultMap id="client" class="M980VO">
+		<result property="comp_CD" column="comp_CD" columnIndex="1"/>
+		<result property="clie_CD" column="clie_CD" columnIndex="2"/>
+		<result property="clie_NM" column="clie_NM" columnIndex="3"/>
+		<result property="manager_NM" column="manager_NM" columnIndex="4"/>
+		<result property="manager_phone_NO" column="manager_phone_NO" columnIndex="5"/>
+		<result property="address" column="address" columnIndex="6"/>
+		<result property="address_detail" column="address_detail" columnIndex="7"/>
+		<result property="email" column="email" columnIndex="8"/>
+		<result property="enter_FL" column="enter_FL" columnIndex="9"/>
+		<result property="exit_FL" column="exit_FL" columnIndex="10"/>
+		<result property="memo" column="memo" columnIndex="11"/>
+	</resultMap>
+	
+	<resultMap id="client_detailes" class="M980VO">
+		<result property="comp_CD" column="comp_CD" columnIndex="1"/>
+		<result property="clie_CD" column="clie_CD" columnIndex="2"/>
+		<result property="item_CD" column="item_CD" columnIndex="3"/>
+		<result property="price" column="price" columnIndex="4"/>
+	</resultMap>
+	
+	<resultMap id="item_price" class="M980VO">
+		<result property="item_CD" column="item_CD" columnIndex="1"/>
+		<result property="price" column="price" columnIndex="2"/>
+	</resultMap>
+
+	<resultMap id="member" class="M980VO">
+		<result property="comp_CD" column="comp_CD" columnIndex="1"/>
+		<result property="memb_ID" column="memb_ID" columnIndex="2"/>
+		<result property="memb_PW" column="memb_PW" columnIndex="3"/>
+		<result property="memb_NM" column="memb_NM" columnIndex="4"/>
+		<result property="memb_rating" column="memb_rating" columnIndex="5"/>
+		<result property="join_DT" column="join_DT" columnIndex="6"/>
+		<result property="birthdate_DT" column="birthdate_DT" columnIndex="7"/>
+		<result property="address" column="address" columnIndex="8"/>
+		<result property="address_detail" column="address_detail" columnIndex="9"/>
+		<result property="phone_NO" column="phone_NO" columnIndex="10"/>
+		<result property="email" column="email" columnIndex="11"/>
+		<result property="rank_GB" column="rank_GB" columnIndex="12"/>
+		<result property="work_type_GB" column="work_type_GB" columnIndex="13"/>
+		<result property="sex_GB" column="sex_GB" columnIndex="14"/>
+		<result property="memb_status_GB" column="memb_status_GB" columnIndex="15"/>
+		<result property="memo" column="memo" columnIndex="16"/>
+	</resultMap>
+	
+	<resultMap id="equi" class="M980VO">
+		<result property="comp_CD" 			column="comp_CD" columnIndex="1"/>
+		<result property="equi_CD" 		column="equi_CD" columnIndex="2"/>
+		<result property="equi_NM" 			column="equi_NM" columnIndex="3"/>
+		<result property="equi_location" 		column="equi_location" columnIndex="4"/>
+		<result property="equi_standard" 		column="equi_standard" columnIndex="5"/>
+		<result property="memo" 		column="memo" columnIndex="6"/>
+	</resultMap>
+	
+	<resultMap id="menu_auth" class="M980VO">
+		<result property="menu_CD" 			column="menu_CD" columnIndex="1"/>
+		<result property="upp_menu_CD" 		column="upp_menu_CD" columnIndex="2"/>
+		<result property="Level" 			column="Level" columnIndex="3"/>
+		<result property="auth" 		column="auth" columnIndex="4"/>
+		<result property="comp_CD" 		column="comp_CD" columnIndex="5"/>
+		<result property="memb_ID" 		column="memb_ID" columnIndex="6"/>
+	</resultMap>
+	
+	<!-- M9801010_1_View -->
+	<select id="M980DAO.M9801010_1_View" resultMap="item">
+		<![CDATA[
+			SELECT 
+				comp_CD,
+				item_CD,
+				item_NM,
+				order_unit_C,
+				exchange_value,
+				inventory_unit_C,
+				inventory_item_CD,
+				tax_FL,
+				item_group_C,
+				proc_CD,
+				price,
+				standard,
+				use_order,
+				use_production,
+				use_sale,
+				memo
+			FROM
+				Master_item_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND del_FL = 0
+				AND item_group_C LIKE #item_group_C#
+				AND item_NM REGEXP (#item_NM#)
+		]]>
+	</select>
+
+	<!-- M9801010_1_Insert   -->
+	<insert id="M980DAO.M9801010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_item_TB(
+					comp_CD,
+					item_CD,
+					item_NM,
+					order_unit_C,
+					exchange_value,
+					inventory_unit_C,
+					inventory_item_CD,
+					tax_FL,
+					item_group_C,
+					proc_CD,
+					price,
+					standard,
+					use_order,
+					use_production,
+					use_sale,
+					memo
+				) VALUE (
+					#comp_CD#,
+					#item_CD#,
+					#item_NM#,
+					#order_unit_C#,
+					#exchange_value#,
+					#inventory_unit_C#,
+					#inventory_item_CD#,
+					#tax_FL#,
+					#item_group_C#,
+					#proc_CD#,
+					#price#,
+					#standard#,
+					#use_order#,
+					#use_production#,
+					#use_sale#,
+					#memo#
+				) ON DUPLICATE KEY UPDATE 
+					item_NM = #item_NM#,
+					order_unit_C = #order_unit_C#,
+					exchange_value = #exchange_value#,
+					inventory_unit_C = #inventory_unit_C#,
+					inventory_item_CD = #inventory_item_CD#,
+					tax_FL = #tax_FL#,
+					item_group_C = #item_group_C#,
+					proc_CD = #proc_CD#,
+					price = #price#,
+					standard = #standard#,
+					use_order = #use_order#,
+					use_production = #use_production#,
+					use_sale = #use_sale#,
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9801010_1_Delete  -->
+	<update id="M980DAO.M9801010_1_Delete" >
+		<![CDATA[
+			UPDATE Master_item_TB 
+			SET del_FL = 1 
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND item_CD = #item_CD#
+		]]>
+	</update>
+
+	<!-- M9801010_1_Delete2  -->
+	<update id="M980DAO.M9801010_1_Delete2" >
+		<![CDATA[
+			DELETE FROM Master_bom_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND item_sub_CD = #item_CD#
+		]]>
+	</update>
+	<!-- M9801020_1_View -->
+	<select id="M980DAO.M9801020_1_View" resultMap="item">
+		<![CDATA[
+			SELECT 
+				comp_CD,
+				item_CD,
+				item_NM,
+				order_unit_C,
+				exchange_value,
+				inventory_unit_C,
+				inventory_item_CD,
+				tax_FL,
+				item_group_C,
+				proc_CD,
+				price,
+				standard,
+				use_order,
+				use_production,
+				use_sale,
+				memo
+			FROM
+				Master_item_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND del_FL = 0
+				AND use_production = 1
+				AND item_NM REGEXP (#item_NM#)
+		]]>
+	</select>
+
+	<!-- M9801020_2_View -->
+	<select id="M980DAO.M9801020_2_View" resultMap="get_bom_Show">
+		<![CDATA[
+			CALL View_bom_FC(#comp_CD#,#item_CD#);
+		]]>
+	</select>
+
+	<!-- M9801020_2_Insert   -->
+	<insert id="M980DAO.M9801020_2_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_bom_TB(
+					comp_CD,
+					item_CD,
+					item_sub_CD,
+					need_count,
+					loss_rate,
+					real_need_count,
+					memo
+				) VALUE (
+					#comp_CD#,
+					#item_CD#,
+					#item_sub_CD#,
+					#need_count#,
+					#loss_rate#,
+					#real_need_count#,
+					#memo#
+				) ON DUPLICATE KEY UPDATE 
+					item_sub_CD = #item_sub_CD#,
+					need_count = #need_count#,
+					loss_rate = #loss_rate#,
+					real_need_count = #real_need_count#,
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9801020_2_Delete  -->
+	<delete id="M980DAO.M9801020_2_Delete" >
+		<![CDATA[
+			DELETE FROM Master_bom_TB 
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND item_CD = #item_CD#
+			AND item_sub_CD = #item_sub_CD#
+		]]>
+	</delete>
+
+	<!-- M9801030_1_View -->
+	<select id="M980DAO.M9801030_1_View" resultMap="process_Master">
+		<![CDATA[
+			SELECT
+				comp_CD,
+				proc_CD,
+				proc_NM,
+				memo
+			FROM
+				Master_process_TB
+			WHERE	1=1
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+
+	<!-- M9801030_1_Insert   -->
+	<insert id="M980DAO.M9801030_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_process_TB(
+					comp_CD,
+					proc_CD,
+					proc_NM,
+					memo
+				) VALUE (
+					#comp_CD#,
+					#proc_CD#,
+					#proc_NM#,
+					#memo#
+				) ON DUPLICATE KEY UPDATE 
+					proc_NM = #proc_NM#,
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9801030_1_Delete  -->
+	<delete id="M980DAO.M9801030_1_Delete" >
+		<![CDATA[
+			DELETE FROM Master_process_TB 
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND proc_CD = #proc_CD#
+		]]>
+	</delete>
+	
+	<!-- M9801030_2_View -->
+	<select id="M980DAO.M9801030_2_View" resultMap="process_Details">
+		<![CDATA[
+			SELECT 
+				comp_CD,
+				proc_CD,
+				work_CD,
+				work_SQ
+			FROM
+				Details_process_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND proc_CD = #proc_CD#
+			ORDER BY
+				work_SQ
+		]]>
+	</select>
+
+	<!-- M9801030_2_Insert   -->
+	<insert id="M980DAO.M9801030_2_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Details_process_TB(
+					comp_CD,
+					proc_CD,
+					work_CD,
+					work_SQ
+				) VALUE (
+					#comp_CD#,
+					#proc_CD#,
+					#work_CD#,
+					#work_SQ#
+					)
+		]]>
+	</insert>
+	
+	<!-- M9801030_2_Delete  -->
+	<delete id="M980DAO.M9801030_2_Delete" >
+		<![CDATA[
+			DELETE FROM Details_process_TB 
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND proc_CD = #proc_CD#
+		]]>
+	</delete>
+	
+	<!-- M9801030_3_View -->
+	<select id="M980DAO.M9801030_3_View" resultMap="workplace_Master">
+		<![CDATA[
+			SELECT
+				comp_CD,
+				work_CD,
+				work_NM,
+				memo
+			FROM
+				Master_workplace_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+
+	<!-- M9801030_3_Insert   -->
+	<insert id="M980DAO.M9801030_3_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_workplace_TB(
+					comp_CD,
+					work_CD,
+					work_NM,
+					memo
+				) VALUE (
+					#comp_CD#,
+					#work_CD#,
+					#work_NM#,
+					#memo#
+				) ON DUPLICATE KEY UPDATE 
+					work_NM = #work_NM#,
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9801030_3_Delete  -->
+	<delete id="M980DAO.M9801030_3_Delete" >
+		<![CDATA[
+			DELETE FROM Master_workplace_TB 
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND work_CD = #work_CD#
+		]]>
+	</delete>
+
+	<!-- M9805010_1_View -->
+	<select id="M980DAO.M9805010_1_View" resultMap="client">
+		<![CDATA[
+			SELECT 
+				comp_CD,
+				clie_CD,
+				clie_NM,
+				manager_NM,
+				manager_phone_NO,
+				address,
+				address_detail,
+				email,
+				enter_FL,
+				exit_FL,
+				memo
+			FROM
+				Master_client_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND del_FL = 0
+				AND clie_NM REGEXP (#clie_NM#)
+		]]>
+</select>
+
+	<!-- M9805010_1_Insert   -->
+	<insert id="M980DAO.M9805010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_client_TB(
+					comp_CD,
+					clie_CD,
+					clie_NM,
+					manager_NM,
+					manager_phone_NO,
+					address,
+					address_detail,
+					email,
+					enter_FL,
+					exit_FL,
+					memo,
+					del_FL
+				) VALUE (
+					#comp_CD#,
+					#clie_CD#,
+					#clie_NM#,
+					#manager_NM#,
+					#manager_phone_NO#,
+					#address#,
+					#address_detail#,
+					#email#,
+					#enter_FL#,
+					#exit_FL#,
+					#memo#,
+					'0'
+				) ON DUPLICATE KEY UPDATE 
+					clie_NM = #clie_NM#,
+					manager_NM = #manager_NM#,
+					manager_phone_NO = #manager_phone_NO#,
+					address = #address#,
+					address_detail = #address_detail#,
+					email = #email#,
+					enter_FL = #enter_FL#,
+					exit_FL = #exit_FL#,
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9805010_1_Delete  -->
+	<update id="M980DAO.M9805010_1_Delete" >
+		<![CDATA[
+			UPDATE Master_client_TB 
+			SET del_FL = 1 
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND clie_CD = #clie_CD#
+		]]>
+	</update>
+
+	<!-- M9805010_2_View -->
+	<select id="M980DAO.M9805010_2_View" resultMap="client_detailes">
+		<![CDATA[
+			SELECT 
+				A.comp_CD,
+				A.clie_CD,
+				A.item_CD,
+				A.price
+			FROM
+				Details_client_TB A
+			LEFT JOIN
+				Master_item_TB B
+			ON A.item_CD = B.item_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.clie_CD = #clie_CD#
+				AND B.del_FL = 0
+		]]>
+</select>
+
+	<!-- M9805010_2_Insert   -->
+	<insert id="M980DAO.M9805010_2_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Details_client_TB(
+					comp_CD,
+					clie_CD,
+					item_CD,
+					price
+				) VALUE (
+					#comp_CD#,
+					#clie_CD#,
+					#item_CD#,
+					#price#
+				) ON DUPLICATE KEY UPDATE 
+					item_CD = #item_CD#,
+					price = #price#
+		]]>
+	</insert>
+	
+	<!-- M9805010_2_Delete  -->
+	<delete id="M980DAO.M9805010_2_Delete" >
+		<![CDATA[
+			DELETE FROM Details_client_TB
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND clie_CD = #clie_CD#
+				AND item_CD = #item_CD#
+		]]>
+	</delete>
+	
+	<!-- M9805010_2_View2 -->
+	<select id="M980DAO.M9805010_2_View2" resultMap="item_price">
+		<![CDATA[
+			SELECT 
+				item_CD,
+				price
+			FROM Master_item_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND del_FL = 0
+		]]>
+	</select>
+
+	<!-- M9805030_1_View -->
+	<select id="M980DAO.M9805030_1_View" resultMap="Master_vehicle_TB">
+		<![CDATA[
+			SELECT 
+				comp_CD,
+				vehi_CD,
+				vehi_NO,
+				vehi_kind_C,
+				memo
+			FROM
+				Master_vehicle_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND vehi_NO REGEXP (#vehi_NO#)
+		]]>
+</select>
+
+	<!-- M9805030_1_Insert   -->
+	<insert id="M980DAO.M9805030_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_vehicle_TB(
+					comp_CD,
+					vehi_CD,
+					vehi_NO,
+					vehi_kind_C,
+					memo
+				) VALUE (
+					#comp_CD#,
+					#vehi_CD#,
+					#vehi_NO#,
+					#vehi_kind_C#,
+					#memo#
+				) ON DUPLICATE KEY UPDATE 
+					vehi_NO = #vehi_NO#,
+					vehi_kind_C = #vehi_kind_C#,
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9805030_1_Delete  -->
+	<delete id="M980DAO.M9805030_1_Delete" >
+		<![CDATA[
+			DELETE FROM Master_vehicle_TB
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND vehi_CD = #vehi_CD#
+		]]>
+	</delete>
+
+	<!-- M9805030_2_View -->
+	<select id="M980DAO.M9805030_2_View" resultMap="Details_vehicle_TB">
+		<![CDATA[
+			SELECT
+				A.vehi_CD,
+				A.clie_CD,
+				A.race_seq,
+				B.manager_NM,
+				B.manager_phone_NO
+			FROM Details_vehicle_TB A
+			LEFT JOIN Master_client_TB B
+			ON A.clie_CD = B.clie_CD AND A.comp_CD = B.comp_CD
+			WHERE 1=1
+				AND A.comp_CD = #comp_CD#
+				AND A.vehi_CD = #vehi_CD#
+		]]>
+	</select>
+
+	<!-- M9805030_2_Insert   -->
+	<insert id="M980DAO.M9805030_2_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Details_vehicle_TB(
+					comp_CD,
+					vehi_CD,
+					clie_CD,
+					race_seq
+				) VALUE (
+					#comp_CD#,
+					#vehi_CD#,
+					#clie_CD#,
+					#race_seq#
+				)
+		]]>
+	</insert>
+	
+	<!-- M9805030_2_Delete  -->
+	<delete id="M980DAO.M9805030_2_Delete" >
+		<![CDATA[
+			DELETE FROM Details_vehicle_TB
+			WHERE 1=1 
+				AND comp_CD = #comp_CD#
+				AND vehi_CD = #vehi_CD#
+		]]>
+	</delete>
+	<!-- M9806010_1_View -->
+	<select id="M980DAO.M9806010_1_View" resultMap="equi">
+		<![CDATA[
+			SELECT 
+				comp_CD,
+				equi_CD,
+				equi_NM,
+				equi_location,
+				equi_standard,
+				memo
+			FROM
+				Master_equipment_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND del_FL = 0
+				AND equi_NM REGEXP (#equi_NM#)
+		]]>
+	</select>
+
+	<!-- M9801010_1_Insert   -->
+	<insert id="M980DAO.M9806010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Master_equipment_TB(
+					comp_CD,
+					equi_CD,
+					equi_NM,
+					equi_location,
+					equi_standard,
+					memo,
+					del_FL
+				) VALUE (
+					#comp_CD#,
+					#equi_CD#,
+					#equi_NM#,
+					#equi_location#,
+					#equi_standard#,
+					#memo#,
+					0
+				) ON DUPLICATE KEY UPDATE 
+					equi_NM = #equi_NM#,
+					equi_location = #equi_location#,
+					equi_standard = #equi_standard#,
+					memo = #memo#,
+					del_FL = 0
+		]]>
+	</insert>
+	
+	<!-- M9801010_1_Delete  -->
+	<update id="M980DAO.M9806010_1_Delete" >
+		<![CDATA[
+			UPDATE Master_equipment_TB 
+			SET del_FL = 1 
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND equi_CD = #equi_CD#
+		]]>
+	</update>
+	
+	<!-- M9808010_1_View -->
+	<select id="M980DAO.M9808010_1_View" resultMap="member">
+		<![CDATA[
+			SELECT 
+				comp_CD,
+				memb_ID,
+				'' memb_PW,
+				memb_NM,
+				memb_rating,
+				join_DT,
+				birthdate_DT,
+				address,
+				address_detail,
+				phone_NO,
+				email,
+				IFNULL(rank_GB,0) rank_GB,
+				IFNULL(work_type_GB,0) work_type_GB,
+				IFNULL(sex_GB,0) sex_GB,
+				IFNULL(memb_status_GB,0) memb_status_GB,
+				memo
+			FROM Master_member_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND memb_NM REGEXP (#memb_NM#)
+		]]>
+	</select>
+
+	<!-- M9801010_1_Insert   -->
+	<insert id="M980DAO.M9808010_1_Insert" >
+		<![CDATA[
+			INSERT INTO Master_member_TB (
+					comp_CD,
+					memb_ID,
+					memb_PW,
+					memb_NM,
+					memb_rating,
+					join_DT,
+					birthdate_DT,
+					address,
+					address_detail,
+					phone_NO,
+					email,
+					rank_GB,
+					work_type_GB,
+					sex_GB,
+					memb_status_GB,
+					memo
+				) VALUE (
+					#comp_CD#,
+					#memb_ID#,
+					SHA2(#memb_PW# /**P*/, 256),
+					#memb_NM#,
+					'USE',
+					CURDATE(),
+					IF(#birthdate_DT#='',null,#birthdate_DT#),
+					#address#,
+					#address_detail#,
+					#phone_NO#,
+					#email#,
+					IF(#rank_GB#='',0,#rank_GB#),
+					IF(#work_type_GB#='',0,#work_type_GB#),
+					IF(#sex_GB#='',0,#sex_GB#),
+					IF(#memb_status_GB#='',0,#memb_status_GB#),
+					#memo#
+				) ON DUPLICATE KEY UPDATE 
+					birthdate_DT = #birthdate_DT#,
+					address = #address#,
+					address_detail = #address_detail#,
+					phone_NO = #phone_NO#,
+					email = #email#,
+					rank_GB = IF(#rank_GB#='',0,#rank_GB#),
+					work_type_GB = IF(#work_type_GB#='',0,#work_type_GB#),
+					sex_GB = IF(#sex_GB#='',0,#sex_GB#),
+					memb_status_GB = IF(#memb_status_GB#='',0,#memb_status_GB#),
+					memo = #memo#
+		]]>
+	</insert>
+	
+	<!-- M9808010_1_delete  -->
+	<delete id="M980DAO.M9808010_1_Delete" >
+		<![CDATA[
+			DELETE FROM Master_member_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND memb_ID = #memb_ID#
+				AND memb_rating != 'MAS'
+		]]>
+	</delete>
+	
+	<!-- M9808010_1_Insert2  -->
+	<update id="M980DAO.M9808010_1_Insert2" >
+		<![CDATA[
+			UPDATE Master_member_TB 
+			SET memb_PW = SHA2(#memb_PW# /**P*/, 256)
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND memb_ID = #memb_ID#
+		]]>
+	</update>
+	
+	<!-- M9808010_2_View -->
+	<select id="M980DAO.M9808010_2_View" resultMap="menu_auth">
+		<![CDATA[
+			SELECT 
+				A.menu_CD,
+				B.upp_menu_CD,
+				B.menu_LV LEVEL,
+				(SELECT COUNT(C.menu_CD)
+				FROM Auth_member_TB C
+				WHERE C.menu_CD = A.menu_CD AND comp_CD = #comp_CD#
+				AND memb_ID = #memb_ID#) auth,
+				#comp_CD# comp_CD,
+				#memb_ID# memb_ID
+			FROM Auth_company_TB A
+			LEFT JOIN Master_menu_TB B
+			ON A.menu_CD = B.menu_CD
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+		]]>
+	</select>
+	
+	<!-- M9808010_2_Insert   -->
+	<insert id="M980DAO.M9808010_2_Insert" >
+		<![CDATA[
+			INSERT INTO Auth_member_TB
+			VALUES (#comp_CD#,#menu_CD#,#memb_ID#)
+		]]>
+	</insert>
+	
+	<!-- M9808010_2_Insert2   -->
+	<delete id="M980DAO.M9808010_2_Insert2" >
+		<![CDATA[
+			DELETE FROM Auth_member_TB
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND memb_ID = #memb_ID#
+		]]>
+	</delete>	
+	
+	<!-- M9809010_1_View -->
+	<select id="M980DAO.M9809010_1_View" resultMap="category">
+		<![CDATA[
+			SELECT
+				comp_CD,
+				category_CD,
+				sub_category_CD,
+				sub_category_NM,
+				del_FL
+			FROM Details_category_TB
+			WHERE 1=1
+				AND comp_CD = #comp_CD#
+				AND category_CD = #category_CD#
+				AND del_FL = 0
+		]]>
+	</select>
+
+	<!-- M9809010_1_Insert   -->
+	<insert id="M980DAO.M9809010_1_Insert" >
+		<![CDATA[
+			INSERT INTO 
+				Details_category_TB(
+					comp_CD,
+					category_CD,
+					sub_category_CD,
+					sub_category_NM,
+					del_FL
+				) VALUE (
+					#comp_CD#,
+					#category_CD#,
+					#sub_category_CD#,
+					#sub_category_NM#,
+					0
+				) ON DUPLICATE KEY UPDATE 
+					sub_category_NM = #sub_category_NM#,
+					del_FL = 0
+		]]>
+	</insert>
+	
+	<!-- M9809010_1_Delete  -->
+	<update id="M980DAO.M9809010_1_Delete" >
+		<![CDATA[
+			UPDATE Details_category_TB 
+			SET del_FL = 1 
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND category_CD = #category_CD#
+			AND sub_category_CD = #sub_category_CD#
+		]]>
+	</update>
+	
+	<select id="M980DAO.make_category_CD" resultClass="String">
+		<![CDATA[
+			SELECT COUNT(sub_category_CD)+1
+			FROM Details_category_TB
+			WHERE 1=1
+			AND comp_CD = #comp_CD#
+			AND category_CD = #category_CD#
+		]]>
+	</select>
+</sqlMap>
